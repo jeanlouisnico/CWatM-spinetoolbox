@@ -1,0 +1,15 @@
+{
+    "name": "parse_toml",
+    "tooltype": "python",
+    "includes": [
+        "parse_cwatm_ini.py"
+    ],
+    "description": "",
+    "inputfiles": [
+        "validTOML_settings_CWatM.ini"
+    ],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../.."
+}

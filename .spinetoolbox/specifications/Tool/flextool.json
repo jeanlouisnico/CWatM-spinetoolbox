@@ -1,0 +1,23 @@
+{
+    "name": "Flextool",
+    "tooltype": "python",
+    "includes": [
+        "flextoolrunner.py",
+        "flexModel3.mod",
+        "FlexTool3_base_sets.dat",
+        "glpk_4_61.dll",
+        "glpsol.exe",
+        "highs.exe",
+        "highs.opt",
+        "libgcc_s_seh-1.dll",
+        "libstdc++-6.dll",
+        "libwinpthread-1.dll",
+        "zlib1.dll"
+    ],
+    "description": "flextool model to be used",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../../flextool"
+}

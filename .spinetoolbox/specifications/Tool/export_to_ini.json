@@ -1,0 +1,13 @@
+{
+    "name": "export_to_ini",
+    "tooltype": "python",
+    "includes": [
+        "export_to_ini.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../.."
+}
