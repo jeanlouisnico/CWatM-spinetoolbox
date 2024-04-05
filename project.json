@@ -1,0 +1,325 @@
+{
+    "project": {
+        "version": 13,
+        "description": "This spinetoolbox is built to run CWatM hydrological model and organise the data and input files. One needs to install CWatM seperately prior to using this project",
+        "settings": {
+            "enable_execute_all": true
+        },
+        "specifications": {
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/JLJEAN/.spinetoolbox/plugins/DataUtilities/specifications/Tool/atlite_time_series_import.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/flextool.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/dsp_api.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/cwatm.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/import_ini_cwatm.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/export_to_ini.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/convert_to_valid_toml.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/parse_toml.json"
+                }
+            ],
+            "Importer": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/cwatm_init_file.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/test_import.json"
+                }
+            ],
+            "Exporter": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/testing_export.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "name": "from cwatm_db to export_to_ini",
+                "from": [
+                    "cwatm_db",
+                    "right"
+                ],
+                "to": [
+                    "export_to_ini",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@cwatm_db": {
+                            "scenario_filter": {},
+                            "alternative_filter": {
+                                "Base": true
+                            }
+                        }
+                    },
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from export_to_ini to cwatm",
+                "from": [
+                    "export_to_ini",
+                    "right"
+                ],
+                "to": [
+                    "cwatm",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from cwatm ini to convert_to_valid_toml",
+                "from": [
+                    "cwatm ini",
+                    "right"
+                ],
+                "to": [
+                    "convert_to_valid_toml",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from convert_to_valid_toml to parse_toml",
+                "from": [
+                    "convert_to_valid_toml",
+                    "right"
+                ],
+                "to": [
+                    "parse_toml",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Data Store to parse_toml",
+                "from": [
+                    "Data Store",
+                    "right"
+                ],
+                "to": [
+                    "parse_toml",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@Data Store": {
+                            "scenario_filter": {},
+                            "alternative_filter": {
+                                "Base": true
+                            }
+                        }
+                    },
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from parse_toml to cwatm_db",
+                "from": [
+                    "parse_toml",
+                    "right"
+                ],
+                "to": [
+                    "cwatm_db",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            }
+        ],
+        "jumps": []
+    },
+    "items": {
+        "cwatm ini": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -382.66067646956833,
+            "y": -353.6239249952016,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "CWatM/Tutorials/05_Increasing-resolution/settings_Bhima-5min_Tutorial-5.ini"
+                }
+            ],
+            "db_references": []
+        },
+        "cwatm_db": {
+            "type": "Data Store",
+            "description": "",
+            "x": 65.90423327215903,
+            "y": -193.59974409717927,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Data/cwatm_db.sqlite"
+                },
+                "schema": ""
+            }
+        },
+        "cwatm": {
+            "type": "Tool",
+            "description": "",
+            "x": 376.97853134252,
+            "y": -177.1578319740519,
+            "specification": "CWatM",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "literal",
+                    "arg": "cwatm_input.ini"
+                },
+                {
+                    "type": "literal",
+                    "arg": "-l"
+                }
+            ],
+            "kill_completed_processes": true,
+            "log_process_output": false
+        },
+        "export_to_ini": {
+            "type": "Tool",
+            "description": "",
+            "x": 215.92871887659643,
+            "y": -180.31601721951358,
+            "specification": "export_to_init",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@cwatm_db"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "Data Store": {
+            "type": "Data Store",
+            "description": "",
+            "x": -213.15873946147926,
+            "y": -128.36228978620377,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Data/cwatm_db.sqlite"
+                },
+                "schema": ""
+            }
+        },
+        "convert_to_valid_toml": {
+            "type": "Tool",
+            "description": "",
+            "x": -211.3901662497043,
+            "y": -341.9143614386656,
+            "specification": "to_toml",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "<project>/CWatM/Tutorials/05_Increasing-resolution/settings_Bhima-5min_Tutorial-5.ini"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "parse_toml": {
+            "type": "Tool",
+            "description": "",
+            "x": -65.82930519006018,
+            "y": -220.80246115832682,
+            "specification": "parse_toml",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@Data Store"
+                },
+                {
+                    "type": "literal",
+                    "arg": "false"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        }
+    }
+}
