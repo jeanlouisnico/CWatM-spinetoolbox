@@ -1,0 +1,83 @@
+{
+    "Tool": {
+        "Validator": {
+            "execution_settings": {}
+        },
+        "export_to_init": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": "C:/Users/JLJEAN/AppData/Local/miniconda3/envs/flextool_cwatm/python.exe"
+            }
+        },
+        "Interpolate missing values": {
+            "execution_settings": {}
+        },
+        "ReduceModel": {
+            "execution_settings": {}
+        },
+        "Load template": {
+            "execution_settings": {}
+        },
+        "Run SpineOpt detached": {
+            "execution_settings": {}
+        },
+        "Flextool": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
+        "DSP_API": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
+        "CWatM": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
+        "import_ini_cwatm": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": "c:\\Users\\JLJEAN\\AppData\\Local\\miniconda3\\envs\\flextool_cwatm\\python.exe"
+            }
+        },
+        "export_to_ini": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
+        "to_toml": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": "c:\\Users\\JLJEAN\\AppData\\Local\\miniconda3\\envs\\flextool_cwatm\\python.exe"
+            }
+        },
+        "parse_toml": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": "c:\\Users\\JLJEAN\\AppData\\Local\\miniconda3\\envs\\flextool_cwatm\\python.exe"
+            }
+        }
+    }
+}
