@@ -4,8 +4,9 @@ from spinedb_api import DatabaseMapping
 import tomlkit
 from pathlib import Path
 import os
-#url = sys.argv[1]
-url = "sqlite:///C:/Git/CWatM-spinetoolbox-dev/.spinetoolbox/Data/cwatm_db.sqlite"
+
+url = sys.argv[1]
+#url = "sqlite:///C:/Git/CWatM-spinetoolbox-dev/.spinetoolbox/Data/cwatm_db.sqlite"
 
 def replacetext(file, search_text, replace_text): 
   
