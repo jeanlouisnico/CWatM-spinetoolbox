@@ -4,8 +4,8 @@ from spinedb_api import DatabaseMapping
 import tomlkit
 from pathlib import Path
 import os
-url = sys.argv[1]
-#url = "sqlite:///C:/Users/JLJEAN/tunexus/Data/cwatm_db.sqlite"
+#url = sys.argv[1]
+url = "sqlite:///C:/Git/CWatM-spinetoolbox-dev/.spinetoolbox/Data/cwatm_db.sqlite"
 
 def replacetext(file, search_text, replace_text): 
   
@@ -48,8 +48,18 @@ def replace_path(strin, dic, maincat):
 		try:
 			if isinstance(int(strin[0:4]),int):
 				# If the first 4 digit are float then this is a date stored in string format. Reshape it to the CWatM format
-				datesplit = strin.split("-")
-				str_mod = "{}/{}/{}".format(datesplit[2], datesplit[1], datesplit[0])
+				if strin.count(" ") > 0:
+					strinsplit = strin.split(" ")
+					for date in strinsplit:
+						datesplit = date.split("-")
+						str_mod_temp = [date.replace("-", "/") for date in strinsplit]
+						str_mod = ""
+						for idate in str_mod_temp:
+							datesplit = idate.split("/")
+							str_mod = str_mod + " {}/{}/{}".format(datesplit[2], datesplit[1], datesplit[0])
+				else:
+					datesplit = strin.split("-")
+					str_mod = "{}/{}/{}".format(datesplit[2], datesplit[1], datesplit[0])
 		except:
 			pass
 
@@ -65,13 +75,27 @@ def retrieve_db(url):
 		#print("param_val ")
 		#print(param_val)
 		for values in param_val:
+			print(values["value"])
 			if values["type"] == 'array':
 				data_spdb = api.from_database(values["value"], values["type"])
 				datatemp = data_spdb._values
 				try:
-					if isinstance(int(datatemp[0]),int):
-						# If the first 4 digit are float then this is a date stored in string format. Reshape it to the CWatM format
+					# Check if the array contains float or integer values
+					parse_as_digit = False
+					if isinstance(datatemp[0],int) or isinstance(datatemp[0],float):
+						parse_as_digit = True
+					# Check if the digit is stored as string e.g. dates are stored as string
+					elif datatemp[0].find("-") > 0:
+						if isinstance(int(datatemp[0][0:4]), int):
+							# Then this is a dates
+							parse_as_digit = True
+						else:
+							# Then it might be a string with dash inside
+							parse_as_digit = False
+					if parse_as_digit:
 						data = ' '.join([str(elem) for elem in datatemp])
+					else:
+						data = ', '.join([str(elem) for elem in datatemp])
 				except:
 					data = ', '.join([str(elem) for elem in datatemp])
 				

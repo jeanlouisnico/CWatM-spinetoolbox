@@ -9,18 +9,8 @@
             "Tool": [
                 {
                     "type": "path",
-                    "relative": false,
-                    "path": "C:/Users/JLJEAN/.spinetoolbox/plugins/DataUtilities/specifications/Tool/atlite_time_series_import.json"
-                },
-                {
-                    "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/flextool.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/specifications/Tool/dsp_api.json"
                 },
                 {
                     "type": "path",
@@ -46,25 +36,6 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/parse_toml.json"
-                }
-            ],
-            "Importer": [
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/specifications/Importer/cwatm_init_file.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/specifications/Importer/test_import.json"
-                }
-            ],
-            "Exporter": [
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/specifications/Exporter/testing_export.json"
                 }
             ]
         },
@@ -210,7 +181,7 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "CWatM/Tutorials/05_Increasing-resolution/settings_Bhima-5min_Tutorial-5.ini"
+                    "path": ".spinetoolbox/Data/settings_CWatM_template_30min.ini"
                 }
             ],
             "db_references": []
@@ -227,7 +198,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": "Data/cwatm_db.sqlite"
+                    "path": ".spinetoolbox/Data/cwatm_db.sqlite"
                 },
                 "schema": ""
             }
@@ -280,7 +251,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": "Data/cwatm_db.sqlite"
+                    "path": ".spinetoolbox/Data/cwatm_db.sqlite"
                 },
                 "schema": ""
             }
@@ -295,7 +266,7 @@
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "<project>/CWatM/Tutorials/05_Increasing-resolution/settings_Bhima-5min_Tutorial-5.ini"
+                    "arg": "<project>/.spinetoolbox/Data/settings_CWatM_template_30min.ini"
                 }
             ],
             "kill_completed_processes": false,
@@ -315,7 +286,7 @@
                 },
                 {
                     "type": "literal",
-                    "arg": "false"
+                    "arg": "true"
                 }
             ],
             "kill_completed_processes": false,

@@ -1,7 +1,7 @@
-from management_modules.globals import *
+from CWatM_Module.management_modules.globals import *
 
 import configparser
-from management_modules.messages import *
+from CWatM_Module.management_modules.messages import *
 import tomlkit
 import os
 import difflib  # to check the closest word in settingsfile, if an error occurs
@@ -9,7 +9,6 @@ from pathlib import Path
 from datetime import datetime
 
 settingsFileName = sys.argv[1]
-#settingsFileName = "C:/Users/JLJEAN/tunexus/CWatM-Earth-30min/settings_CWatM_template_30min.ini"
 
 class ExtParser(configparser.ConfigParser):
     """
@@ -184,7 +183,7 @@ def parse_configuration(settingsFileName):
                             '''this means that this is a date format'''
                             if split:
                                 var = var.split(" ")
-                                var = [[datetime.strptime(i, '%d/%m/%Y')] for i in var]
+                                var = [datetime.strptime(i, '%d/%m/%Y') for i in var]
                             else:
                                 var = datetime.strptime(var, '%d/%m/%Y')
                         else:
