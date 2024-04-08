@@ -3,4 +3,4 @@ This [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/tree/0.8-dev	"G
 
 
 
-![whoarewe](.spinetoolbox\doc\images\prime_ini.svg)
+![whoarewe](doc\images\prime_ini.svg)
