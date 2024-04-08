@@ -55,7 +55,7 @@ Not that if you already an existing workflow from a previous project, you can ch
 
 
 
-![setup](C:\Git\CWatM-spinetoolbox-dev\.spinetoolbox\doc\images\prime_ini.png)
+![setup](.spinetoolbox\doc\images\prime_ini.png)
 
 ## Include CWatM
 
