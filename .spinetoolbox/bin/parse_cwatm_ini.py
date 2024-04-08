@@ -60,7 +60,7 @@ def populate_ini(url, config):
                     parsed_value = api.DateTime(data[key2].strftime("%Y-%m-%d"))
                     value, type_ = api.to_database(parsed_value)
                 elif isinstance(data[key2], collections.abc.Sequence):
-                    print(data[key2])
+                    #print(data[key2])
                     if isinstance(data[key2][0], datetime.date):
                         parsed_value = api.Array([dates.strftime("%Y-%m-%d") for dates in data[key2]])
                     else:
