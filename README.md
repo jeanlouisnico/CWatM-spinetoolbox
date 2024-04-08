@@ -12,4 +12,3 @@ To run this workflow, you will first need to setup SpineToolbox on your machine.
 
 
 ![setup](.spinetoolbox/doc/images/prime_ini.png)
-
