@@ -1,0 +1,19 @@
+{
+    "items": {
+        "cwatm ini": {
+            "db_credentials": {}
+        },
+        "cwatm_db": {
+            "url": {
+                "username": "",
+                "password": ""
+            }
+        },
+        "Data Store": {
+            "url": {
+                "username": "",
+                "password": ""
+            }
+        }
+    }
+}
