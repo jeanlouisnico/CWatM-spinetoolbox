@@ -61,7 +61,7 @@ Not that if you already an existing workflow from a previous project, you can ch
 
 As CwatM repo is quite large, it is not included in the workflow. Once you have cloned CWatM on your computer, either copy the entire CWatM folder under your workflow repo e.g. `C:\Git\<YOUR FOLDER>\` or you would need to re-link all the files defined in the cwatm tool in the workflow to the folder where CWatM is located
 
-![rellocate_CWatM](.spinetoolbox\doc\images\cwatm_files.png)
+![rellocate_CWatM](.spinetoolbox/doc/images/cwatm_files.png)
 
 # Why using the workflow
 
