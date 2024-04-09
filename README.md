@@ -53,13 +53,15 @@ You are now ready to run the workflow from SpineToolbox
 
 Not that if you already an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below.
 
+
+
 ![setup](.spinetoolbox\doc\images\prime_ini.png)
 
 ## Include CWatM
 
 As CwatM repo is quite large, it is not included in the workflow. Once you have cloned CWatM on your computer, either copy the entire CWatM folder under your workflow repo e.g. `C:\Git\<YOUR FOLDER>\` or you would need to re-link all the files defined in the cwatm tool in the workflow to the folder where CWatM is located
 
-![rellocate_CWatM](.spinetoolbox\doc\images\cwatm_files.png)
+![rellocate_CWatM](.spinetoolbox/doc/images/cwatm_files.png)
 
 # Why using the workflow
 
@@ -67,5 +69,6 @@ One of the main point of using this workflow to run CWatM model, is that you can
 
 NB: if you have already changed the database _cwatnm_db_, while running the entire workflow, make sure that second argument in the ***parse_toml*** tool is set to **<u>false</u>**. This will prevent to overwrite the existing database and loose all your changes. Usually the **<u>true</u>** statement is used only for 1. setting up the database. 2. reset the database to its original settings.  
 
-![setup](.spinetoolbox/doc/images/prime_ini.png)
+## Create multiple databases
 
+If one need, you may just create a new spine database if you want to switch from databases and avoid to have everything in a single database.
