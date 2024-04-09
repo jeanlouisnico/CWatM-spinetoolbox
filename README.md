@@ -55,7 +55,7 @@ Not that if you already an existing workflow from a previous project, you can ch
 
 
 
-![setup](C:\Git\CWatM-spinetoolbox-dev\.spinetoolbox\doc\images\prime_ini.png)
+![setup](.spinetoolbox\doc\images\prime_ini.png)
 
 ## Include CWatM
 
@@ -68,3 +68,7 @@ As CwatM repo is quite large, it is not included in the workflow. Once you have 
 One of the main point of using this workflow to run CWatM model, is that you can create all alternatives and scenarios that one needs to run, and parallelise your run automatically. This is done through the UI of the cwatm_db where you can change all input/output data from the model.
 
 NB: if you have already changed the database _cwatnm_db_, while running the entire workflow, make sure that second argument in the ***parse_toml*** tool is set to **<u>false</u>**. This will prevent to overwrite the existing database and loose all your changes. Usually the **<u>true</u>** statement is used only for 1. setting up the database. 2. reset the database to its original settings.  
+
+## Create multiple databases
+
+If one need, you may just create a new spine database if you want to switch from databases and avoid to have everything in a single database.
