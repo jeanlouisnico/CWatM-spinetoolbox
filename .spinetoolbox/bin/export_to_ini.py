@@ -76,7 +76,7 @@ def retrieve_db(url):
 		#print("param_val ")
 		#print(param_val)
 		for values in param_val:
-			print(values["value"])
+			#print(values["value"])
 			if values["type"] == 'array':
 				data_spdb = api.from_database(values["value"], values["type"])
 				datatemp = data_spdb._values

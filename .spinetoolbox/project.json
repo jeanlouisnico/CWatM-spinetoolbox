@@ -9,6 +9,11 @@
             "Tool": [
                 {
                     "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/JLJEAN/.spinetoolbox/plugins/DataUtilities/specifications/Tool/atlite_time_series_import.json"
+                },
+                {
+                    "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/flextool.json"
                 },
@@ -53,9 +58,13 @@
                 "filter_settings": {
                     "known_filters": {
                         "db_url@cwatm_db": {
-                            "scenario_filter": {},
+                            "scenario_filter": {
+                                "bau": true,
+                                "cold": false
+                            },
                             "alternative_filter": {
-                                "Base": true
+                                "Base": true,
+                                "snow": true
                             }
                         }
                     },
@@ -136,9 +145,13 @@
                 "filter_settings": {
                     "known_filters": {
                         "db_url@Data Store": {
-                            "scenario_filter": {},
+                            "scenario_filter": {
+                                "bau": true,
+                                "cold": true
+                            },
                             "alternative_filter": {
-                                "Base": true
+                                "Base": true,
+                                "snow": true
                             }
                         }
                     },
@@ -180,8 +193,8 @@
             "file_references": [
                 {
                     "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/Data/settings_CWatM_template_30min.ini"
+                    "relative": false,
+                    "path": "C:/Users/JLJEAN/tunexus/CWatM-Earth-30min/settings_CWatM_template_30min.ini"
                 }
             ],
             "db_references": []
@@ -189,8 +202,8 @@
         "cwatm_db": {
             "type": "Data Store",
             "description": "",
-            "x": 65.90423327215903,
-            "y": -193.59974409717927,
+            "x": 66.39015624663537,
+            "y": -194.697572417667,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -206,8 +219,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 376.97853134252,
-            "y": -177.1578319740519,
+            "x": 376.97853134252006,
+            "y": -178.4186346487546,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -266,7 +279,7 @@
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "<project>/.spinetoolbox/Data/settings_CWatM_template_30min.ini"
+                    "arg": "C:\\Users\\JLJEAN\\tunexus\\CWatM-Earth-30min\\settings_CWatM_template_30min.ini"
                 }
             ],
             "kill_completed_processes": false,

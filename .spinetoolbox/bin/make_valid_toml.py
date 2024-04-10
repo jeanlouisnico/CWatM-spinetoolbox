@@ -7,9 +7,10 @@ import os
 import difflib  # to check the closest word in settingsfile, if an error occurs
 from pathlib import Path
 from datetime import datetime
+import sys
 
 settingsFileName = sys.argv[1]
-
+#settingsFileName = "C:/Git/CWatM-spinetoolbox-dev/.spinetoolbox/Data/settings_CWatM_template_30min.ini"
 class ExtParser(configparser.ConfigParser):
     """
     addition to the parser to replace placeholders
@@ -153,6 +154,7 @@ def parse_configuration(settingsFileName):
                 my_dictionary = add_to_dic(my_dictionary, sec, option)
             else:
                 dic_temp = dict()
+                '''
                 # Check if config line = output line
                 if opt.lower()[0:4] == "out_":
                     index = sec.lower()+"_"+opt.lower()
@@ -170,51 +172,52 @@ def parse_configuration(settingsFileName):
                             my_dictionary = add_to_dic(my_dictionary, sec, outMap)
                     
                 else:
+                '''
                     # Testing out what sort of input has the variable
-                    var = config.get(sec, opt)
-                    try:
-                        int(var[0])
-                        # The first instance is a number. It can be either a date or set of coordinates
-                        split = False
-                        if var.find(" ") > 0:
-                            '''this means that there are multiple input and should be stored as an array'''
-                            split = True
-                        if var.find("/") > 0:
-                            '''this means that this is a date format'''
-                            if split:
-                                var = var.split(" ")
-                                var = [datetime.strptime(i, '%d/%m/%Y') for i in var]
-                            else:
-                                var = datetime.strptime(var, '%d/%m/%Y')
+                var = config.get(sec, opt)
+                try:
+                    int(var[0])
+                    # The first instance is a number. It can be either a date or set of coordinates
+                    split = False
+                    if var.find(" ") > 0:
+                        '''this means that there are multiple input and should be stored as an array'''
+                        split = True
+                    if var.find("/") > 0:
+                        '''this means that this is a date format'''
+                        if split:
+                            var = var.split(" ")
+                            var = [datetime.strptime(i, '%d/%m/%Y') for i in var]
                         else:
-                            '''This means this is a float'''
-                            if split:
-                                var = var.split(" ")
-                                var = [eval(i) for i in var]
+                            var = datetime.strptime(var, '%d/%m/%Y')
+                    else:
+                        '''This means this is a float'''
+                        if split:
+                            var = var.split(" ")
+                            var = [eval(i) for i in var]
+                        else:
+                            if var.find(".") > 0:
+                                var = config.getfloat(sec, opt)
                             else:
-                                if var.find(".") > 0:
-                                    var = config.getfloat(sec, opt)
-                                else:
-                                    var = config.getint(sec, opt)
-                    except:
-                    # binding: all the parameters which are not output or option are collected
-                        try:
-                            var = config.getboolean(sec, opt)
-                        except:
-                            try:
                                 var = config.getint(sec, opt)
+                except:
+                    # binding: all the parameters which are not output or option are collected
+                    try:
+                        var = config.getboolean(sec, opt)
+                    except:
+                        try:
+                            var = config.getint(sec, opt)
+                        except:
+                            try: 
+                                var = config.getfloat(sec, opt)
                             except:
-                                try: 
-                                    var = config.getfloat(sec, opt)
-                                except:
-                                    '''Look for a single string or a list of strings'''
-                                    var = config.get(sec, opt)
-                                    if var.find(" ") > 0 and opt!="title":
-                                        '''this means that there are multiple input and should be stored as an array'''
-                                        var,check_section = splitout(config.get(sec, opt),check_section) 
+                                '''Look for a single string or a list of strings'''
+                                var = config.get(sec, opt)
+                                if var.find(" ") > 0 and opt!="title":
+                                    '''this means that there are multiple input and should be stored as an array'''
+                                    var,check_section = splitout(config.get(sec, opt),check_section) 
 
-                    dic_temp[opt] = var
-                    my_dictionary = add_to_dic(my_dictionary, sec, dic_temp)
+                dic_temp[opt] = var
+                my_dictionary = add_to_dic(my_dictionary, sec, dic_temp)
 
         if check_section:
             outsection.append(sec)
