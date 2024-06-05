@@ -1,0 +1,15 @@
+{
+    "name": "export_to_ini_calib",
+    "tooltype": "python",
+    "includes": [
+        "export_to_ini_calib.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [
+        "*.ini"
+    ],
+    "cmdline_args": [],
+    "includes_main_path": "../../bin"
+}
