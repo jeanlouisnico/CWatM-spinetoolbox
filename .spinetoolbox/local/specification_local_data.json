@@ -3,6 +3,14 @@
         "Validator": {
             "execution_settings": {}
         },
+        "export_to_init": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": "C:/Users/JLJEAN/AppData/Local/miniconda3/envs/flex_cwatm/python.exe"
+            }
+        },
         "Interpolate missing values": {
             "execution_settings": {}
         },
@@ -52,7 +60,7 @@
                 "kernel_spec_name": "",
                 "env": "",
                 "use_jupyter_console": false,
-                "executable": "c:\\Users\\JLJEAN\\AppData\\Local\\miniconda3\\envs\\flextool_cwatm\\python.exe"
+                "executable": "c:\\Users\\JLJEAN\\AppData\\Local\\miniconda3\\envs\\flex_cwatm\\python.exe"
             }
         },
         "parse_toml": {
@@ -60,15 +68,39 @@
                 "kernel_spec_name": "",
                 "env": "",
                 "use_jupyter_console": false,
-                "executable": "c:\\Users\\JLJEAN\\AppData\\Local\\miniconda3\\envs\\flextool_cwatm\\python.exe"
+                "executable": "C:/Users/JLJEAN/AppData/Local/miniconda3/envs/flex_cwatm/python.exe"
             }
         },
-        "export_to_init": {
+        "export_to_ini_calib": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": "C:/Users/JLJEAN/AppData/Local/miniconda3/envs/flex_cwatm/python.exe"
+            }
+        },
+        "testing": {
             "execution_settings": {
                 "kernel_spec_name": "",
                 "env": "",
                 "use_jupyter_console": false,
                 "executable": "C:/Users/JLJEAN/AppData/Local/miniconda3/envs/flextool_cwatm/python.exe"
+            }
+        },
+        "update_clean_db": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
+        "Calibration": {
+            "execution_settings": {
+                "env": "conda",
+                "kernel_spec_name": "conda-env-flex_cwatm-py",
+                "use_jupyter_console": true,
+                "executable": ""
             }
         }
     }

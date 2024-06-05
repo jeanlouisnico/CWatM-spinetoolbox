@@ -6,6 +6,7 @@ from pathlib import Path
 import os
 
 url = sys.argv[1]
+outfile = sys.argv[2]
 #url = "sqlite:///C:/Git/CWatM-spinetoolbox-dev/.spinetoolbox/Data/cwatm_db.sqlite"
 
 def replacetext(file, search_text, replace_text): 
@@ -57,7 +58,7 @@ def replace_path(strin, dic, maincat):
 						str_mod = ""
 						for idate in str_mod_temp:
 							datesplit = idate.split("/")
-							str_mod = str_mod + " {}/{}/{}".format(datesplit[2], datesplit[1], datesplit[0])
+							str_mod = str_mod + " {}/{}".format(datesplit[2], datesplit[1], datesplit[0])
 				else:
 					datesplit = strin.split("-")
 					str_mod = "{}/{}/{}".format(datesplit[2], datesplit[1], datesplit[0])
@@ -66,7 +67,7 @@ def replace_path(strin, dic, maincat):
 
 	return str_mod
 
-def retrieve_db(url):
+def retrieve_db(url, outfile):
 	with DatabaseMapping(url) as db_map:
 		# Do something with db_map
 		entity_classes = db_map.get_entity_class_items()
@@ -76,7 +77,7 @@ def retrieve_db(url):
 		#print("param_val ")
 		#print(param_val)
 		for values in param_val:
-			print(values["value"])
+			#print(values["value"])
 			if values["type"] == 'array':
 				data_spdb = api.from_database(values["value"], values["type"])
 				datatemp = data_spdb._values
@@ -112,13 +113,17 @@ def retrieve_db(url):
 				my_dictionary[values['entity_name']].update(dic)
 		
 		# Create output folders for each scenario and avoid writing errors in files
-		outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
-		current_directory = os.getcwd()
-		final_directory = os.path.join(current_directory, Path(r"{}".format(outputfolder)))
-		if not os.path.exists(final_directory):
-			os.makedirs(final_directory)
-		# Re-write the path to the dictionnary to be used in the ini file
-		my_dictionary["FILE_PATHS"]["PathOut"] = final_directory
+		
+		if not my_dictionary["FILE_PATHS"] == None:
+			outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
+			current_directory = os.getcwd()
+			final_directory = os.path.join(current_directory, Path(r"{}".format(outputfolder)))
+			if not os.path.exists(final_directory):
+				os.makedirs(final_directory)
+            # Re-write the path to the dictionnary to be used in the ini file
+			my_dictionary["FILE_PATHS"]["PathOut"] = final_directory
+		else:
+			del my_dictionary['FILE_PATHS']
 		
 		'''
 		This is checking the valid strings, dates and output in order to
@@ -129,20 +134,23 @@ def retrieve_db(url):
 		#print(my_dictionary)
 		for values in dicti:
 			# Replace PathRoot, PathOut, PathMeteo in subsequent strings
-			for var in dicti[values]:
-				if isinstance(dicti[values][var], str):
-					newstr = replace_path(dicti[values][var], dicti, values)
-					dicti[values][var] = newstr
+			if not dicti[values] == None:
+				for var in dicti[values]:
+					if isinstance(dicti[values][var], str):
+						newstr = replace_path(dicti[values][var], dicti, values)
+						dicti[values][var] = newstr
+			else:
+				del my_dictionary[values]
 
-
-		with Path("cwatm_input.ini").open("w") as fout:
+		with Path(outfile+".ini").open("w") as fout:
 			#print(tomlkit.dumps(my_dictionary))
 			fout.write(tomlkit.dumps(my_dictionary))
 
 		# Modify the ini file to be in a corrupt version of the CWatM
 		# Character to be deleted
-		replacetext("cwatm_input.ini", '"', "")	
+		replacetext(outfile+".ini", '"', "")	
+		replacetext(outfile+".ini", "\\\\", "\\")
 		#replacetext("cwatm_input.ini", '= [', "= ")	
 		#replacetext("cwatm_input.ini", ']', "")	
 
-retrieve_db(url) 
+retrieve_db(url, outfile) 
