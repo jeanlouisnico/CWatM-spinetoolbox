@@ -9,11 +9,11 @@ import sys
 
 
 settingsFNTOML = "validTOML_settings_CWatM.ini"
-
+alternative = sys.argv[2] 
 with open(settingsFNTOML, 'r') as f:
     config = toml.load(f)
  
-def remove_all(url):
+def remove_all(sql_url):
     with DatabaseMapping(sql_url) as db_map:
         # Remove all the scenario
         scenario = db_map.get_scenario_items()
@@ -37,11 +37,12 @@ def remove_all(url):
         except:
             print("All class item, scenario and alternative were removed")
 
-def populate_ini(url, config):
+def populate_ini(sql_url, config, alternative):
     with DatabaseMapping(sql_url) as db_map:
     # Allocate to the Spine mapping structure
         #param_val =db_map.get_alternative_items()
         #print(param_val)
+        db_map.add_alternative_item(check=True, name="calibration")
         for key in config:
             # allocate the entity class items for upper layers
             #print(key)
@@ -72,7 +73,7 @@ def populate_ini(url, config):
                     entity_class_name=key,
                     entity_byname=(key,),
                     parameter_definition_name=key2,
-                    alternative_name="Base",
+                    alternative_name=alternative,
                     value=value,
                     type=type_
                     )
@@ -84,11 +85,22 @@ def populate_ini(url, config):
         except:
             print("nothing to commit")
 
-
-if sys.argv[2] == "false":
+sql_url = sys.argv[1] 
+with DatabaseMapping(sql_url) as db_map:
+    scenario = db_map.get_scenario_items()
+    entity_classes = db_map.get_entity_class_items()
+    print(scenario)
+    print(entity_classes)
+    if len(sys. argv) == 4:
+        update = sys.argv[3].lower() in ['true', '1']
+    else:
+        if not entity_classes and not scenario:
+            update = True
+        else:
+            update = False
+if not update:
 	print("No updates has been performed, re-using existing database")
 else:
-    sql_url = sys.argv[1] 
-    remove_all(sql_url)
+    #remove_all(sql_url)
     print("Importing the database as new")
-    populate_ini(sql_url, config)
+    populate_ini(sql_url, config, alternative)
