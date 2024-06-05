@@ -1,0 +1,13 @@
+{
+    "name": "testing",
+    "tooltype": "python",
+    "includes": [
+        "export_to_ini_calib.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../bin"
+}
