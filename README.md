@@ -13,9 +13,9 @@ This workflow does not come with CWatM. Therefore, to use this workflow, you wil
 
 Prior to get the workflow working:
 
-1. Make sure you have installed SpineToolbox as instructed and you are using the 0.8-dev branch
-2. you are using Spine Database API using the branch 0.8-dev
-3. You have cloned CWatM locally in your machine.
+1. Make sure you have installed SpineToolbox as instructed and you are using the latest version of SpineToolbox.
+2. you are using Spine Database API 
+3. You have cloned CWatM locally in your machine in a separate folder
 
 ## Setting up the workflow
 
@@ -37,7 +37,7 @@ Prior to get the workflow working:
 
 6. Install the required libraries for the workflow to work out
 
-   `pip install -r requirements.txt`
+   `pip install -r .spinetoolbox\requirements.txt`
 
 
 
@@ -45,13 +45,13 @@ You are now ready to run the workflow from SpineToolbox
 
 ## Opening the workflow and setting it up
 
-1. run SpineToolbox from your conda environment `$ spinetoolbox`
+1. run SpineToolbox from your conda environment where spinetoolbox has been setup originally `$ spinetoolbox`
 2. Open the workflow from File>Open project (Locate where you have cloned the project)
 3. You can run the workflow as is.
 
 
 
-Not that if you already an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below.
+Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below.
 
 
 

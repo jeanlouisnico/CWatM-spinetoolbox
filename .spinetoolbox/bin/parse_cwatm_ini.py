@@ -42,7 +42,7 @@ def populate_ini(sql_url, config, alternative):
     # Allocate to the Spine mapping structure
         #param_val =db_map.get_alternative_items()
         #print(param_val)
-        db_map.add_alternative_item(check=True, name="calibration")
+        db_map.add_alternative_item(check=True, name=alternative)
         for key in config:
             # allocate the entity class items for upper layers
             #print(key)

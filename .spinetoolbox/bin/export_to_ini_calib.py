@@ -87,11 +87,12 @@ def retrieve_db(url, outfile, calib):
 		# Do something with db_map
 		entity_classes = db_map.get_entity_class_items()
 		keys = [entities["name"] for entities in entity_classes]
+		print("This is the list of keys to be exported: ", keys)
 		my_dictionary = dict.fromkeys(keys)
 		param_val = db_map.get_parameter_value_items()
 		#print(keys)
 		#print("param_val ")
-		#print(param_val)
+		# print(param_val)
 		tomldoc = dict.fromkeys(keys)
 		for key in keys:
 			tomldoc[key] = table()
@@ -126,7 +127,14 @@ def retrieve_db(url, outfile, calib):
 				data = data_spdb.value.strftime("%Y-%m-%d")
 			else:
 				data  = api.from_database(values["value"], values["type"])
+
+			if calib.lower() in ['false', '0'] and values['entity_name']=="CALIBRATION" and values['parameter_definition_name'] in ['OUT_Dir', 'OUT_TSS_Daily', 'OUT_TSS_MonthAvg']:
+				continue
+
 			dic = {values['parameter_definition_name']: data}
+			print("Adding entity_name: ", values['entity_name'])
+			print("     parameter_definition_name: ", values['parameter_definition_name'])
+			print("     data: ", data)
 			if not my_dictionary[values['entity_name']]:
 				my_dictionary[values['entity_name']] = dic
 				tomldoc[values['entity_name']].add(values['parameter_definition_name'], data)
@@ -134,34 +142,38 @@ def retrieve_db(url, outfile, calib):
 				my_dictionary[values['entity_name']].update(dic)
 				tomldoc[values['entity_name']][values['parameter_definition_name']]=data
 		
-		# Store the tomldoc values in the toml document
-		for key in tomldoc:
-			doc.add(key, tomldoc[key])
+		
 		# Create output folders for each scenario and avoid writing errors in files
 		#print(my_dictionary)
 		if not my_dictionary["FILE_PATHS"] == None:
+			print("Creating the directory")
 			outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
 			current_directory = os.getcwd()
 			final_directory = os.path.join(current_directory, Path(r"{}".format(outputfolder)))
 			if not os.path.exists(final_directory):
 				os.makedirs(final_directory)
             # Re-write the path to the dictionnary to be used in the ini file
+			tomldoc["FILE_PATHS"]["PathOut"]=final_directory
 			my_dictionary["FILE_PATHS"]["PathOut"] = final_directory
 		else:
 			del my_dictionary['FILE_PATHS']
 			doc.pop("FILE_PATHS")
+		
+		# Store the tomldoc values in the toml document
+		for key in tomldoc:
+			doc.add(key, tomldoc[key])
 		#print(my_dictionary)
 		#my_dictionary.pop("OUTPUT", None)
 		#doc.pop("OUTPUT")
 		# Check for empty key
 		emptykey = list() 
 		for key in my_dictionary:
-			if my_dictionary[key] == None and calib=="true" and key=="OUTPUT":
+			if my_dictionary[key] == None and calib.lower() in ['true', '1'] and key=="OUTPUT":
 				# If the OUTPUT key exist but is not assign
 				print("adding output section")
 				doc.pop(key)
 				addemptyoutput = True
-				print(key)
+				# print(key)
 				emptykey.append(key)
 			elif my_dictionary[key] == None:
 				addemptyoutput = False
@@ -191,10 +203,11 @@ def retrieve_db(url, outfile, calib):
 				output = table()
 				output.add(comment("This is an empty output file"))
 				doc.add(emkey, output)
+		print("Writing the toml object into the ini file")
 		with Path(outfile+".ini").open("w") as fout:
 				#print(tomlkit.dumps(my_dictionary))
 			fout.write(dumps(doc))
-
+		
 		# Modify the ini file to be in a corrupt version of the CWatM
 		# Character to be deleted
 		replacetext(outfile+".ini", '"', "")	
