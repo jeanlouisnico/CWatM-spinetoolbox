@@ -23,6 +23,9 @@
                 "username": "",
                 "password": ""
             }
+        },
+        "Manning": {
+            "db_credentials": {}
         }
     }
 }
