@@ -17,6 +17,12 @@
         },
         "calibration init (1)": {
             "db_credentials": {}
+        },
+        "best_calib": {
+            "url": {
+                "username": "",
+                "password": ""
+            }
         }
     }
 }

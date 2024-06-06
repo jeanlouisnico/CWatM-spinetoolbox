@@ -195,12 +195,14 @@
                         "db_url@cwatm_db": {
                             "scenario_filter": {
                                 "calibration": true,
-                                "cwatm": false
+                                "cwatm": false,
+                                "cwatm_best_calib": true
                             },
                             "alternative_filter": {
                                 "Base": true,
                                 "calibration": true,
                                 "calibration_ini": true,
+                                "cwatm_best": true,
                                 "output_cwatm": true
                             }
                         }
@@ -246,12 +248,14 @@
                         "db_url@Data Store": {
                             "scenario_filter": {
                                 "calibration": true,
-                                "cwatm": true
+                                "cwatm": true,
+                                "cwatm_best_calib": true
                             },
                             "alternative_filter": {
                                 "Base": true,
                                 "calibration": true,
                                 "calibration_ini": true,
+                                "cwatm_best": true,
                                 "output_cwatm": true
                             }
                         }
@@ -316,12 +320,14 @@
                         "db_url@cwatm_db": {
                             "scenario_filter": {
                                 "calibration": true,
-                                "cwatm": true
+                                "cwatm": true,
+                                "cwatm_best_calib": true
                             },
                             "alternative_filter": {
                                 "Base": false,
                                 "calibration": false,
                                 "calibration_ini": true,
+                                "cwatm_best": true,
                                 "output_cwatm": false
                             }
                         }
@@ -367,12 +373,14 @@
                         "db_url@cwatm_db": {
                             "scenario_filter": {
                                 "calibration": false,
-                                "cwatm": true
+                                "cwatm": false,
+                                "cwatm_best_calib": true
                             },
                             "alternative_filter": {
                                 "Base": true,
                                 "calibration": true,
                                 "calibration_ini": true,
+                                "cwatm_best": true,
                                 "output_cwatm": true
                             }
                         }
@@ -394,6 +402,66 @@
                     "cwatm",
                     "left"
                 ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Calibration (1) to convert_to_valid_toml (1)",
+                "from": [
+                    "Calibration (1)",
+                    "right"
+                ],
+                "to": [
+                    "convert_to_valid_toml (1)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from convert_to_valid_toml (1) to parse_toml (1)",
+                "from": [
+                    "convert_to_valid_toml (1)",
+                    "right"
+                ],
+                "to": [
+                    "parse_toml (1)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from parse_toml (1) to best_calib",
+                "from": [
+                    "parse_toml (1)",
+                    "right"
+                ],
+                "to": [
+                    "best_calib",
+                    "left"
+                ],
+                "options": {
+                    "write_index": 1
+                },
                 "filter_settings": {
                     "known_filters": {},
                     "auto_online": true,
@@ -543,7 +611,7 @@
                 },
                 {
                     "type": "literal",
-                    "arg": "calibration"
+                    "arg": "Base"
                 }
             ],
             "kill_completed_processes": false,
@@ -652,8 +720,8 @@
         "export_to_ini_cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 241.37722031757343,
-            "y": -64.45150909003267,
+            "x": 241.37722031757346,
+            "y": -65.5995539192908,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -668,6 +736,63 @@
                 {
                     "type": "literal",
                     "arg": "false"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "best_calib": {
+            "type": "Data Store",
+            "description": "",
+            "x": 766.9066118575179,
+            "y": -288.04628654196813,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/data_store/cwatmdb_new.sqlite"
+                },
+                "schema": ""
+            }
+        },
+        "convert_to_valid_toml (1)": {
+            "type": "Tool",
+            "description": "",
+            "x": 512.5098926745807,
+            "y": -288.73922047113166,
+            "specification": "to_toml",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "cwatm_best.ini"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "parse_toml (1)": {
+            "type": "Tool",
+            "description": "",
+            "x": 627.4330453979467,
+            "y": -285.6572911375389,
+            "specification": "parse_toml",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@best_calib"
+                },
+                {
+                    "type": "literal",
+                    "arg": "cwatm_best"
+                },
+                {
+                    "type": "literal",
+                    "arg": "true"
                 }
             ],
             "kill_completed_processes": false,
