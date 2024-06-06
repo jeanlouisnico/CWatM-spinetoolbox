@@ -56,6 +56,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/update_clean_db.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/water_cycle.json"
                 }
             ]
         },
@@ -196,10 +201,12 @@
                             "scenario_filter": {
                                 "calibration": true,
                                 "cwatm": false,
-                                "cwatm_best_calib": true
+                                "cwatm_best_calib": false,
+                                "exercise3": true
                             },
                             "alternative_filter": {
                                 "Base": true,
+                                "Manning": true,
                                 "calibration": true,
                                 "calibration_ini": true,
                                 "cwatm_best": true,
@@ -249,10 +256,12 @@
                             "scenario_filter": {
                                 "calibration": true,
                                 "cwatm": true,
-                                "cwatm_best_calib": true
+                                "cwatm_best_calib": true,
+                                "exercise3": true
                             },
                             "alternative_filter": {
                                 "Base": true,
+                                "Manning": true,
                                 "calibration": true,
                                 "calibration_ini": true,
                                 "cwatm_best": true,
@@ -321,13 +330,15 @@
                             "scenario_filter": {
                                 "calibration": true,
                                 "cwatm": true,
-                                "cwatm_best_calib": true
+                                "cwatm_best_calib": true,
+                                "exercise3": true
                             },
                             "alternative_filter": {
                                 "Base": false,
+                                "Manning": true,
                                 "calibration": false,
                                 "calibration_ini": true,
-                                "cwatm_best": true,
+                                "cwatm_best": false,
                                 "output_cwatm": false
                             }
                         }
@@ -374,10 +385,12 @@
                             "scenario_filter": {
                                 "calibration": false,
                                 "cwatm": false,
-                                "cwatm_best_calib": true
+                                "cwatm_best_calib": false,
+                                "exercise3": true
                             },
                             "alternative_filter": {
                                 "Base": true,
+                                "Manning": true,
                                 "calibration": true,
                                 "calibration_ini": true,
                                 "cwatm_best": true,
@@ -470,6 +483,25 @@
                         "scenario_filter": true
                     }
                 }
+            },
+            {
+                "name": "from Manning to convert_to_valid_toml",
+                "from": [
+                    "Manning",
+                    "right"
+                ],
+                "to": [
+                    "convert_to_valid_toml",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
             }
         ],
         "jumps": []
@@ -478,8 +510,8 @@
         "cwatm ini": {
             "type": "Data Connection",
             "description": "",
-            "x": -366.46821705061774,
-            "y": -67.23018828661743,
+            "x": -372.9265696665215,
+            "y": -93.06359875023247,
             "file_references": [
                 {
                     "type": "path",
@@ -492,8 +524,8 @@
         "cwatm_db": {
             "type": "Data Store",
             "description": "",
-            "x": 67.40133255685345,
-            "y": -194.697572417667,
+            "x": 67.40133255685343,
+            "y": -195.77396452031766,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -509,8 +541,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 387.78635282001704,
-            "y": -64.20859167692299,
+            "x": 394.24470543592076,
+            "y": -63.13219957427236,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -546,14 +578,14 @@
         "convert_to_valid_toml": {
             "type": "Tool",
             "description": "",
-            "x": -236.4965652473418,
+            "x": -236.49656524734186,
             "y": -71.1057765697817,
             "specification": "to_toml",
             "execute_in_work": true,
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "C:\\Users\\JLJEAN\\tunexus\\CWatM-Earth-30min\\settings_CWatM_template_30min.ini"
+                    "arg": "C:\\Users\\JLJEAN\\tunexus\\CWatM\\Tutorials\\03_Manning\\settings_Rhine-30min_Tutorial-3.ini"
                 }
             ],
             "kill_completed_processes": false,
@@ -573,7 +605,7 @@
                 },
                 {
                     "type": "literal",
-                    "arg": "Base"
+                    "arg": "Manning"
                 },
                 {
                     "type": "literal",
@@ -696,8 +728,8 @@
         "export_to_ini_calibtxt": {
             "type": "Tool",
             "description": "",
-            "x": 235.88247750352687,
-            "y": -353.0862349255321,
+            "x": 242.34083011943068,
+            "y": -356.315411233484,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -744,7 +776,7 @@
         "best_calib": {
             "type": "Data Store",
             "description": "",
-            "x": 766.9066118575179,
+            "x": 771.2121802681205,
             "y": -288.04628654196813,
             "url": {
                 "dialect": "sqlite",
@@ -761,8 +793,8 @@
         "convert_to_valid_toml (1)": {
             "type": "Tool",
             "description": "",
-            "x": 512.5098926745807,
-            "y": -288.73922047113166,
+            "x": 511.43350057193004,
+            "y": -283.35725995787845,
             "specification": "to_toml",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -797,6 +829,20 @@
             ],
             "kill_completed_processes": false,
             "log_process_output": false
+        },
+        "Manning": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -378.8900201330206,
+            "y": 33.368155182169424,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/JLJEAN/tunexus/CWatM/Tutorials/03_Manning/settings_Rhine-30min_Tutorial-3.ini"
+                }
+            ],
+            "db_references": []
         }
     }
 }

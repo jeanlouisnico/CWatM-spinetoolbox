@@ -1,4 +1,12 @@
+# Libraries to install specific to SpineToolbox
 tomlkit
 pathlib
 toml
 collections
+
+# Libraries for CWatM
+plotly
+pandas
+matplotlib
+notebook
+deap

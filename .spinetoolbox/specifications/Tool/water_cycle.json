@@ -1,0 +1,13 @@
+{
+    "name": "water cycle",
+    "tooltype": "python",
+    "includes": [
+        "\u26aa Watercycles.ipynb"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../../calibration"
+}
