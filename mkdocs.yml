@@ -1,15 +1,17 @@
 site_name: Flextool - CWatM
+repo_url: https://github.com/jeanlouisnico/CWatM-spinetoolbox
 site_url: https://cris.vtt.fi/en/organisations/ba4206-design-and-operation-of-energy-systems
-logo: docs/images/predicer.png
 nav:
-  - About the model: about.md
-  - Overview: introduction.md
-  - Getting started: getting_started.md
-  - Building your model: input_data.md
-  - Example models: example_models.md
-  - References: references.md
-theme: readthedocs
-
+  - About the model: 'about.md'
+#  - Overview: introduction.md
+#  - Getting started: getting_started.md
+#  - Building your model: input_data.md
+#  - Example models: example_models.md
+#  - References: references.md
+theme: 
+  name: bootstrap4
+  logo: docs/images/Flextool_original.svg
+  favicon: docs/images/Flextool_original.svg
 plugins:
   - mkdocs-video
   - plotly
