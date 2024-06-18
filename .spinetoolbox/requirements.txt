@@ -2,7 +2,6 @@
 tomlkit
 pathlib
 toml
-collections
 
 # Libraries for CWatM
 plotly
@@ -10,3 +9,8 @@ pandas
 matplotlib
 notebook
 deap
+numpy
+scipy
+netCDF4
+flopy
+xmipy

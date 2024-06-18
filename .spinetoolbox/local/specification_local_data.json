@@ -71,14 +71,6 @@
                 "executable": "C:/Users/JLJEAN/AppData/Local/miniconda3/envs/flex_cwatm/python.exe"
             }
         },
-        "Calibration": {
-            "execution_settings": {
-                "env": "conda",
-                "kernel_spec_name": "conda-env-flex_cwatm-py",
-                "use_jupyter_console": true,
-                "executable": ""
-            }
-        },
         "export_to_ini_calib": {
             "execution_settings": {
                 "kernel_spec_name": "",
@@ -104,6 +96,14 @@
             }
         },
         "water cycle": {
+            "execution_settings": {
+                "env": "conda",
+                "kernel_spec_name": "conda-env-flex_cwatm-py",
+                "use_jupyter_console": true,
+                "executable": ""
+            }
+        },
+        "Calibration": {
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",

@@ -156,31 +156,41 @@ def retrieve_db(url, outfile, calib):
 			tomldoc["FILE_PATHS"]["PathOut"]=final_directory
 			my_dictionary["FILE_PATHS"]["PathOut"] = final_directory
 		else:
-			del my_dictionary['FILE_PATHS']
-			doc.pop("FILE_PATHS")
+			try:
+				del my_dictionary['FILE_PATHS']
+			except:
+				print("Variable FILE_PATHS is not defined")
+
+			try:
+				print()	
+				doc.pop("FILE_PATHS")
+			except:
+				print("Variable FILE_PATHS is not defined")
 		
 		# Store the tomldoc values in the toml document
 		for key in tomldoc:
 			doc.add(key, tomldoc[key])
-		#print(my_dictionary)
+		
 		#my_dictionary.pop("OUTPUT", None)
 		#doc.pop("OUTPUT")
 		# Check for empty key
 		emptykey = list() 
-		for key in my_dictionary:
-			if my_dictionary[key] == None and calib.lower() in ['true', '1'] and key=="OUTPUT":
+		addemptyoutput = False
+		doccheck = doc.copy()
+		for key in doccheck:
+			print(key, ": ", doccheck[key])
+			if not doccheck[key] and calib.lower() in ['true', '1'] and key=="OUTPUT":
 				# If the OUTPUT key exist but is not assign
 				print("adding output section")
 				doc.pop(key)
 				addemptyoutput = True
 				# print(key)
 				emptykey.append(key)
-			elif my_dictionary[key] == None:
-				addemptyoutput = False
+			elif not doccheck[key]:
 				doc.pop(key)
-			else: 
-				addemptyoutput = False
-		#print(my_dictionary)
+
+		#print(doc)
+		#print(emptykey)
 		'''
 		This is checking the valid strings, dates and output in order to
 		remove symbols and create an invalid toml file. This is because CWatM

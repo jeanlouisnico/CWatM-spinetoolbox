@@ -199,12 +199,27 @@
                     "known_filters": {
                         "db_url@cwatm_db": {
                             "scenario_filter": {
+                                "Ex10_Lakes": false,
+                                "Ex10_Res": false,
+                                "Ex2_Bhima": false,
+                                "Ex2_Rhine": false,
+                                "Ex5_Bhima": false,
+                                "Ex5_Danube": false,
                                 "calibration": true,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
-                                "exercise3": true
+                                "exercise3": false
                             },
                             "alternative_filter": {
+                                "10_Lakes-Reservoirs_Lakes": true,
+                                "10_Lakes-Reservoirs_reservoires": true,
+                                "11_1km_buhma": true,
+                                "12_5min_modflow": true,
+                                "2_Choose_Basin_Bhima": true,
+                                "2_Choose_Basin_Rhine": true,
+                                "5_Increasing-resolution_Bhima": true,
+                                "5_Increasing-resolution_Danube": true,
+                                "6_Watercycle": true,
                                 "Base": true,
                                 "Manning": true,
                                 "calibration": true,
@@ -254,12 +269,27 @@
                     "known_filters": {
                         "db_url@Data Store": {
                             "scenario_filter": {
+                                "Ex10_Lakes": true,
+                                "Ex10_Res": true,
+                                "Ex2_Bhima": true,
+                                "Ex2_Rhine": true,
+                                "Ex5_Bhima": true,
+                                "Ex5_Danube": true,
                                 "calibration": true,
                                 "cwatm": true,
                                 "cwatm_best_calib": true,
                                 "exercise3": true
                             },
                             "alternative_filter": {
+                                "10_Lakes-Reservoirs_Lakes": true,
+                                "10_Lakes-Reservoirs_reservoires": true,
+                                "11_1km_buhma": true,
+                                "12_5min_modflow": true,
+                                "2_Choose_Basin_Bhima": true,
+                                "2_Choose_Basin_Rhine": true,
+                                "5_Increasing-resolution_Bhima": true,
+                                "5_Increasing-resolution_Danube": true,
+                                "6_Watercycle": true,
                                 "Base": true,
                                 "Manning": true,
                                 "calibration": true,
@@ -328,14 +358,29 @@
                     "known_filters": {
                         "db_url@cwatm_db": {
                             "scenario_filter": {
+                                "Ex10_Lakes": true,
+                                "Ex10_Res": true,
+                                "Ex2_Bhima": true,
+                                "Ex2_Rhine": true,
+                                "Ex5_Bhima": true,
+                                "Ex5_Danube": true,
                                 "calibration": true,
                                 "cwatm": true,
                                 "cwatm_best_calib": true,
                                 "exercise3": true
                             },
                             "alternative_filter": {
+                                "10_Lakes-Reservoirs_Lakes": false,
+                                "10_Lakes-Reservoirs_reservoires": false,
+                                "11_1km_buhma": false,
+                                "12_5min_modflow": false,
+                                "2_Choose_Basin_Bhima": false,
+                                "2_Choose_Basin_Rhine": false,
+                                "5_Increasing-resolution_Bhima": false,
+                                "5_Increasing-resolution_Danube": false,
+                                "6_Watercycle": false,
                                 "Base": false,
-                                "Manning": true,
+                                "Manning": false,
                                 "calibration": false,
                                 "calibration_ini": true,
                                 "cwatm_best": false,
@@ -383,12 +428,27 @@
                     "known_filters": {
                         "db_url@cwatm_db": {
                             "scenario_filter": {
+                                "Ex10_Lakes": false,
+                                "Ex10_Res": false,
+                                "Ex2_Bhima": false,
+                                "Ex2_Rhine": false,
+                                "Ex5_Bhima": false,
+                                "Ex5_Danube": true,
                                 "calibration": false,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
-                                "exercise3": true
+                                "exercise3": false
                             },
                             "alternative_filter": {
+                                "10_Lakes-Reservoirs_Lakes": true,
+                                "10_Lakes-Reservoirs_reservoires": true,
+                                "11_1km_buhma": true,
+                                "12_5min_modflow": true,
+                                "2_Choose_Basin_Bhima": true,
+                                "2_Choose_Basin_Rhine": true,
+                                "5_Increasing-resolution_Bhima": true,
+                                "5_Increasing-resolution_Danube": true,
+                                "6_Watercycle": true,
                                 "Base": true,
                                 "Manning": true,
                                 "calibration": true,
@@ -541,8 +601,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 394.24470543592076,
-            "y": -63.13219957427236,
+            "x": 377.43049971884625,
+            "y": -68.19157802433627,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -578,14 +638,14 @@
         "convert_to_valid_toml": {
             "type": "Tool",
             "description": "",
-            "x": -236.49656524734186,
-            "y": -71.1057765697817,
+            "x": -235.27792191216335,
+            "y": -73.35476991365341,
             "specification": "to_toml",
             "execute_in_work": true,
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "C:\\Users\\JLJEAN\\tunexus\\CWatM\\Tutorials\\03_Manning\\settings_Rhine-30min_Tutorial-3.ini"
+                    "arg": "C:\\Git\\CWatM\\Toolkit\\pytesting\\settings\\5min\\rhine_5min_modflow\\settings_rhine5min_gw.ini"
                 }
             ],
             "kill_completed_processes": false,
@@ -595,7 +655,7 @@
             "type": "Tool",
             "description": "",
             "x": -71.66380062198964,
-            "y": -101.82430708511663,
+            "y": -103.52084439176562,
             "specification": "parse_toml",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -605,7 +665,7 @@
                 },
                 {
                     "type": "literal",
-                    "arg": "Manning"
+                    "arg": "12_5min_modflow"
                 },
                 {
                     "type": "literal",
@@ -668,8 +728,8 @@
         "Calibration (1)": {
             "type": "Tool",
             "description": "",
-            "x": 398.90059659889357,
-            "y": -283.5754777191736,
+            "x": 398.9005965988936,
+            "y": -284.5837089577621,
             "specification": "Calibration",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -752,8 +812,8 @@
         "export_to_ini_cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 241.37722031757346,
-            "y": -65.5995539192908,
+            "x": 241.3772203175735,
+            "y": -64.26743243453076,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -776,8 +836,8 @@
         "best_calib": {
             "type": "Data Store",
             "description": "",
-            "x": 771.2121802681205,
-            "y": -288.04628654196813,
+            "x": 755.86900097095,
+            "y": -284.97765068253403,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -833,13 +893,13 @@
         "Manning": {
             "type": "Data Connection",
             "description": "",
-            "x": -378.8900201330206,
-            "y": 33.368155182169424,
+            "x": -370.66007640173115,
+            "y": 17.696822901049202,
             "file_references": [
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/JLJEAN/tunexus/CWatM/Tutorials/03_Manning/settings_Rhine-30min_Tutorial-3.ini"
+                    "path": "C:/Git/CWatM/Toolkit/pytesting/settings/5min/rhine_5min_modflow/settings_rhine5min_gw.ini"
                 }
             ],
             "db_references": []
