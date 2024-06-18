@@ -6,7 +6,10 @@ site_author: VTT DOES Team
 repo_url: https://github.com/jeanlouisnico/CWatM-spinetoolbox
 edit_uri: blob/master/docs/
 
-logo: docs/images/predicer.png
+
+theme: readthedocs
+  logo: docs/images/predicer.png
+
 nav:
   - About us: index.md
   - Overview: introduction.md
@@ -14,7 +17,6 @@ nav:
   - Building your model: input_data.md
   - Example models: example_models.md
   - References: references.md
-theme: readthedocs
 
 plugins:
   - mkdocs-video
