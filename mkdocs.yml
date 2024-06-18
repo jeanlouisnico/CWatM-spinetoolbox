@@ -8,7 +8,8 @@ nav:
 #  - Building your model: input_data.md
 #  - Example models: example_models.md
 #  - References: references.md
-theme: mkdocs
+theme: 
+  name: bootstrap4
 
 plugins:
   - mkdocs-video
