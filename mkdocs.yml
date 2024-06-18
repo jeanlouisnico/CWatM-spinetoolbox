@@ -7,7 +7,7 @@ nav:
 #  - Building your model: input_data.md
 #  - Example models: example_models.md
 #  - References: references.md
-theme: readthedocs
+theme: mkdocs
 
 plugins:
   - mkdocs-video
