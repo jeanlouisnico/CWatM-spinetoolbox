@@ -1,5 +1,11 @@
 site_name: Predicer
 site_url: https://cris.vtt.fi/en/organisations/ba4206-design-and-operation-of-energy-systems
+site_description: Project documentation for CWatM implementation in SpineToolbox
+site_author: VTT DOES Team
+
+repo_url: https://github.com/jeanlouisnico/CWatM-spinetoolbox
+edit_uri: blob/master/docs/
+
 logo: docs/images/predicer.png
 nav:
   - About us: index.md
