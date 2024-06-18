@@ -10,6 +10,7 @@ edit_uri: blob/master/docs/
 theme:
   name: mkdocs
   logo: docs/images/predicer.png
+  favicon: docs/images/predicer.png
 
 nav:
   - About us: index.md
