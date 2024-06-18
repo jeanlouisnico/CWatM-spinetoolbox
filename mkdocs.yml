@@ -11,6 +11,7 @@ nav:
 theme: 
   name: bootstrap4
   logo: docs/images/Flextool_original.svg
+  favicon: docs/images/Flextool_original.svg
 plugins:
   - mkdocs-video
   - plotly
