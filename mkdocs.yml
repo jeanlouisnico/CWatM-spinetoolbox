@@ -7,7 +7,8 @@ repo_url: https://github.com/jeanlouisnico/CWatM-spinetoolbox
 edit_uri: blob/master/docs/
 
 
-theme: readthedocs
+theme:
+  name: mkdocs
   logo: docs/images/predicer.png
 
 nav:
