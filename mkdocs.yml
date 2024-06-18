@@ -11,6 +11,14 @@ theme:
   name: mkdocs
   logo: docs/images/predicer.png
   favicon: docs/images/predicer.png
+  color_mode: auto
+  user_color_mode_toggle: true
+  locale: en
+  analytics: {gtag: 'G-274394082'}
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - django
 
 nav:
   - About us: index.md
