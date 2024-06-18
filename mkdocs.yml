@@ -10,7 +10,7 @@ nav:
 #  - References: references.md
 theme: 
   name: bootstrap4
-
+  logo: docs/images/Flextool_original.svg
 plugins:
   - mkdocs-video
   - plotly
