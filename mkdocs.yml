@@ -16,8 +16,8 @@ theme:
   hljs_languages:
     - yaml
     - django
-  logo: docs/images/Flextool_original.svg
-  favicon: docs/images/Flextool_original.svg
+  #logo: docs/images/Flextool_original.svg
+  #favicon: docs/images/Flextool_original.svg
   
 nav:
   - About the model: 'about.md'
