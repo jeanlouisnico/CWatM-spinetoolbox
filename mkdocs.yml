@@ -1,6 +1,6 @@
 site_name: Flextool - CWatM
 site_url: https://cris.vtt.fi/en/organisations/ba4206-design-and-operation-of-energy-systems
-logo: docs/images/predicer.png
+logo: docs/images/Flextool_original.png
 nav:
   - About the model: about.md
 #  - Overview: introduction.md
