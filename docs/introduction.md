@@ -1,7 +1,11 @@
-# Getting started
+# Why integrating hydrology and energy system models
 
-‘Predictive decider’ for actors making decisions over multiple stages
+## CWatM-spinetoolbox
 
-If you use Predicer in a public work, please cite [the following document](https://doi.org/10.1007/s11081-023-09824-w)
+This [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/tree/0.8-dev	"Github Link") project aimed at implementing the [CWatM Model](https://github.com/iiasa/CWatM	"Github Link") and creating the data workflow as well as scenario management . 
 
-Pursiheimo, E., Sundell, D., Kiviluoma, J., & Hankimaa, H. (2023). Predicer: abstract stochastic optimisation model framework for multi-market operation. Optimization and Engineering, 1-30.
+## Reading the workflow
+
+To run this workflow, you will first need to setup SpineToolbox on your machine. Please refer to the [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/tree/0.8-dev	"Github Link") project to install and run it. This workflow was made using the 0.8-dev branch as it includes new features as well as the new SpineDBapi. You may have to clone locally as well the [Spine Database API](https://github.com/spine-tools/Spine-Database-API	"Github link") to use the 0.8-dev version of the spinedbapi.
+
+All initial template files are available in the repo.
