@@ -36,7 +36,7 @@ Prior to get the workflow working:
    pip insall
    ```
    
-   ```shell
+   ```bash
    
    foo@bar:~$ whoami
    foo
@@ -51,25 +51,25 @@ Not that if you already have an existing workflow from a previous project, you c
 
 1. Import of the calibration .ini file into the database
 
-   ![wf1](images\workflow_1.svg)
+   ![wf1](images/workflow_1.svg)
 
 2. Resetting the database by deleting all its components except the Base alternative. The entities inside the Base alternative are removed
 
-   ![wf2](images\workflow_2.svg)
+   ![wf2](images/workflow_2.svg)
 
 3. Import of base CWatM (for setting up the database) and of any CWatM file that end user want to import into the database
 
-   ![wf3](images\workflow_3.svg)
+   ![wf3](images/workflow_3.svg)
 
 4. This is the central database, also called the Spine Database, where all the data are stored. Alternative and Scenario can be created and if any data needs to be changed, added, add new main section in the .ini files can be done
 
 5. Export the database for the calibration and run the calibration. It exports 2 .ini files: one for the calibration setup and one for the CWatM model that needs to be calibrated. The output from the calibration are then exported and setup from the best alternative is then imported back into the database under the alternative "best_calib".
 
-   ![wf5](images\workflow_5.svg)
+   ![wf5](images/workflow_5.svg)
 
 6. Run a regular CWatM flow. This is done from the database and can be run in sequence from the calibration set up.
 
-   ![wf6](images\workflow_6.svg)
+   ![wf6](images/workflow_6.svg)
 
 ![setup](.spinetoolbox/doc/images/prime_ini.png)
 
