@@ -31,6 +31,17 @@ Prior to get the workflow working:
 7. Install the required libraries for the workflow to work out
 
    `pip install -r .spinetoolbox\requirements.txt`
+   
+   ```
+   pip insall
+   ```
+   
+   ~~~none
+   ```console
+   foo@bar:~$ whoami
+   foo
+   ```
+   ~~~
 
 ## How to use
 
