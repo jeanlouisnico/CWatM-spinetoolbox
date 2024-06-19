@@ -2,7 +2,7 @@
 
 ## For Whom?
 
-IRENA FlexTool was primarily designed to be used for planning the energy transition in developing countries. It is developed by VTT for IRENA and it is distributed to IRENA members. IRENA FlexTool is also accessible on GitHub. With the growing complexity of energy system planning, 
+IRENA FlexTool was primarily designed to be used for planning the energy transition in developing countries. It is developed by VTT for IRENA and it is distributed to IRENA members. IRENA FlexTool is also accessible on GitHub. With the growing complexity of energy system planning, the need to have an understanding of where the water comes from and goes become necessary to better manage hydropower stations that are installed along a river basin. 
 
 ## CWatM-spinetoolbox
 
