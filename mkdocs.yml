@@ -26,8 +26,8 @@ nav:
   - About us: index.md
   - Overview: introduction.md
   - Getting started: getting_started.md
-  #- Building your model: input_data.md
-  #- Example models: example_models.md
+  - Run models alone: input_data.md
+  - Coupling: example_models.md
   #- References: references.md
 
 plugins:
