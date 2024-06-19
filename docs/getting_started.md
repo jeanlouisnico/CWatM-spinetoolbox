@@ -79,39 +79,39 @@ Material for MkDocs is published as a [Python package](https://pypi.org/project/
 
 === "Latest"
 
-````
-```sh
-pip install mkdocs-material
-```
-````
-
-
+    ``` sh
+    pip install mkdocs-material
+    ```
 
 === "9.x"
 
-````
-```sh
-pip install mkdocs-material=="9.*" # (1)!
-```
-
-1.  Material for MkDocs uses [semantic versioning][^2], which is why it's a
-    good idea to limit upgrades to the current major version.
-
-    This will make sure that you don't accidentally [upgrade to the next
-    major version], which may include breaking changes that silently corrupt
-    your site. Additionally, you can use `pip freeze` to create a lockfile,
-    so builds are reproducible at all times:
-
-    ```
-    pip freeze > requirements.txt
+    ``` sh
+    pip install mkdocs-material=="9.*" # (1)!
     ```
 
-    Now, the lockfile can be used for installation:
+    1.  Material for MkDocs uses [semantic versioning][^2], which is why it's a
+        good idea to limit upgrades to the current major version.
 
-    ```
-    pip install -r requirements.txt
-    ```
-````
+        This will make sure that you don't accidentally [upgrade to the next
+        major version], which may include breaking changes that silently corrupt
+        your site. Additionally, you can use `pip freeze` to create a lockfile,
+        so builds are reproducible at all times:
+
+        ```
+        pip freeze > requirements.txt
+        ```
+
+        Now, the lockfile can be used for installation:
+
+        ```
+        pip install -r requirements.txt
+        ```
+
+  [^2]:
+    Note that improvements of existing features are sometimes released as
+    patch releases, like for example improved rendering of content tabs, as
+    they're not considered to be new features.
+
 
 !!! tip
 
