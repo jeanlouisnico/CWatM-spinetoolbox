@@ -54,7 +54,7 @@ You are now ready to run the workflow from SpineToolbox
 
 Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below. This workflow is split into different section that can run as a whole or can be run by section (by selection the boxes, one can run only the selected workflows)
 
-![wf_total](C:\Users\JLJEAN\OneDrive - Teknologian Tutkimuskeskus VTT\DOES Documents\Projects\Develop2 TU-NEXUS\Model integration\workflow.svg)
+![wf_total](docs\images\workflow.svg)
 
 1. Import of the calibration .ini file into the database
 

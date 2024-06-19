@@ -1,3 +1,5 @@
-# Welcome to Predicer's User Guide!
+# Welcome to FlexTool/CWatM User Guide!
 
-![whoarewe](images/Predicer_logo.svg)
+
+
+<img src="C:\Git\CWatM-spinetoolbox-dev\docs\images\flex_cwatm_logo.png" alt="flex_cwatm_logo" style="zoom:10%;" />
