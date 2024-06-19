@@ -113,6 +113,21 @@ pip install mkdocs-material=="9.*" # (1)!
     ```
 ````
 
+!!! tip
+
+    If you don't have prior experience with Python, we recommend reading
+    [Using Python's pip to Manage Your Projects' Dependencies], which is a
+    really good introduction on the mechanics of Python package management and
+    helps you troubleshoot if you run into errors.
+
+  [Python package]: https://pypi.org/project/mkdocs-material/
+  [virtual environment]: https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment
+  [semantic versioning]: https://semver.org/
+  [upgrade to the next major version]: upgrade.md
+  [Markdown]: https://python-markdown.github.io/
+  [Pygments]: https://pygments.org/
+  [Python Markdown Extensions]: https://facelessuser.github.io/pymdown-extensions/
+  [Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
 
 
 This will aut
