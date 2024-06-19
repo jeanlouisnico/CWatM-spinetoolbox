@@ -96,3 +96,7 @@ NB: if you have already changed the database _cwatm_db_, while running the entir
 ## Create multiple databases
 
 If one need, you may just create a new spine database if you want to switch from databases and avoid to have everything in a single database.
+
+``` sh
+pip install mkdocs-material=="9.*" # (1)!
+```

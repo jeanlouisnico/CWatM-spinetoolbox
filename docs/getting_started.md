@@ -75,6 +75,8 @@ Not that if you already have an existing workflow from a previous project, you c
 
 
 
+<!---
+
 Material for MkDocs is published as a [Python package](https://pypi.org/project/mkdocs-material/) and can be installed with `pip`, ideally by using a [virtual environment](https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment). Open up a terminal and install Material for MkDocs with:
 
 === "Latest"
@@ -88,26 +90,26 @@ Material for MkDocs is published as a [Python package](https://pypi.org/project/
     ``` sh
     pip install mkdocs-material=="9.*" # (1)!
     ```
-
+    
     1.  Material for MkDocs uses [semantic versioning][^2], which is why it's a
         good idea to limit upgrades to the current major version.
-
+    
         This will make sure that you don't accidentally [upgrade to the next
         major version], which may include breaking changes that silently corrupt
         your site. Additionally, you can use `pip freeze` to create a lockfile,
         so builds are reproducible at all times:
-
+    
         ```
         pip freeze > requirements.txt
         ```
-
+    
         Now, the lockfile can be used for installation:
-
+    
         ```
         pip install -r requirements.txt
         ```
 
-  [^2]:
+[^2]:
     Note that improvements of existing features are sometimes released as
     patch releases, like for example improved rendering of content tabs, as
     they're not considered to be new features.
@@ -120,14 +122,17 @@ Material for MkDocs is published as a [Python package](https://pypi.org/project/
     really good introduction on the mechanics of Python package management and
     helps you troubleshoot if you run into errors.
 
-  [Python package]: https://pypi.org/project/mkdocs-material/
-  [virtual environment]: https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment
-  [semantic versioning]: https://semver.org/
-  [upgrade to the next major version]: upgrade.md
-  [Markdown]: https://python-markdown.github.io/
-  [Pygments]: https://pygments.org/
-  [Python Markdown Extensions]: https://facelessuser.github.io/pymdown-extensions/
-  [Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
+[Python package]: https://pypi.org/project/mkdocs-material/
+[virtual environment]: https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment
+[semantic versioning]: https://semver.org/
+[upgrade to the next major version]: upgrade.md
+[Markdown]: https://python-markdown.github.io/
+[Pygments]: https://pygments.org/
+[Python Markdown Extensions]: https://facelessuser.github.io/pymdown-extensions/
+[Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
 
 
 This will aut
+
+--->
+
