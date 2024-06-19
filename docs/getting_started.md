@@ -1,24 +1,36 @@
 # Getting Started
-## How to install
+## Before running the workflow
 
-- Clone the project to your computer using git.
-- Make sure that the main branch is activated.
-- Open a julia REPL. It is recommended to use a IDE such as VSCode or Atom, as the results from the model are currently not saved in a separate file.
-- Navigate to *.\Predicer* using the `cd` command.
+This workflow does not come with CWatM. Therefore, to use this workflow, you will need to get the CWatM model on your local machine as well. The model is well documented and tutorials are available on YouTube to learn how to install it with its dependency.
 
-        julia> cd("./Predicer)
+Prior to get the workflow working:
 
-- type `]` to open the package manager in julia, and type `activate .` to activate the local Julia environment.
+1. Make sure you have installed SpineToolbox as instructed and you are using the latest version of SpineToolbox.
+2. you are using Spine Database API 
+3. You have cloned CWatM locally in your machine in a separate folder
+4. You have git and miniconda installed
 
-        (Predicer) pkg> activate .
+## Setting up the workflow
 
-- Press backspace to exit the package manager
-- Type `using Pkg` followed by `Pkg.instantiate()` to install the required packages. This can take a while.
+1. using miniconda, create an environment where workflow and CWatM libraries and other dependencies can be installed.
 
-        julia> using Pkg
-        julia> Pkg.instantiate()
+2. Go to the directory where the workflow will be located e.g. `C:\Git\<YOUR FOLDER>\`
 
-- Finally type `using Predicer` to use the package.
+3. _cd_ into your folder `cd C:\Git\<YOUR FOLDER>\`
+
+4. clone the git repo into the folder `git clone git@github.com:jeanlouisnico/CWatM-spinetoolbox.git`
+
+5. create your conda environment and activate it
+
+   `conda create -n cwatm_wf python=3.11`
+
+   `conda activate cwatm_wf`
+
+6. cd in the folder where the cloned git repo is installed  `cd C:\Git\<YOUR FOLDER>\CWatM-spinetoolbox`
+
+7. Install the required libraries for the workflow to work out
+
+   `pip install -r .spinetoolbox\requirements.txt`
 
 ## How to use
 
@@ -34,8 +46,9 @@
 
 - To generate a model based on a input data file (in the example an Excel file located under `Predicer/input_data/`) use the `Predicer.generate_model(fpath)` function, where the parameter 'fpath' is the path to the input data file. The 'generate_model()' function imports the input data from the defined location, and build a model around it. The function returns two values, a "model contents" (mc) dictionary containing the built optimization model, as well as used expressions, indices and constraints for debugging. The other return value is the input data on which the optimization model is built on. 
         
-        julia> mc, input_data = Predicer.generate_model(fpath)
-
+    
+      julia> mc, input_data = Predicer.generate_model(fpath)
+  
 - Or if using the example input data file `Predicer/input_data/input_data.xlsx`
 
         julia> mc, input_data = Predicer.generate_model("input_data/input_data.xlsx")
@@ -98,7 +111,9 @@
 
 - The resulting bid matrix can be exported to a .xlsx file under `Predicer/results` by using the `Predicer.write_bid_matrix()` function
 
-        julia> Predicer.write_bid_matrix(mc, input_data)
+    ```julia
+    julia> Predicer.write_bid_matrix(mc, input_data)
+    ```
 
 
 ## Example model
@@ -131,5 +146,4 @@ Further, the factors for the constraint are defined in the *gen_constraint* shee
 | t1 | -2                    | 1                      | 0          |
 | t2 | -2                    | 1                      | 0          |
 | tn | -2                    | 1                      | 0          |
-
 
