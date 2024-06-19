@@ -34,86 +34,33 @@ Prior to get the workflow working:
 
 ## How to use
 
-- Navigate to the local folder containing the Predicer package.
-- type `]` to open the package manager in julia, and type `activate .` to activate the local Julia environment.
+Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below. This workflow is split into different section that can run as a whole or can be run by section (by selection the boxes, one can run only the selected workflows)
 
-        (Predicer) pkg> activate .
+![wf_total](docs\images\workflow.svg)
 
-- Press backspace to exit the package manager
-- Type `using Predicer` to use the package.
+1. Import of the calibration .ini file into the database
 
-        julia> using Predicer
+   ![wf1](docs\images\workflow_1.svg)
 
-- To generate a model based on a input data file (in the example an Excel file located under `Predicer/input_data/`) use the `Predicer.generate_model(fpath)` function, where the parameter 'fpath' is the path to the input data file. The 'generate_model()' function imports the input data from the defined location, and build a model around it. The function returns two values, a "model contents" (mc) dictionary containing the built optimization model, as well as used expressions, indices and constraints for debugging. The other return value is the input data on which the optimization model is built on. 
-        
-    
-      julia> mc, input_data = Predicer.generate_model(fpath)
-  
-- Or if using the example input data file `Predicer/input_data/input_data.xlsx`
+2. Resetting the database by deleting all its components except the Base alternative. The entities inside the Base alternative are removed
 
-        julia> mc, input_data = Predicer.generate_model("input_data/input_data.xlsx")
+   ![wf2](docs\images\workflow_2.svg)
 
+3. Import of base CWatM (for setting up the database) and of any CWatM file that end user want to import into the database
 
-- `Predicer.solve_model(mc)` optimizes the model, and shows the solver output.
+   ![wf3](docs\images\workflow_3.svg)
 
-        julia> Predicer.solve_model(mc)
+4. This is the central database, also called the Spine Database, where all the data are stored. Alternative and Scenario can be created and if any data needs to be changed, added, add new main section in the .ini files can be done
 
-- After the model has been successfully optimized, the results of the variables in the model can be obtained using the `Predicer.get_result_dataframe()` or `Predicer.get_all_result_dataframes()` functions. Predicer.get_all_result_dataframes returns a dictionary with the variable names as keys, and Dataframes containing the results for those keys as values. 
+5. Export the database for the calibration and run the calibration. It exports 2 .ini files: one for the calibration setup and one for the CWatM model that needs to be calibrated. The output from the calibration are then exported and setup from the best alternative is then imported back into the database under the alternative "best_calib".
 
-        julia> result_dataframes = Predicer.get_all_result_dataframes(mc, input_data)
-        julia> Predicer.get_all_result_dataframes(mc, input_data)
-                Dict{Any, Any} with 21 entries:
-                "vq_state_dw"      => 24×13 DataFrame…
-                "v_set_up"         => 24×1 DataFrame… 
-                "v_flow_bal"       => 24×7 DataFrame… 
-                "v_bid"            => 24×4 DataFrame… 
-                "v_node_delay"     => 24×1 DataFrame… 
-                "v_block"          => 0×0 DataFrame   
-                "v_res_final"      => 24×10 DataFrame…
-                "v_set_down"       => 24×1 DataFrame… 
-                "vq_ramp_dw"       => 24×22 DataFrame…
-                "v_start"          => 24×4 DataFrame… 
-                "vq_state_up"      => 24×13 DataFrame…
-                "vq_ramp_up"       => 24×22 DataFrame…
-                "v_setpoint"       => 24×1 DataFrame… 
-                "v_node_diffusion" => 24×1 DataFrame… 
-                "v_online"         => 24×4 DataFrame… 
-                "v_stop"           => 24×4 DataFrame… 
-                "v_reserve"        => 24×37 DataFrame…
-                "v_flow"           => 24×37 DataFrame…
-                "v_load"           => 24×10 DataFrame…
-                "v_reserve_online" => 24×7 DataFrame… 
-                "v_state"          => 24×7 DataFrame… 
+   ![wf5](docs\images\workflow_5.svg)
 
-- For more specific analysis, `Predicer.get_result_dataframe()` returns a DataFrame for a specific variable type, with the option to specify the node or process as well as the scenario. Below an example where the values for the `v_flow` variable for the `hp1` process is obtained. The column names show which flow the value is for, with the notation being `processname _ from node _ to node _ scenario`; `hp1_elc_hp1_s1` is for the electricity consumption of the heat pump process, and `hp1_hp1_dh_s1` is for the heat production to the district heating node (dh). The types of the available variables can be found in the function documentation or in the example above. 
+6. Run a regular CWatM flow. This is done from the database and can be run in sequence from the calibration set up.
 
-        julia> Predicer.get_result_dataframe(mc, input_data, "v_flow", "hp1",  "s1")
-                24×3 DataFrame
-                Row │ t                          hp1_elc_hp1_s1  hp1_hp1_dh_s1 
-                │ String                     Float64         Float64       
-                ─────┼──────────────────────────────────────────────────────────
-                1 │ 2022-04-20T00:00:00+00:00       0.5              1.5
-                2 │ 2022-04-20T01:00:00+00:00       0.0              0.0
-                3 │ 2022-04-20T02:00:00+00:00       0.0              0.0
-                ⋮  │             ⋮                    ⋮               ⋮
-                22 │ 2022-04-20T21:00:00+00:00       0.970055         3.39519
-                23 │ 2022-04-20T22:00:00+00:00       1.42857          5.0
-                24 │ 2022-04-20T23:00:00+00:00       1.71429          6.0
+   ![wf6](docs\images\workflow_6.svg)
 
-- The modelled costs can be retrieved using the `get_costs_dataframe()` function. This includes realised costs, controlling costs and dummy costs. The realised costs include costs of used fuels and commodities, operational costs, market costs/profits, etc. The controlling costs include the value of the storage at the end of the optimization horizon, deviation from setpoints, etc. Dummy costs include costs for dummy or slack variables, which are used to ensure feasibility during optimization. 
-
-        julia> costs_df = Predicer.get_costs_dataframe(mc, input_data)
-
-- The DataFrames obtained from the results can be exported to an xlsx-file using the `dfs_to_xlsx()` function. The Dataframes can be passed to the function either in a dictionary with the name of the dataframe as the keys, or as a single DataFrame. The other parameters passed to the function are `output_path`, which is the path to where the file is to be saved, and `fname` is the name of the exported file. An suffix with the date is automatically added to the end of the filename. 
-
-        julia> Predicer.dfs_to_xlsx(df, output_path, fname)
-
-
-- The resulting bid matrix can be exported to a .xlsx file under `Predicer/results` by using the `Predicer.write_bid_matrix()` function
-
-    ```julia
-    julia> Predicer.write_bid_matrix(mc, input_data)
-    ```
+![setup](.spinetoolbox/doc/images/prime_ini.png)
 
 
 ## Example model
