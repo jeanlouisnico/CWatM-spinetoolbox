@@ -80,7 +80,7 @@ Material for MkDocs is published as a [Python package](https://pypi.org/project/
 === "Latest"
 
 ````
-``` sh
+```sh
 pip install mkdocs-material
 ```
 ````
@@ -90,7 +90,7 @@ pip install mkdocs-material
 === "9.x"
 
 ````
-``` sh
+```sh
 pip install mkdocs-material=="9.*" # (1)!
 ```
 
