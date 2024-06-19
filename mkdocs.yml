@@ -21,7 +21,7 @@ theme:
 
 nav:
   - About us: index.md
-  #- Overview: introduction.md
+  - Overview: introduction.md
   #- Getting started: getting_started.md
   #- Building your model: input_data.md
   #- Example models: example_models.md
