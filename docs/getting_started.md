@@ -36,18 +36,18 @@ Prior to get the workflow working:
    pip insall
    ```
    
-   ~~~none
-   ```console
+   ```shell
+   
    foo@bar:~$ whoami
    foo
+   C:\> pip install dependencies
    ```
-   ~~~
 
 ## How to use
 
 Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below. This workflow is split into different section that can run as a whole or can be run by section (by selection the boxes, one can run only the selected workflows)
 
-![wf_total](images\workflow.svg)
+![wf_total](images/workflow.svg)
 
 1. Import of the calibration .ini file into the database
 
