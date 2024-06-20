@@ -6,7 +6,7 @@ IRENA FlexTool was primarily designed to be used for planning the energy transit
 
 ## How does it work
 
-![concept_model](images/flow_chart.drawio.svg)
+![concept_model](images/flow_chart.svg)
 
 ## CWatM-spinetoolbox
 
