@@ -34,9 +34,9 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 
 [grid]
 
-![JNL_Round](C:\Git\CWatM-spinetoolbox-dev\docs\images\example_model.PNG)
+![JNL_Round](images\example_model.PNG)
 
-![flex_cwatm_logo](C:\Git\CWatM-spinetoolbox-dev\docs\images\flex_cwatm_logo.png)
+![flex_cwatm_logo](images\flex_cwatm_logo.png)
 
 [/grid]
 
