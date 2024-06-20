@@ -71,7 +71,7 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 	</tr>
 	<tr>
 		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\DU.png" alt="Doniyor Urishov" style="zoom:100%;" />
+			<img src="images\people\DU.png" alt="Doniyor Urishov" style="zoom:70%;" />
 			<br>
 			Research Scientist
             <br>
@@ -79,7 +79,7 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
             <br>
 		</td>
 		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-            <img src="images\people\AT.png" alt="Arttu Tupala" style="zoom:100%;" />
+            <img src="images\people\AT.png" alt="Arttu Tupala" style="zoom:70%;" />
 			<br>
 			Research Trainee
             <br>
