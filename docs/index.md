@@ -59,6 +59,8 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
             <br>
             FlexTool model
             <br>
+            Model coupling
+            <br>
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
 			<img src="images\people\RA.png" alt="JNL" style="zoom:100%;" />
