@@ -71,14 +71,20 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 	</tr>
 	<tr>
 		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			some image
+			<img src="images\people\DU.png" alt="Doniyor Urishov" style="zoom:100%;" />
 			<br>
-			some text
+			Research Scientist
+            <br>
+            Local interaction
+            <br>
 		</td>
 		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			some image
+            <img src="images\people\AT.png" alt="Arttu Tupala" style="zoom:100%;" />
 			<br>
-			some text
+			Research Trainee
+            <br>
+            FlexTool model
+            <br>
 		</td>
 	</tr>
 </table>
