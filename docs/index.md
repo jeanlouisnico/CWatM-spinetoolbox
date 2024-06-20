@@ -41,7 +41,7 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 			<br>
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\JK.png" alt="JK" style="zoom:70%;" />
+			<img src="images\people\JK.png" alt="JK" style="zoom:100%;" />
 			<br>
 			Principal Scientist - Model coupling
 		</td>
