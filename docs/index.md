@@ -34,59 +34,51 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 
 <table style="border-collapse: collapse; border: none; border-spacing: 0px;">
 	<tr>
-		<td style="border-top: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\JNL.png" alt="JNL" style="zoom:15%;" />
+		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			<img src="images\people\JNL.png" alt="JNL" style="zoom:100%;" />
 			<br>
-			Research Team Leader - Model coupling and CWatM integration in SpineToolbox
+			Research Team Leader
 			<br>
+            Model coupling and CWatM 
+            <br>
+            integration in SpineToolbox
+            <br>
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\JK.png" alt="JK" style="zoom:100%;" />
+			<img src="images\people\JK.png" alt="JNL" style="zoom:100%;" />
 			<br>
-			Principal Scientist - Model coupling
+			Principal Scientist
+            <br>
+            Model coupling
+            <br>
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\NP.png" alt="NP" style="zoom:70%;" />
+			<img src="images\people\NP.png" alt="JNL" style="zoom:100%;" />
 			<br>
-			Research Scientist - FlexTool model development 
+			Research Scientist
+            <br>
+            FlexTool model
+            <br>
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\RA.png" alt="Rinat Abdurafikov" style="zoom:70%;" />
+			<img src="images\people\RA.png" alt="JNL" style="zoom:100%;" />
 			<br>
-			Research Scientist - FlexTool model development
+			Research Scientist
+            <br>
+            FlexTool model
+            <br>
 		</td>
 	</tr>
 	<tr>
-		<td style="border-top: 1px solid rgb(0, 0, 0); padding-right: 3pt; padding-left: 3pt;">
-			some imagesome text
+		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			some image
+			<br>
+			some text
 		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-			some imagesome text
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-			some imagesome text
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-	</tr>
-	<tr>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-	</tr>
-	<tr>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
-		</td>
-		<td style="padding-right: 3pt; padding-left: 3pt;">
+		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			some image
+			<br>
+			some text
 		</td>
 	</tr>
 </table>
