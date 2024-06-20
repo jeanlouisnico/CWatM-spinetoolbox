@@ -6,11 +6,25 @@ IRENA FlexTool was primarily designed to be used for planning the energy transit
 
 ## How does it work
 
+Putting together the concept
+
+![general_concept](images/general_concept.png)
+
+
+
+Translating the concept in regional models
+
+
+
+Model interactions in practice for a specific basin
+
+
+
 ![concept_model](images/flow_chart.svg)
 
 ## CWatM-spinetoolbox
 
-This [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/	"Github Link") project aimed at implementing the [CWatM Model](https://github.com/iiasa/CWatM	"Github Link") and creating the data workflow as well as scenario management . 
+This [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/	"Github Link") workflow aimed at implementing the [CWatM Model](https://github.com/iiasa/CWatM	"Github Link") and creating the data workflow as well as scenario management. 
 
 ## Reading the workflow
 
