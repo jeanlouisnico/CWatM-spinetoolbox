@@ -35,7 +35,7 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 <table style="border-collapse: collapse; border: none; border-spacing: 0px;">
 	<tr>
 		<td style="border-top: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\JNL.png" alt="JNL" style="zoom:25%;" />
+			<img src="images\people\JNL.png" alt="JNL" style="zoom:15%;" />
 			<br>
 			Research Team Leader - Model coupling and CWatM integration in SpineToolbox
 			<br>
