@@ -2,7 +2,7 @@
 
 
 
-<img src="C:\Git\CWatM-spinetoolbox-dev\docs\images\flex_cwatm_logo.png" alt="flex_cwatm_logo" style="zoom:20%;" />
+<img src="images\flex_cwatm_logo.png" alt="flex_cwatm_logo" style="zoom:20%;" />
 
 ## The genesis
 
