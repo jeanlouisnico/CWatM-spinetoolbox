@@ -32,18 +32,63 @@ Learn more about SpineToolbox here and the Spine Family suite.
 
 VTT is the Technical Research of Finland in which the Design and Operation of Energy System team is leading the development of energy system modelling tools. 
 
-[grid]
-
-![JNL_Round](images\example_model.PNG)
-
-![flex_cwatm_logo](images\flex_cwatm_logo.png)
-
-[/grid]
-
-[grid] [![](upload://jpg9rB3SiEPxoiEDzUQEfpqdyjC.jpeg "")](https://github.com/KDE/plasma-workspace-wallpapers/blob/master/IceCold/contents/images/5120x2880.png?raw=true) [![](upload://8af8gZpoBRQh1Lf7j8YsQHFWnFw.jpeg "")](https://getwallpapers.com/wallpaper/full/b/5/f/563687.jpg) [![](upload://nx1DA9CM5uUxhkR81asxo6Zzm5x.jpeg "")](https://www.pixelstalk.net/wp-content/uploads/2016/06/Download-hd-nature-wallpaper.jpg) [/grid]
-
-| <img src="C:\Users\JLJEAN\OneDrive - Teknologian Tutkimuskeskus VTT\Pictures\JNL_Round.png" alt="JNL_Round" style="zoom:25%;" /> Research Team leader - Model coupling and CWatM integration in SpineToolbox |      |      |      |
-| :----------------------------------------------------------: | ---- | ---- | ---- |
-|                                                              |      |      |      |
+<table style="border-collapse: collapse; border: none; border-spacing: 0px;">
+	<tr>
+		<td style="border-top: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			<img src="images\people\JNL.png" alt="JNL" style="zoom:25%;" />
+			<br>
+			Research Team Leader - Model coupling and CWatM integration in SpineToolbox
+			<br>
+		</td>
+		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			<img src="images\people\JK.png" alt="JK" style="zoom:70%;" />
+			<br>
+			Principal Scientist - Model coupling
+		</td>
+		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			<img src="images\people\NP.png" alt="NP" style="zoom:70%;" />
+			<br>
+			Research Scientist - FlexTool model development 
+		</td>
+		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			<img src="images\people\RA.png" alt="Rinat Abdurafikov" style="zoom:70%;" />
+			<br>
+			Research Scientist - FlexTool model development
+		</td>
+	</tr>
+	<tr>
+		<td style="border-top: 1px solid rgb(0, 0, 0); padding-right: 3pt; padding-left: 3pt;">
+			some imagesome text
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+			some imagesome text
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+			some imagesome text
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+	</tr>
+	<tr>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+	</tr>
+	<tr>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+		<td style="padding-right: 3pt; padding-left: 3pt;">
+		</td>
+	</tr>
+</table>
 
 The University of Oulu is located in the north of Finland and has a strong water research team developed in the water, energy, and environmental engineering research unit.
