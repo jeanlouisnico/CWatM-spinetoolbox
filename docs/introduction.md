@@ -8,7 +8,7 @@ IRENA FlexTool was primarily designed to be used for planning the energy transit
 
 The first challenge is to identify what each model can perform and provide as an input to the next model. the limitations of each model should be acknowledged in case further improvement or specific challenges need to be tackled. CWatM is very versatile and has integrated many features and sectors over the years. It integrates global weather files and extract the data needed for the studied basin. It can further simulate discharge flows from one cell to another with a daily resolution. It evaluates the reservoirs level and can allocate water resources for agricultural, domestic, industrial, or farming use. Groundwater is also possible to simulate via the existing integration of CWatM and Modflow6 in the core of CWatM. 
 
-![general_concept](images/general_concept.png)
+![general_concept](images/CWatM_FlexTool_integ.svg)
 
 
 
