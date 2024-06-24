@@ -12,7 +12,9 @@ The first challenge is to identify what each model can perform and provide as an
 
 
 
-Translating the concept in regional models
+In essence, the modelling concept consists of 3 modules; one of the glacier module, one for the hydrology modelling, and the energy system modelling. The purpose of this workflow is to combine only the last two modules, namely CWatM for the hydrology and IRENA FlexTool for the energy system model. 
+
+CWatM can simulate changes in the the water flow by including rainfall patterns, lakes and reservoirs charge and discharge, and includes the water demand from domestic, industrial, and agricultural activities. The types of crops need to be defined in the model to have a better representation of the crop rotation and water demand cycle throughout the growth cycle of plants.  
 
 
 
