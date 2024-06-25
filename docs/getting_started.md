@@ -91,6 +91,10 @@ The *Entities* are shown on the left-hand side of the table. By selecting the *e
 
     Pay special attention to the *FILE_PATHS* entity as this is the one that will vary between the different alternative e.g. meteo files for the 30-arcmin or 5-arcmin spatial resolution
 
+!!! Tip
+
+    When importing new CWatM ini file into the database, the workflow does not compare existing values with the new ones, therefore a lot of paramaters may be duplicated compared to the *Base* alternative. These *Parameters* can be deleted. It will make the Spine Database easier to read and maintain over time if multiple ini files are imported into the database.
+
 
 
 ### 5. Run your calibration
