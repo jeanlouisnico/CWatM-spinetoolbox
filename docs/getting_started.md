@@ -93,19 +93,19 @@ The *Entities* are shown on the left-hand side of the table. By selecting the *e
 
 !!! Tip
 
-    When importing new CWatM ini file into the database, the workflow does not compare existing values with the new ones, therefore a lot of paramaters may be duplicated compared to the *Base* alternative. These *Parameters* can be deleted. It will make the Spine Database easier to read and maintain over time if multiple ini files are imported into the database.
+    When importing a new CWatM *ini* file into the database, the workflow does not compare existing values with the new ones, therefore a lot of parameters may be duplicated compared to the *Base* alternative. These *Parameters* can be deleted. It will make the Spine Database easier to read and maintain over time if multiple *ini* files are imported into the database.
 
 
 
 ### 5. Run your calibration
 
-Export the database for the calibration and run the calibration. It exports 2 .ini files: one for the calibration setup and one for the CWatM model that needs to be calibrated. The output from the calibration are then exported and setup from the best alternative is then imported back into the database under the alternative "best_calib".
+Export the database for the calibration and run the calibration. It exports 2 **.ini* files: one for the calibration setup and one for the CWatM model that needs to be calibrated. The arguments from the Tool properties do not need to be updated as they are set for the model. The outputs from the calibration are then exported and setup from the best alternative is imported back into the database under the alternative "best_calib". This section can be run as is. However, by clicking the first arrow, ensure you have created a *calibration* and a *calibration_ini* scenario. The first one includes all the parameters from the *Base* and the *calibration* alternatives to build a readable *ini* file by CWatM and run the calibration. The second one only includes the calibration setup required by the calibration tool.
 
 ![wf5](images/workflow_5.svg)
 
 ### 6. Run CwatM
 
-Run a regular CWatM flow. This is done from the database and can be run in sequence from the calibration set up.
+Run a regular CWatM flow. This is done from the database and can be run in sequence from the calibration set up. By clicking the yellow arrow before the export tool, one can choose which scenario to run into CWatM.
 
 ![wf6](images/workflow_6.svg)
 
