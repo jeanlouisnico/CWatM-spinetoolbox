@@ -73,7 +73,9 @@ The third section Imports your working CWatM *ini* file. In essence, you would n
 
     In the first tool, the original *ini* file is being converted into a valid *toml* file. Ensure that the file you want to use is the one you want to import in the Spine Database. 
 
- of base CWatM (for setting up the database) and of any CWatM file that end user want to import into the database. The calibration init file is the typical CWatM *ini* file that is given in the tutorials. You can relink the file depending on where you have installed your CWatM copy. The purpose of this process 
+The second tool is very important and the end-user wants to put attention into the arguments that are passed to the tool. Since there can be multiple *ini* files that are imported into the *Spine Database*, each variable should be loaded into a different **alternative**. If the **alternative** name is not changed, it will overwrite the previously imported *ini* file.
+
+![wf3](images/import_ini.png)
 
 ### 4. The Spine Database
 
