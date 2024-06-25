@@ -81,7 +81,15 @@ The second argument :one:: is the name of the *alternative* where the ini file *
 
 ### 4. The Spine Database
 
-This is the central database, also called the Spine Database, where all the data are stored. Alternative and Scenario can be created and if any data needs to be changed, added, add new main section in the .ini files can be done
+This is the central database, also called the Spine Database, where all the data are stored. *Alternative* and *Scenario* can be created manually and if any data needs to be changed, added, or add new main section in the *.ini* files can be done from the database. When double clicking on database, it will open the Spine Database interface that would look like somewhat similar to what is shown below.
+
+![wf4](images/entity_param.png)
+
+The *Entities* are shown on the left-hand side of the table. By selecting the *entity*, only the parameters from the selected entity will be displayed
+
+!!! Tip
+
+    Pay special attention to the *FILE_PATHS* entity as this is the one that will vary between the different alternative e.g. meteo files for the 30-arcmin or 5-arcmin spatial resolution
 
 
 
