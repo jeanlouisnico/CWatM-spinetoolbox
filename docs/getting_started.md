@@ -77,9 +77,13 @@ The second tool is very important and the end-user wants to put attention into t
 
 ![wf3](images/import_ini.png)
 
+The second argument :one:: is the name of the *alternative* where the ini file *parameters* will be imported in. The :two:: argument define that it will update the values and should be always set to *true*. Running only this section will import your CWatM *ini* file into the Spine Database.
+
 ### 4. The Spine Database
 
 This is the central database, also called the Spine Database, where all the data are stored. Alternative and Scenario can be created and if any data needs to be changed, added, add new main section in the .ini files can be done
+
+
 
 ### 5. Run your calibration
 
