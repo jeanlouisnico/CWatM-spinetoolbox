@@ -30,6 +30,8 @@ Learn more about SpineToolbox here and the Spine Family suite.
 
 ## The team
 
+Contact us: [does-info@vtt.fi](mailto:does-info@vtt.fi)
+
 VTT is the Technical Research of Finland in which the Design and Operation of Energy System team is leading the development of energy system modelling tools. 
 
 <table style="border-collapse: collapse; border: none; border-spacing: 0px;">
@@ -72,7 +74,12 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+        <td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			<br>
+			
+            <br>
+		</td>
+		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
 			<img src="images\people\DU.png" alt="Doniyor Urishov" style="zoom:70%;" />
 			<br>
 			Research Scientist
@@ -80,7 +87,7 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
             Local interaction
             <br>
 		</td>
-		<td colspan="2" style="border-bottom: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
             <img src="images\people\AT.png" alt="Arttu Tupala" style="zoom:70%;" />
 			<br>
 			Research Trainee
@@ -88,7 +95,14 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
             FlexTool model
             <br>
 		</td>
+        <td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+			<br>
+			
+            <br>
+		</td>
 	</tr>
 </table>
 
+
 The University of Oulu is located in the north of Finland and has a strong water research team developed in the water, energy, and environmental engineering research unit.
+
