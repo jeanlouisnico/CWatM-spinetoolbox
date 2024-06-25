@@ -32,15 +32,8 @@ Prior to get the workflow working:
 
    `pip install -r .spinetoolbox\requirements.txt`
    
-   ```
-   pip insall
-   ```
-   
    ```bash
-   
-   foo@bar:~$ whoami
-   foo
-   C:\> pip install dependencies
+   (cwatm_wf) C:\Git\<YOUR FOLDER>\ pip install dependencies
    ```
 
 ## How to use
