@@ -52,7 +52,14 @@ The parsing of the of the formatted toml file is then done and nothing should be
 
 ### 2. Resetting the database
 
-![wf2](images/workflow_2.svg)
+<img src="images/workflow_2.svg" alt="wf2" style="width: 25%; height: auto; object-fit: cover;" />
+
+!!! warning
+
+    If you don't have prior experience with Python, we recommend reading
+    [Using Python's pip to Manage Your Projects' Dependencies], which is a
+    really good introduction on the mechanics of Python package management and
+    helps you troubleshoot if you run into errors.
 
 :warning: This second section is to be used cautiously. This resets the database by deleting all its components except the *Base* alternative. The entities inside the *Base* alternative are removed and only the *Base* alternative remains empty. 
 
