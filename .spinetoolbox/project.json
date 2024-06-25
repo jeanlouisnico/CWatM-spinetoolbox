@@ -61,6 +61,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/water_cycle.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/test.json"
                 }
             ]
         },
@@ -728,8 +733,8 @@
         "Calibration (1)": {
             "type": "Tool",
             "description": "",
-            "x": 398.9005965988936,
-            "y": -284.5837089577621,
+            "x": 393.46662410602454,
+            "y": -282.41011996061457,
             "specification": "Calibration",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -788,8 +793,8 @@
         "export_to_ini_calibtxt": {
             "type": "Tool",
             "description": "",
-            "x": 242.34083011943068,
-            "y": -356.315411233484,
+            "x": 244.5144191165783,
+            "y": -357.4022057320578,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -837,7 +842,7 @@
             "type": "Data Store",
             "description": "",
             "x": 755.86900097095,
-            "y": -284.97765068253403,
+            "y": -285.8773221371838,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
