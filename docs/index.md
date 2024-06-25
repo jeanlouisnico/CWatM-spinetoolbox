@@ -37,8 +37,11 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 <table style="border-collapse: collapse; border: none; border-spacing: 0px;">
 	<tr>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\JNL.png" alt="JNL" style="zoom:100%;" />
+			<img src="images\people\JNL.png" alt="JK" style="zoom:100%;" />
 			<br>
+            Jean-Nicolas Louis
+            <br>
+            <br>
 			Research Team Leader
 			<br>
             Model coupling and CWatM 
@@ -48,6 +51,9 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
 			<img src="images\people\JK.png" alt="JNL" style="zoom:100%;" />
+            <br>
+            Juha Kiviluoma
+            <br>
 			<br>
 			Principal Scientist
             <br>
@@ -55,8 +61,11 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
             <br>
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\NP.png" alt="JNL" style="zoom:100%;" />
+			<img src="images\people\NP.png" alt="NP" style="zoom:100%;" />
 			<br>
+            Nelli Putkonen
+            <br>
+            <br>
 			Research Scientist
             <br>
             FlexTool model
@@ -65,8 +74,11 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
             <br>
 		</td>
 		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\RA.png" alt="JNL" style="zoom:100%;" />
+			<img src="images\people\RA.png" alt="RA" style="zoom:100%;" />
 			<br>
+            Rinat Abdurafikov
+            <br>
+            <br>
 			Research Scientist
             <br>
             FlexTool model
@@ -76,31 +88,38 @@ VTT is the Technical Research of Finland in which the Design and Operation of En
 	<tr>
         <td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
 			<br>
-			
+
+
             <br>
-		</td>
-		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<img src="images\people\DU.png" alt="Doniyor Urishov" style="zoom:70%;" />
-			<br>
-			Research Scientist
+    	</td>
+    	<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+    		<img src="images\people\DU.png" alt="Doniyor Urishov" style="zoom:70%;" />
+    		<br>
+                Doniyor Urishov
+            <br>
+    		<br>
+    		Research Scientist
             <br>
             Local interaction
             <br>
-		</td>
-		<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
+    	</td>
+    	<td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
             <img src="images\people\AT.png" alt="Arttu Tupala" style="zoom:70%;" />
-			<br>
-			Research Trainee
+            <br>
+                Arttu Tupala
+            <br>
+    		<br>
+    		Research Trainee
             <br>
             FlexTool model
             <br>
-		</td>
+    	</td>
         <td style="border-top: 1px solid rgb(0, 0, 0); text-align: center; padding-right: 3pt; padding-left: 3pt;">
-			<br>
-			
+    		<br>
+    		
             <br>
-		</td>
-	</tr>
+    	</td>
+    </tr>
 </table>
 
 
