@@ -44,35 +44,39 @@ Not that if you already have an existing workflow from a previous project, you c
 
 ![wf1](images/workflow_1.svg)
 
-The calibration init file is the typical CWatM ini file that is given in the tutorials. You can re-link the file depending on where you have installed your CWatM copy. The purpose of this process is to populate the ini file entities, parameters, and parameter values into the spine DB interface. All parameters can further be modified once imported into the database. If the calibration init file is modified, a warning -:exclamation:-​ will be displayed on the first tool meaning that the file needs to be relinked. In this case, just drag and drop the file from the *Available resources* to the *Tool arguments*.
+The calibration init file is the typical CWatM ini file that is given in the tutorials. You can re-link the file depending on where you have installed your CWatM copy. The purpose of this process is to populate the ini file entities, parameters, and parameter values into the spine DB interface. All parameters can further be modified once imported into the database. If the calibration init file is modified, a warning -:exclamation:- will be displayed on the first tool meaning that the file needs to be relinked. In this case, just drag and drop the file from the *Available resources* to the *Tool arguments*. The first tool converts the init file into a valid toml file that is standardised and can easily be imported into the *SpineDatabase*.
 
 ![wf1](images/relink_ini_file.png)
 
-The parsing of the 
+The parsing of the of the formatted toml file is then done and nothing should be changed unless the user changes the name of the SpineDB database in the workflow, in which case the input data needs to be re-linked as well as previously showed.
 
 ### 2. Resetting the database
 
 ![wf2](images/workflow_2.svg)
 
-Resetting the database by deleting all its components except the Base alternative. The entities inside the Base alternative are removed
+:warning: This second section is to be used cautiously. This resets the database by deleting all its components except the *Base* alternative. The entities inside the *Base* alternative are removed and only the *Base* alternative remains empty. 
 
-1. Import of base CWatM (for setting up the database) and of any CWatM file that end user want to import into the database
+![reset_DB](images/reset_DB.png)
 
-   ![wf3](images/workflow_3.svg)
+By default, the second argument is set to ***false***, which does not reset the Spine Database and just bypasses the whole tool. In case one would like to reset the entire database, set the second argument to ***true*** and the entire Spine Database will be reset.
 
-   The calibration init file is the typical CWatM ini file that is given in the tutorials. You can relink the file depending on where you have installed your CWatM copy. The purpose of this process 
+### 3. Import CWatM .ini files
 
-2. This is the central database, also called the Spine Database, where all the data are stored. Alternative and Scenario can be created and if any data needs to be changed, added, add new main section in the .ini files can be done
+![wf3](images/workflow_3.svg)
 
-3. Export the database for the calibration and run the calibration. It exports 2 .ini files: one for the calibration setup and one for the CWatM model that needs to be calibrated. The output from the calibration are then exported and setup from the best alternative is then imported back into the database under the alternative "best_calib".
+The third Import of base CWatM (for setting up the database) and of any CWatM file that end user want to import into the database. The calibration init file is the typical CWatM ini file that is given in the tutorials. You can relink the file depending on where you have installed your CWatM copy. The purpose of this process 
+
+1. This is the central database, also called the Spine Database, where all the data are stored. Alternative and Scenario can be created and if any data needs to be changed, added, add new main section in the .ini files can be done
+
+2. Export the database for the calibration and run the calibration. It exports 2 .ini files: one for the calibration setup and one for the CWatM model that needs to be calibrated. The output from the calibration are then exported and setup from the best alternative is then imported back into the database under the alternative "best_calib".
 
    ![wf5](images/workflow_5.svg)
 
-4. Run a regular CWatM flow. This is done from the database and can be run in sequence from the calibration set up.
+3. Run a regular CWatM flow. This is done from the database and can be run in sequence from the calibration set up.
 
    ![wf6](images/workflow_6.svg)
 
-![setup](../.spinetoolbox/doc/images/prime_ini.png)
+
 
 
 
@@ -122,18 +126,4 @@ Material for MkDocs is published as a [Python package](https://pypi.org/project/
     [Using Python's pip to Manage Your Projects' Dependencies], which is a
     really good introduction on the mechanics of Python package management and
     helps you troubleshoot if you run into errors.
-
-[Python package]: https://pypi.org/project/mkdocs-material/
-[virtual environment]: https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment
-[semantic versioning]: https://semver.org/
-[upgrade to the next major version]: upgrade.md
-[Markdown]: https://python-markdown.github.io/
-[Pygments]: https://pygments.org/
-[Python Markdown Extensions]: https://facelessuser.github.io/pymdown-extensions/
-[Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
-
-
-This will aut
-
---->
 
