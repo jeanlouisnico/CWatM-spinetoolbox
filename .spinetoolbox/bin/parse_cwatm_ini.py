@@ -5,14 +5,19 @@ import collections.abc
 import spinedb_api as api
 from spinedb_api import DatabaseMapping
 from spinedb_api import purge
+import inspect
 import sys
 
 
 settingsFNTOML = "validTOML_settings_CWatM.ini"
-alternative = sys.argv[2] 
+sql_url = sys.argv[1] 
+alternative = sys.argv[2]
+ 
 with open(settingsFNTOML, 'r') as f:
     config = toml.load(f)
- 
+class X(object):
+    pass
+
 def remove_all(sql_url):
     with DatabaseMapping(sql_url) as db_map:
         # Remove all the scenario
@@ -37,6 +42,17 @@ def remove_all(sql_url):
         except:
             print("All class item, scenario and alternative were removed")
 
+def check_base_alternative(sql_url, entity_name, param):
+    with DatabaseMapping(sql_url) as db_map:
+        param_val = db_map.get_parameter_value_item(entity_class_name=entity_name, entity_byname=(entity_name,), parameter_definition_name=param, alternative_name="Base")
+    #print(param_val)
+    if not param_val:
+        value = param_val
+    else:
+        value = param_val["parsed_value"]
+    #if inspect.isclass(value):
+
+    return value
 def populate_ini(sql_url, config, alternative):
     with DatabaseMapping(sql_url) as db_map:
     # Allocate to the Spine mapping structure
@@ -69,6 +85,17 @@ def populate_ini(sql_url, config, alternative):
                     value, type_ = api.to_database(parsed_value)
                 elif isinstance(data[key2], float) or isinstance(data[key2], int):
                     value, type_ = api.to_database(data[key2])
+
+                value_in_db = check_base_alternative(sql_url, key, key2)
+
+                print(value_in_db)
+                print(value)
+                if value_in_db == value:
+                    print("same value, skipping")
+                    continue
+                else:
+                    print("not the same value")
+
                 db_map.add_parameter_value_item(
                     entity_class_name=key,
                     entity_byname=(key,),
@@ -85,13 +112,13 @@ def populate_ini(sql_url, config, alternative):
         except:
             print("nothing to commit")
 
-sql_url = sys.argv[1] 
+
 with DatabaseMapping(sql_url) as db_map:
     scenario = db_map.get_scenario_items()
     entity_classes = db_map.get_entity_class_items()
-    print(scenario)
-    print(entity_classes)
-    if len(sys. argv) == 4:
+    #print(scenario)
+    #print(entity_classes)
+    if len(sys.argv) == 4:
         update = sys.argv[3].lower() in ['true', '1']
     else:
         if not entity_classes and not scenario:

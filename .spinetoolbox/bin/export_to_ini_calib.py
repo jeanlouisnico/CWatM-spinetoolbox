@@ -148,13 +148,19 @@ def retrieve_db(url, outfile, calib):
 		if not my_dictionary["FILE_PATHS"] == None:
 			print("Creating the directory")
 			outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
+			initfolder = my_dictionary["INITITIAL CONDITIONS"]["initSave"]
 			current_directory = os.getcwd()
 			final_directory = os.path.join(current_directory, Path(r"{}".format(outputfolder)))
+			final_directory_init = os.path.join(current_directory, Path(r"{}".format(initfolder)))
 			if not os.path.exists(final_directory):
 				os.makedirs(final_directory)
+			if not os.path.exists(final_directory_init):
+				os.makedirs(final_directory_init)
             # Re-write the path to the dictionnary to be used in the ini file
 			tomldoc["FILE_PATHS"]["PathOut"]=final_directory
 			my_dictionary["FILE_PATHS"]["PathOut"] = final_directory
+			tomldoc["INITITIAL CONDITIONS"]["initSave"]=final_directory_init
+			my_dictionary["INITITIAL CONDITIONS"]["initSave"] = final_directory_init
 		else:
 			try:
 				del my_dictionary['FILE_PATHS']

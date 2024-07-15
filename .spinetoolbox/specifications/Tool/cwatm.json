@@ -78,7 +78,9 @@
         "cwatm_input.ini"
     ],
     "inputfiles_opt": [],
-    "outputfiles": [],
+    "outputfiles": [
+        "*.nc"
+    ],
     "cmdline_args": [],
     "includes_main_path": "../../../../CWatM"
 }

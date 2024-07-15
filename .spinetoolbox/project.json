@@ -211,6 +211,7 @@
                                 "Ex5_Bhima": false,
                                 "Ex5_Danube": false,
                                 "calibration": true,
+                                "coupling": true,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
                                 "exercise3": false
@@ -229,6 +230,7 @@
                                 "Manning": true,
                                 "calibration": true,
                                 "calibration_ini": true,
+                                "coupling": true,
                                 "cwatm_best": true,
                                 "output_cwatm": true
                             }
@@ -281,6 +283,7 @@
                                 "Ex5_Bhima": true,
                                 "Ex5_Danube": true,
                                 "calibration": true,
+                                "coupling": true,
                                 "cwatm": true,
                                 "cwatm_best_calib": true,
                                 "exercise3": true
@@ -299,6 +302,7 @@
                                 "Manning": true,
                                 "calibration": true,
                                 "calibration_ini": true,
+                                "coupling": true,
                                 "cwatm_best": true,
                                 "output_cwatm": true
                             }
@@ -370,6 +374,7 @@
                                 "Ex5_Bhima": true,
                                 "Ex5_Danube": true,
                                 "calibration": true,
+                                "coupling": true,
                                 "cwatm": true,
                                 "cwatm_best_calib": true,
                                 "exercise3": true
@@ -388,6 +393,7 @@
                                 "Manning": false,
                                 "calibration": false,
                                 "calibration_ini": true,
+                                "coupling": true,
                                 "cwatm_best": false,
                                 "output_cwatm": false
                             }
@@ -438,8 +444,9 @@
                                 "Ex2_Bhima": false,
                                 "Ex2_Rhine": false,
                                 "Ex5_Bhima": false,
-                                "Ex5_Danube": true,
+                                "Ex5_Danube": false,
                                 "calibration": false,
+                                "coupling": true,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
                                 "exercise3": false
@@ -458,6 +465,7 @@
                                 "Manning": true,
                                 "calibration": true,
                                 "calibration_ini": true,
+                                "coupling": true,
                                 "cwatm_best": true,
                                 "output_cwatm": true
                             }
@@ -793,8 +801,8 @@
         "export_to_ini_calibtxt": {
             "type": "Tool",
             "description": "",
-            "x": 244.5144191165783,
-            "y": -357.4022057320578,
+            "x": 244.51441911657832,
+            "y": -358.41663311397645,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
