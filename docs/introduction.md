@@ -22,6 +22,10 @@ The energy system, through multiple countries, must be represented in FlexTool a
 
 ![ESM_Side](images/ESM + cascade.drawio.svg "Energy system model interactions")
 
+
+
+
+
 #### <a name="data_needs"></a> Data needs
 | **Demand node**                                              |                                    |                                                              |
 | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
