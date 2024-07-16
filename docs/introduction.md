@@ -20,6 +20,56 @@ CWatM can simulate changes in the water flow by including rainfall patterns, lak
 
 The energy system, through multiple countries, must be represented in FlexTool and a set of data comprising of the energy system, power production units, capacity, fuel types, ramp rates (up and down), infrastructure specification on transmission networks etc... must be collected and detailed. This first stage is common practice in building any energy system models.
 
+
+
+
+
+#### Data needs
+| **Demand node**                                              |                                    |                                                              |
+| ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
+| Location / region                                            |                                    | A map that shows how the nodes have been split               |
+| Annual demand                                                | Historical and future if available | [MWh]                                                        |
+| Demand time series                                           | Historical profile.                | [MWh] Will be scaled to match the annual value               |
+|                                                              |                                    |                                                              |
+| **Storage**                                                  |                                    |                                                              |
+| Existing storage  capacity                                   |                                    | [MWh or m3 in case of hydro]                                 |
+| Investment cost                                              | If relevant/available              | [currency/kWh] Investment cost for new storage capacity.     |
+|                                                              |                                    |                                                              |
+| **Units**                                                    |                                    |                                                              |
+| Location (which  node)                                       |                                    |                                                              |
+| Existing capacity                                            |                                    | [MW]                                                         |
+| Efficiency                                                   |                                    | [factor] Conversion efficiency of a unit.                    |
+| Minimum load                                                 | If relevant and if available       | [0-1] Minimum load of the unit.                              |
+| Efficiency at minimum load                                   | If relevant and if available       | [e.g. 0.4 means 40%] Efficiency of the unit at minimum load. |
+| Investment cost                                              | If relevant                        | [currency/kW of output]                                      |
+| Fixed annual cost                                            | If relevant                        | [currency/kW of output/year] Annually recurring costs        |
+| Startup cost                                                 | Ïf relevant                        | [currency/MW] Cost of starting up one MW of capacity.        |
+| Other operational cost                                       | Other than fuel/startup costs      | [currency/MWh]                                               |
+| Unit size                                                    | If relevant/available              | [MW] For units consisting of multiple sub-units.             |
+| Fuel                                                         | If relevant                        | If multiple fuels possible, explain any constraints in their use. |
+| Ramp limits (upward and downward)                            | If relevant                        | [per unit / minute]                                          |
+| Ramp cost (upward and downward)                              | If relevant                        |                                                              |
+| Hydro: Head height                                           | Average (at least)                 | [m]                                                          |
+| Hydro: Design flow                                           |                                    | [m3/s] Flow at which maximum capacity is reached             |
+| Hydro: Limits on spill and river flows                       | Could be time series...            | [m3/s]                                                       |
+|                                                              |                                    |                                                              |
+| **Connections**                                              |                                    |                                                              |
+| Which nodes the connection connects                          |                                    |                                                              |
+| Existing capacity                                            |                                    | [MW]                                                         |
+| Efficiency                                                   |                                    | [factor] Transfer efficiency (1 - losses)                    |
+| Investment cost                                              | If relevant/available              | [currency/kW of output]                                      |
+| Fixed annual cost                                            | If relevant                        | [currency/kW of output/year] Annually recurring costs        |
+|                                                              |                                    |                                                              |
+| **Fuels**                                                    |                                    |                                                              |
+| Fuel price                                                   |                                    | [currency/MWh of fuel]                                       |
+| CO2 content                                                  | If not a common fuel type          | [t_CO2/MWh of fuel]                                          |
+|                                                              |                                    |                                                              |
+| **Further  parameters we might want**                        |                                    |                                                              |
+| Capability of units to provide  primary/contingency reserves |                                    |                                                              |
+| Primary/contingency reserve requirements  in the system      |                                    |                                                              |
+
+
+
 Model interactions in practice for a specific basin
 
 
