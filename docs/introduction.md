@@ -18,13 +18,11 @@ CWatM can simulate changes in the water flow by including rainfall patterns, lak
 
 ### The energy system side
 
-The energy system, through multiple countries, must be represented in FlexTool and a set of data comprising of the energy system, power production units, capacity, fuel types, ramp rates (up and down), infrastructure specification on transmission networks etc... must be collected and detailed. This first stage is common practice in building any energy system models.
+The energy system, through multiple countries, must be represented in FlexTool and a set of data comprising of the energy system, power production units, capacity, fuel types, ramp rates (up and down), infrastructure specification on transmission networks etc... must be collected and detailed (see [section on data](#data_needs)). This first stage is common practice in building any energy system models.
 
+![ESM_Side](images/ESM + cascade.drawio.svg "Energy system model interactions")
 
-
-
-
-#### Data needs
+#### <a name="data_needs"></a> Data needs
 | **Demand node**                                              |                                    |                                                              |
 | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Location / region                                            |                                    | A map that shows how the nodes have been split               |
