@@ -8,7 +8,7 @@ repo_url: https://github.com/jeanlouisnico/CWatM-spinetoolbox
 edit_uri: blob/master/docs/
 
 # Copyright
-copyright: Copyright &copy; 2024 - "`r format(Sys.time(), '%d %B, %Y')`"  VTT - Design and Operation of Energy Systems
+copyright: Copyright &copy; 2024 - 2024  VTT - Design and Operation of Energy Systems
 
 theme:
   name: material
