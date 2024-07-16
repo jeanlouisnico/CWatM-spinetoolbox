@@ -16,7 +16,9 @@ In essence, the modelling concept consists of 3 modules; one of the glacier modu
 
 CWatM can simulate changes in the water flow by including rainfall patterns, lakes, and reservoirs charge and discharge, and includes the water demand from domestic, industrial, and agricultural activities. The types of crops need to be defined in the model to have a better representation of the crop rotation and water demand cycle throughout the growth cycle of plants.  It then calculates the spilled water from hydropower stations to evaluate the amount of water that goes through the downstream water flow. This is where the coupling of the energy system model and the hydrology model becomes interesting as hydropower may have different water spillage fluctuations based on market and energy needs. 
 
-The energy system through multiple countries must be represented in FlexTool and a set of data comprising of the energy system, power production units, capacity, fuel types, ramp rates (up and down), infrastructure specification on transmission networks etc... This 
+### The energy system side
+
+The energy system, through multiple countries, must be represented in FlexTool and a set of data comprising of the energy system, power production units, capacity, fuel types, ramp rates (up and down), infrastructure specification on transmission networks etc... must be collected and detailed. This first stage is common practice in building any energy system models.
 
 Model interactions in practice for a specific basin
 
