@@ -2,7 +2,7 @@
     "name": "CWatM",
     "tooltype": "python",
     "includes": [
-        "run_cwatm.py",
+        "toolbox_compatibility.py",
         "setup.py",
         "test_script.py",
         "mf6/linux/libmf6.so",
@@ -71,16 +71,15 @@
         "cwatm/hydrological_modules/groundwater_modflow/modflow6.py",
         "cwatm/hydrological_modules/groundwater_modflow/transient.py",
         "cwatm/__pycache__/__init__.cpython-39.pyc",
-        "cwatm/__pycache__/run_cwatm.cpython-39.pyc"
+        "cwatm/__pycache__/run_cwatm.cpython-39.pyc",
+        "run_cwatm.py"
     ],
     "description": "",
     "inputfiles": [
         "cwatm_input.ini"
     ],
     "inputfiles_opt": [],
-    "outputfiles": [
-        "*.nc"
-    ],
+    "outputfiles": [],
     "cmdline_args": [],
     "includes_main_path": "../../../../CWatM"
 }

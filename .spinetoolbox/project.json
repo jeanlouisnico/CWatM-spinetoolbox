@@ -614,8 +614,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 377.43049971884625,
-            "y": -68.19157802433627,
+            "x": 380.0947426883664,
+            "y": -54.87036317673582,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -825,8 +825,8 @@
         "export_to_ini_cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 241.3772203175735,
-            "y": -64.26743243453076,
+            "x": 241.37722031757346,
+            "y": -90.90986212973158,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
