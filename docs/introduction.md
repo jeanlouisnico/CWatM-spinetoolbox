@@ -22,11 +22,14 @@ The energy system, through multiple countries, must be represented in FlexTool a
 
 ![ESM_Side](images/ESM + cascade.drawio.svg "Energy system model interactions")
 
-
+To consider the cascading hydropower sector, the hydropower stations that are part of the same basin are taken away from the main node and details on these specific hydropower stations need to be provided. Other hydropower capacity are aggregated under one node. In case other trading countries are included, the energy system of the trading countries need to be included in a similar manner. 
 
 
 
 #### <a name="data_needs"></a> Data needs
+
+The following data are needed to build the energy system model and should serve as a guideline to collect data.
+
 | **Demand node**                                              |                                    |                                                              |
 | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Location / region                                            |                                    | A map that shows how the nodes have been split               |
@@ -69,8 +72,6 @@ The energy system, through multiple countries, must be represented in FlexTool a
 | **Further  parameters we might want**                        |                                    |                                                              |
 | Capability of units to provide  primary/contingency reserves |                                    |                                                              |
 | Primary/contingency reserve requirements  in the system      |                                    |                                                              |
-
-
 
 Model interactions in practice for a specific basin
 
