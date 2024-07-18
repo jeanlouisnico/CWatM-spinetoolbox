@@ -75,7 +75,7 @@ The following data are needed to build the energy system model and should serve 
 
 Model interactions in practice for a specific basin
 
-
+![concept_model](images/workflow_cwatm_flextool.svg)
 
 ![concept_model](images/flow_chart.svg)
 
@@ -90,3 +90,4 @@ To run this workflow, you will first need to setup SpineToolbox on your machine.
 All initial template files are available in the repo.
 
 [does-info@vtt.fi](mailto:does-info@vtt.fi)
+
