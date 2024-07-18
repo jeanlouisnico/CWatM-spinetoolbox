@@ -146,6 +146,7 @@ def retrieve_db(url, outfile, calib):
 		# Create output folders for each scenario and avoid writing errors in files
 		#print(my_dictionary)
 		if not my_dictionary["FILE_PATHS"] == None:
+			'''
 			print("Creating the directory")
 			outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
 			initfolder = my_dictionary["INITITIAL CONDITIONS"]["initSave"]
@@ -160,7 +161,7 @@ def retrieve_db(url, outfile, calib):
 			tomldoc["FILE_PATHS"]["PathOut"]=final_directory
 			my_dictionary["FILE_PATHS"]["PathOut"] = final_directory
 			tomldoc["INITITIAL CONDITIONS"]["initSave"]=final_directory_init
-			my_dictionary["INITITIAL CONDITIONS"]["initSave"] = final_directory_init
+			my_dictionary["INITITIAL CONDITIONS"]["initSave"] = final_directory_init '''
 		else:
 			try:
 				del my_dictionary['FILE_PATHS']

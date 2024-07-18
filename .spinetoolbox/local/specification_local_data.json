@@ -31,14 +31,6 @@
                 "executable": ""
             }
         },
-        "CWatM": {
-            "execution_settings": {
-                "kernel_spec_name": "",
-                "env": "",
-                "use_jupyter_console": false,
-                "executable": ""
-            }
-        },
         "import_ini_cwatm": {
             "execution_settings": {
                 "kernel_spec_name": "",
@@ -115,6 +107,14 @@
             "execution_settings": {
                 "cmd": "",
                 "shell": ""
+            }
+        },
+        "CWatM": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
+                "use_jupyter_console": false,
+                "executable": ""
             }
         }
     }

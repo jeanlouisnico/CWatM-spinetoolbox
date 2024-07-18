@@ -558,9 +558,9 @@
                 }
             },
             {
-                "name": "from Manning to convert_to_valid_toml",
+                "name": "from extra ini file to convert_to_valid_toml",
                 "from": [
-                    "Manning",
+                    "extra ini file",
                     "right"
                 ],
                 "to": [
@@ -614,8 +614,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 380.0947426883664,
-            "y": -54.87036317673582,
+            "x": 378.7626212036064,
+            "y": -54.870363176735815,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -903,7 +903,7 @@
             "kill_completed_processes": false,
             "log_process_output": false
         },
-        "Manning": {
+        "extra ini file": {
             "type": "Data Connection",
             "description": "",
             "x": -370.66007640173115,
