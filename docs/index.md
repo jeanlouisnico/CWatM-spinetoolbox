@@ -2,7 +2,7 @@
 
 
 
-<img src="images\flex_cwatm_logo.png" alt="flex_cwatm_logo" style="zoom:20%;height: auto; object-fit: cover;" />
+##### <img src="..\images\flex_cwatm_logo.svg" alt="flex_cwatm_logo" style="zoom:20%;height: auto; object-fit: cover;" />
 
 ## The genesis
 
