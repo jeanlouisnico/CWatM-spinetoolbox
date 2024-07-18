@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="221.61368mm"
-   height="63.069366mm"
-   viewBox="0 0 221.61368 63.069364"
+   width="221.614mm"
+   height="61.069366mm"
+   viewBox="0 0 221.614 61.069364"
    version="1.1"
    id="svg1"
    xml:space="preserve"
@@ -28,8 +28,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.4060714"
-     inkscape:cx="336.04267"
-     inkscape:cy="80.01016"
+     inkscape:cx="563.62714"
+     inkscape:cy="80.010162"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -113,7 +113,10 @@
            sodipodi:nodetypes="ccccssssscccccccc" /></g></g><g
        id="g3"
        inkscape:label="CWatM"
-       transform="translate(17.594086,3.7256164)"><path
+       transform="translate(17.594086,3.7256164)"
+       inkscape:export-filename=".\cwatm_logo.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><path
          style="fill:#09589e;fill-opacity:1;stroke:none;stroke-width:0.229718;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
          d="m 176.89349,110.9767 c -6.36438,-3.6658 -7.17517,-13.664814 -0.83836,-19.516397 5.272,-4.868296 11.786,-5.48446 14.57454,-14.768812 10.40499,15.456001 6.11077,43.095789 -13.73618,34.285209 z"
          id="path1"
