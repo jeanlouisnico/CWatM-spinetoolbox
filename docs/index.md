@@ -1,8 +1,6 @@
 # Welcome to FlexTool/CWatM User Guide!
 
-
-
-##### <img src="..\images\flex_cwatm_logo.svg" alt="flex_cwatm_logo" style="zoom:20%;height: auto; object-fit: cover;" />
+<div style="text-align:center"><img src="../images/flex_cwatm_logo.png" /></div>
 
 ## The genesis
 
