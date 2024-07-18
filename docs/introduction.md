@@ -73,7 +73,23 @@ The following data are needed to build the energy system model and should serve 
 | Capability of units to provide  primary/contingency reserves |                                    |                                                              |
 | Primary/contingency reserve requirements  in the system      |                                    |                                                              |
 
-Model interactions in practice for a specific basin
+Model interactions in practice for a specific basin is performed in sequence between CWatM and FlexTool. **1.** First a calibration run must be performed to set the variables to the hydro flow from selected hydro stations. This step can be quite long as it should include multiple years and is done with a combination of multiple variables. The calibration run provides the best fit and can be re-used in a CWatM model. **2.** The best data are stored back into the database and can be used to run the simulation over the period that is decided. The model should be run a first time to have as a cold start and therefore prepare the model for future warm starts. This stage will also be helpful to give FlexTool an horizon of the reservoir level for a full year in advance before altering the level of the reservoir. This first  
+
+#**Use the best fit from the calibration to run CWatM over a long period of time (long warm up). SpinUp value should be set to the beginning of the simulations and save the last day in the init folder**
+
+```
+[comment]: <> #**Send data to FlexTool**
+```
+
+
+
+Overall results (for the entire period) is used for the stochastic management. FlexTool returns a modified version of the init file with the reservoirs and flow in and out modified based on hydropower utilisation
+
+#**Continue the run in CWatM**
+Re-run CWatM with a new day of simulation. Use warm up start to speed up the process and re-use saved data to avoid recalculations 
+
+%**End simulation**
+keep looping until the end of the simulation. At the simulation all results are saved in the output folder and can be further processed
 
 ![concept_model](images/workflow_cwatm_flextool.svg)
 
