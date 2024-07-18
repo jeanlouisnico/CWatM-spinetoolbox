@@ -79,7 +79,7 @@ Model interactions in practice for a specific basin is performed in sequence bet
 
 ![concept_model](images/workflow_cwatm_flextool.svg)
 
-
+Within a given water basin, the data extracted and to be computed by both models are presented in the workflow below. 
 
 ![concept_model](images/flow_chart.svg)
 
