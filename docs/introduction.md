@@ -79,7 +79,7 @@ Model interactions in practice for a specific basin is performed in sequence bet
 
 <div style="text-align:center"><img src="../images/workflow_cwatm_flextool.svg" /></div>
 
-Within a given water basin, the data extracted and to be computed by both models are presented in the workflow below. The model is built to have consecutively a hydro reservoir, hydro powerplant and its dedicated spillage. <span style="color:#7ea6e0"> Electricity output </span> from hydro power plant are computed by the different stations across a country ***A*** and aggregated for the basin in the same country. They are further added up to the overall hydropower capacity generated for this country. A similar approach is done for the remaining countries.  <span style="color:#00b050"> *some emphasized markdown text*</span> 
+Within a given water basin, the data extracted and to be computed by both models are presented in the workflow below. The model is built to have consecutively a hydro reservoir, hydro powerplant and its dedicated spillage. <span style="color:#7ea6e0"> Electricity output </span> from hydro power plant are computed by the different stations across a country ***A*** and aggregated for the basin in the same country. They are further added up to the overall hydropower capacity generated for this country. A similar approach is done for the remaining countries. At each point between reservoirs, the <span style="color:#00b050"> water flows</span>  are computed by CWatM and passed to FlexTool. These updated <span style="color:#00b050"> water flows</span> are updated and altered by the power produced and water consumed by each hydropower plant and fed back to CWatM.
 
 ![concept_model](images/flow_chart.svg)
 
