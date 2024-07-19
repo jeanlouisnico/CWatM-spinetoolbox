@@ -1,0 +1,17 @@
+{
+    "name": "process_to_flexTool",
+    "tooltype": "python",
+    "includes": [
+        "process_data.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [
+        "init/*.nc"
+    ],
+    "outputfiles": [
+        "*.nc"
+    ],
+    "cmdline_args": [],
+    "includes_main_path": "../../bin"
+}

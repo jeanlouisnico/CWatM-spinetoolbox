@@ -66,6 +66,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/test.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/process_to_flextool.json"
                 }
             ]
         },
@@ -575,9 +580,46 @@
                         "scenario_filter": true
                     }
                 }
+            },
+            {
+                "name": "from cwatm to process_to_flexTool",
+                "from": [
+                    "cwatm",
+                    "right"
+                ],
+                "to": [
+                    "process_to_flexTool",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
             }
         ],
-        "jumps": []
+        "jumps": [
+            {
+                "name": "from process_to_flexTool to export_to_ini_cwatm",
+                "from": [
+                    "process_to_flexTool",
+                    "bottom"
+                ],
+                "to": [
+                    "export_to_ini_cwatm",
+                    "bottom"
+                ],
+                "condition": {
+                    "type": "python-script",
+                    "script": "exit(1)",
+                    "specification": ""
+                },
+                "cmd_line_args": []
+            }
+        ]
     },
     "items": {
         "cwatm ini": {
@@ -916,6 +958,17 @@
                 }
             ],
             "db_references": []
+        },
+        "process_to_flexTool": {
+            "type": "Tool",
+            "description": "",
+            "x": 515.772396683604,
+            "y": -5.199318514955685,
+            "specification": "process_to_flexTool",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false,
+            "log_process_output": false
         }
     }
 }
