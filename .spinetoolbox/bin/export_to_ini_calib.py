@@ -1,12 +1,14 @@
 import sys
 import spinedb_api as api
 from spinedb_api import DatabaseMapping
+from spinedb_api.filters import tools as filter_tools
 from tomlkit import *
 
 from pathlib import Path
 import os
 import re
 import fileinput
+import json
 
 url = sys.argv[1]
 outfile = sys.argv[2]
@@ -132,9 +134,11 @@ def retrieve_db(url, outfile, calib):
 				continue
 
 			dic = {values['parameter_definition_name']: data}
+			'''
 			print("Adding entity_name: ", values['entity_name'])
 			print("     parameter_definition_name: ", values['parameter_definition_name'])
 			print("     data: ", data)
+			'''
 			if not my_dictionary[values['entity_name']]:
 				my_dictionary[values['entity_name']] = dic
 				tomldoc[values['entity_name']].add(values['parameter_definition_name'], data)
@@ -185,7 +189,7 @@ def retrieve_db(url, outfile, calib):
 		addemptyoutput = False
 		doccheck = doc.copy()
 		for key in doccheck:
-			print(key, ": ", doccheck[key])
+			#print(key, ": ", doccheck[key])
 			if not doccheck[key] and calib.lower() in ['true', '1'] and key=="OUTPUT":
 				# If the OUTPUT key exist but is not assign
 				print("adding output section")
@@ -231,5 +235,30 @@ def retrieve_db(url, outfile, calib):
 		replacetext(outfile+".ini", "\\\\", "\\")
 		use_regex_date(outfile+".ini")
 
-
+# Write to a cwatm compatible ini file
 retrieve_db(url, outfile, calib) 
+
+# Get the alternative for each scenario where it writes the scenario and the winning alternative in a separate file
+
+with DatabaseMapping(url) as db_map:
+	filter_configs = db_map.get_filter_configs()
+	for config in filter_configs:
+		scenario_name = filter_tools.name_from_dict(config)
+		if scenario_name is not None:
+			break
+		else:
+			raise RuntimeError("no scenario filter in database mapping")
+		
+	scenario_alternatives = db_map.get_scenario_alternative_items(scenario_name=scenario_name)
+	scenario_item = db_map.get_scenario_item(name=scenario_name)
+	print(f"alt: {scenario_item['alternative_name_list']}")
+	setofalt = dict()
+	#for i in scenario_item['alternative_name_list']:
+	#	setofalt[i] = None
+	for item in scenario_alternatives: 
+		#print(f"alt: {item['alternative_name']} rank: {item['rank']} (highest rank wins)")
+		print(f"ordered alternatives {scenario_item['alternative_name_list']} (last alt wins)")
+		setofalt[item['rank']] = item['alternative_name']
+	
+	with open('alt_list.json', 'w') as json_file:     
+		json.dump(setofalt, json_file)

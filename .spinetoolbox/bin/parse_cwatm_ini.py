@@ -25,7 +25,7 @@ def remove_all(sql_url):
         keys = [entities["name"] for entities in scenario]
         for key in keys:
             db_map.get_scenario_item(name=key).remove()
-        # Remove all the identity
+        # Remove all the entity
         entity_classes = db_map.get_entity_class_items()
         keys = [entities["name"] for entities in entity_classes]
         for key in keys:

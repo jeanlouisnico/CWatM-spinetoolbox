@@ -8,7 +8,8 @@
     "inputfiles": [],
     "inputfiles_opt": [],
     "outputfiles": [
-        "*.ini"
+        "*.ini",
+        "alt_list.json"
     ],
     "cmdline_args": [],
     "includes_main_path": "../../bin"

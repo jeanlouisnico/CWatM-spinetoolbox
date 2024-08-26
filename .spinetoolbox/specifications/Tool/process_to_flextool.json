@@ -5,7 +5,9 @@
         "process_data.py"
     ],
     "description": "",
-    "inputfiles": [],
+    "inputfiles": [
+        "cwatm_input.ini"
+    ],
     "inputfiles_opt": [
         "init/*.nc"
     ],

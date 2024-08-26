@@ -80,6 +80,7 @@
     ],
     "inputfiles_opt": [],
     "outputfiles": [
+        "cwatm_input.ini",
         "init/*.nc",
         "output/*.nc"
     ],

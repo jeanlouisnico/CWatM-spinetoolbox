@@ -26,6 +26,12 @@
         },
         "extra ini file": {
             "db_credentials": {}
+        },
+        "data_store_loop": {
+            "url": {
+                "username": "",
+                "password": ""
+            }
         }
     }
 }
