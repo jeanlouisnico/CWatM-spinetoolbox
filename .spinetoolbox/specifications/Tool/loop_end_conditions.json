@@ -1,0 +1,13 @@
+{
+    "name": "Loop_end_conditions",
+    "tooltype": "python",
+    "includes": [
+        "loop_end_conditions.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../bin"
+}

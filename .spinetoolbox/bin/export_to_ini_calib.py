@@ -130,9 +130,10 @@ def retrieve_db(url, outfile, calib):
 			else:
 				data  = api.from_database(values["value"], values["type"])
 
+			# This section is only used for the calibration run, where we discard the outputs
 			if calib.lower() in ['false', '0'] and values['entity_name']=="CALIBRATION" and values['parameter_definition_name'] in ['OUT_Dir', 'OUT_TSS_Daily', 'OUT_TSS_MonthAvg']:
 				continue
-
+			
 			dic = {values['parameter_definition_name']: data}
 			'''
 			print("Adding entity_name: ", values['entity_name'])
@@ -146,7 +147,30 @@ def retrieve_db(url, outfile, calib):
 				my_dictionary[values['entity_name']].update(dic)
 				tomldoc[values['entity_name']][values['parameter_definition_name']]=data
 		
-		
+		# This section is meant for the day-by-day loops where we replace the name of the init file to the appropriate file
+		param_val = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="load_initial")
+		data  = api.from_database(param_val[0]["value"], param_val[0]["type"])
+		if data == True:
+			# Look for the Spinup date and the file name from the initSave variable to build the filename to be loaded
+			param_val_bis = db_map.get_parameter_value_items(entity_class_name="TIME-RELATED_CONSTANTS", entity_byname=("TIME-RELATED_CONSTANTS",), parameter_definition_name="SpinUp")
+			timesaved = api.from_database(param_val_bis[0]["value"], param_val_bis[0]["type"])
+
+			param_val_initsave = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="initSave")
+			initpath = api.from_database(param_val_initsave[0]["value"], param_val_initsave[0]["type"])
+			if "/" in initpath:
+				splitstr = initpath.split("/")
+				initfile = splitstr[-1]
+			elif "\\" in initpath:
+				splitstr = initpath.split("\\")
+				initfile = splitstr[-1]
+			else:
+				initfile = initpath
+			data = initfile + timesaved.value.strftime("%Y%m%d") + ".nc"
+
+			tomldoc["INITITIAL CONDITIONS"]["initLoad"] = data
+
+			# Change the StepInit to the value of StepEnd in case the initSave value is true
+
 		# Create output folders for each scenario and avoid writing errors in files
 		#print(my_dictionary)
 		if not my_dictionary["FILE_PATHS"] == None:

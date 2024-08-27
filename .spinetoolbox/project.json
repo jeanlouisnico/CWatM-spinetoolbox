@@ -76,6 +76,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/loop_next_day.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/loop_end_conditions.json"
                 }
             ]
         },
@@ -675,11 +680,16 @@
                     "left"
                 ],
                 "condition": {
-                    "type": "python-script",
                     "script": "exit(1)",
-                    "specification": ""
+                    "specification": "Loop_end_conditions",
+                    "type": "tool-specification"
                 },
-                "cmd_line_args": []
+                "cmd_line_args": [
+                    {
+                        "type": "resource",
+                        "arg": "db_url@data_store_loop"
+                    }
+                ]
             }
         ]
     },
@@ -718,8 +728,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 382.05162140187645,
-            "y": -94.33836555597645,
+            "x": 427.7971609731453,
+            "y": -91.99244044975752,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -929,8 +939,8 @@
         "export_to_ini_cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 241.37722031757346,
-            "y": -90.90986212973158,
+            "x": 239.017102060323,
+            "y": -93.26998038698206,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1024,8 +1034,8 @@
         "process_to_flexTool": {
             "type": "Tool",
             "description": "",
-            "x": 525.6393972784142,
-            "y": -92.35782376911212,
+            "x": 569.0390117434641,
+            "y": -85.32004845045535,
             "specification": "process_to_flexTool",
             "execute_in_work": true,
             "cmd_line_args": [],
@@ -1035,7 +1045,7 @@
         "loop_next_day": {
             "type": "Tool",
             "description": "",
-            "x": 325.0794088597812,
+            "x": 322.7192906025307,
             "y": 39.00470020941313,
             "specification": "loop_next_day",
             "execute_in_work": true,
@@ -1059,8 +1069,8 @@
         "data_store_loop": {
             "type": "Data Store",
             "description": "",
-            "x": 171.09574497629393,
-            "y": 37.27784387751655,
+            "x": 168.73562671904347,
+            "y": 37.27784387751656,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
