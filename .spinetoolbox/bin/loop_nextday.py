@@ -41,7 +41,10 @@ with open(alt_file) as f:
 
 print(data_alt)
 # Declare the alternative where the calibration variables have been declared
- 
+with DatabaseMapping(url) as db_map:
+    real_url = db_map.db_url 
+with open("out.dat", "w") as out_file:
+    out_file.writelines([f"{real_url}\n"])
 
 class ExtParser(configparser.ConfigParser):
     """
@@ -89,6 +92,10 @@ class ExtParser(configparser.ConfigParser):
         self.cur_depth = self.cur_depth - 1
         return ret
 
+def writealt_to_file(var, alt):
+    with open("out.dat", "a") as out_file:
+        out_file.writelines([f"{var};{alt} \n"])
+
 def allocate_var_to_alt(var, newvalue, highrank, data_alt, sql_url, ECN):
     #value, value_type = api.to_database(newvalue)
     print(f"{newvalue} of type {type(newvalue)}")
@@ -118,6 +125,7 @@ def allocate_var_to_alt(var, newvalue, highrank, data_alt, sql_url, ECN):
                 highrank -= 1
             else:
                 foundalt = True
+                writealt_to_file(var, alt_name)
                 print(f"    The variable {var} exists in the alternative {alt_name}")
                 data_spdb = api.from_database(param_val.get("value"), param_val.get("type"))
                 try:

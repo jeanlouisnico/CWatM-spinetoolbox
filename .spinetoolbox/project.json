@@ -670,14 +670,14 @@
         ],
         "jumps": [
             {
-                "name": "from data_store_loop to export_to_ini_cwatm",
+                "name": "from loop_next_day to export_to_ini_cwatm",
                 "from": [
-                    "data_store_loop",
+                    "loop_next_day",
                     "left"
                 ],
                 "to": [
                     "export_to_ini_cwatm",
-                    "left"
+                    "bottom"
                 ],
                 "condition": {
                     "script": "exit(1)",
@@ -687,7 +687,7 @@
                 "cmd_line_args": [
                     {
                         "type": "resource",
-                        "arg": "db_url@data_store_loop"
+                        "arg": "out.dat"
                     }
                 ]
             }
@@ -940,7 +940,7 @@
             "type": "Tool",
             "description": "",
             "x": 239.017102060323,
-            "y": -93.26998038698206,
+            "y": -93.84404608330638,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
