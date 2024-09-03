@@ -16,11 +16,14 @@ with open(file_path, 'r') as file:
             print(url)
 
 with DatabaseMapping(url) as db_map:
-    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepFlexTool', alternative_name='coupling')
+    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepFlexTool', alternative_name=var['StepEnd'])
     maxdate = api.from_database(param_value["value"], param_value["type"])
 
-    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepEnd', alternative_name=var['StepEnd'][1])
+    print(maxdate)
+
+    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepEnd', alternative_name=var['StepEnd'])
     enddate = api.from_database(param_value["value"], param_value["type"])
+    print(enddate)
 
 if enddate > maxdate:
     exit(1) 

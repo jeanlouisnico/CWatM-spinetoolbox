@@ -226,7 +226,7 @@
                                 "Ex5_Bhima": false,
                                 "Ex5_Danube": false,
                                 "calibration": true,
-                                "coupling": true,
+                                "coupling": false,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
                                 "exercise3": false
@@ -408,7 +408,7 @@
                                 "Manning": false,
                                 "calibration": false,
                                 "calibration_ini": true,
-                                "coupling": true,
+                                "coupling": false,
                                 "cwatm_best": false,
                                 "output_cwatm": false
                             }
@@ -680,7 +680,7 @@
                     "bottom"
                 ],
                 "condition": {
-                    "script": "exit(1)",
+                    "script": "from spinedb_api import DatabaseMapping\nimport sys \nimport spinedb_api as api\n\nfile_path = sys.argv[1]\nvar = {}\nwith open(file_path, 'r') as file:\n    for line in file:\n        str_test = line.strip()\n        if str_test.find(\";\")>0:\n            print(line.strip())\n            variables = str_test.split(\";\")\n            var[variables[0]] = variables[1]\n        else:\n            url = str_test\n            print(url)\n\nwith DatabaseMapping(url) as db_map:\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepFlexTool', alternative_name='coupling')\n    maxdate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepEnd', alternative_name=var['StepEnd'][1])\n    enddate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n\nif enddate > maxdate:\n    exit(1) ",
                     "specification": "Loop_end_conditions",
                     "type": "tool-specification"
                 },
@@ -711,7 +711,7 @@
         "cwatm_db": {
             "type": "Data Store",
             "description": "",
-            "x": 67.40133255685343,
+            "x": 65.37710489761717,
             "y": -195.77396452031766,
             "url": {
                 "dialect": "sqlite",
@@ -939,8 +939,8 @@
         "export_to_ini_cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 239.017102060323,
-            "y": -93.84404608330638,
+            "x": 237.89429909007683,
+            "y": -92.72124311306015,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1046,7 +1046,7 @@
             "type": "Tool",
             "description": "",
             "x": 322.7192906025307,
-            "y": 39.00470020941313,
+            "y": 37.943599600355725,
             "specification": "loop_next_day",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1069,7 +1069,7 @@
         "data_store_loop": {
             "type": "Data Store",
             "description": "",
-            "x": 168.73562671904347,
+            "x": 169.74774054866157,
             "y": 37.27784387751656,
             "url": {
                 "dialect": "sqlite",
