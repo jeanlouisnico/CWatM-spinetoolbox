@@ -1,5 +1,5 @@
 # CWatM-spinetoolbox
-This [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/tree/0.8-dev	"Github Link") project aimed at implementing the [CWatM Model](https://github.com/iiasa/CWatM	"Github Link") and creating the data workflow as well as scenario management . 
+This [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/	"Github Link") project aimed at implementing the [CWatM Model](https://github.com/iiasa/CWatM	"Github Link") and creating the data workflow as well as scenario management . 
 
 # Reading the workflow
 
@@ -54,7 +54,7 @@ You are now ready to run the workflow from SpineToolbox
 
 Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below. This workflow is split into different section that can run as a whole or can be run by section (by selection the boxes, one can run only the selected workflows)
 
-![wf_total](docs\images\workflow.svg)
+![wf_total](docs/images/workflow.svg)
 
 1. Import of the calibration .ini file into the database
 

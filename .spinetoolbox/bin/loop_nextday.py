@@ -173,6 +173,10 @@ stepend = datetime.datetime.strptime(stepend, '%d/%m/%Y')
 stepend += datetime.timedelta(days=1)
 stepend = datetime.datetime.date(stepend)
 
+stepinit = config['INITITIAL CONDITIONS']["StepInit"]
+
+
+
 load_initial = True
 
 # Look for the variables in the database from the winning alternative to the lowest ranked alternative and change the value
@@ -181,4 +185,4 @@ allocate_var_to_alt("SpinUp", spinup, highrank, data_alt, url, "TIME-RELATED_CON
 allocate_var_to_alt("StepEnd", stepend, highrank, data_alt, url, "TIME-RELATED_CONSTANTS")
 allocate_var_to_alt("load_initial", load_initial, highrank, data_alt, url, "INITITIAL CONDITIONS")
 
-print(stepend)
+print(stepinit)
