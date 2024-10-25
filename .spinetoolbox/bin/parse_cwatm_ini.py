@@ -90,11 +90,11 @@ def populate_ini(sql_url, config, alternative):
 
                 print(value_in_db)
                 print(value)
-                if value_in_db == value:
+                if value_in_db == api.from_database(value,type_):
                     print("same value, skipping")
                     continue
                 else:
-                    print("not the same value")
+                    print(f"not the same value value_in_db={value_in_db} and value_ini={value}")
 
                 db_map.add_parameter_value_item(
                     entity_class_name=key,
