@@ -1,8 +1,5 @@
 {
     "items": {
-        "cwatm ini": {
-            "db_credentials": {}
-        },
         "cwatm_db": {
             "url": {
                 "username": "",
@@ -24,14 +21,14 @@
                 "password": ""
             }
         },
-        "extra ini file": {
-            "db_credentials": {}
-        },
         "data_store_loop": {
             "url": {
                 "username": "",
                 "password": ""
             }
+        },
+        "CWatM ini file": {
+            "db_credentials": {}
         }
     }
 }

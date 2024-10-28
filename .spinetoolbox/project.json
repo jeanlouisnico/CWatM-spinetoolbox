@@ -86,25 +86,6 @@
         },
         "connections": [
             {
-                "name": "from cwatm ini to convert_to_valid_toml",
-                "from": [
-                    "cwatm ini",
-                    "right"
-                ],
-                "to": [
-                    "convert_to_valid_toml",
-                    "left"
-                ],
-                "filter_settings": {
-                    "known_filters": {},
-                    "auto_online": true,
-                    "enabled_filter_types": {
-                        "alternative_filter": false,
-                        "scenario_filter": true
-                    }
-                }
-            },
-            {
                 "name": "from convert_to_valid_toml to parse_toml",
                 "from": [
                     "convert_to_valid_toml",
@@ -243,6 +224,7 @@
                                 "6_Watercycle": true,
                                 "Base": true,
                                 "Manning": true,
+                                "TU-Nexus_base": true,
                                 "calibration": true,
                                 "calibration_ini": true,
                                 "coupling": true,
@@ -315,6 +297,7 @@
                                 "6_Watercycle": true,
                                 "Base": true,
                                 "Manning": true,
+                                "TU-Nexus_base": true,
                                 "calibration": true,
                                 "calibration_ini": true,
                                 "coupling": true,
@@ -406,6 +389,7 @@
                                 "6_Watercycle": false,
                                 "Base": false,
                                 "Manning": false,
+                                "TU-Nexus_base": true,
                                 "calibration": false,
                                 "calibration_ini": true,
                                 "coupling": false,
@@ -478,6 +462,7 @@
                                 "6_Watercycle": true,
                                 "Base": true,
                                 "Manning": true,
+                                "TU-Nexus_base": true,
                                 "calibration": true,
                                 "calibration_ini": true,
                                 "coupling": true,
@@ -573,9 +558,9 @@
                 }
             },
             {
-                "name": "from extra ini file to convert_to_valid_toml",
+                "name": "from CWatM ini file to convert_to_valid_toml",
                 "from": [
-                    "extra ini file",
+                    "CWatM ini file",
                     "right"
                 ],
                 "to": [
@@ -694,20 +679,6 @@
         ]
     },
     "items": {
-        "cwatm ini": {
-            "type": "Data Connection",
-            "description": "",
-            "x": -372.9265696665215,
-            "y": -93.06359875023247,
-            "file_references": [
-                {
-                    "type": "path",
-                    "relative": false,
-                    "path": "C:/Users/JLJEAN/tunexus/CWatM-Earth-30min/settings_CWatM_template_30min.ini"
-                }
-            ],
-            "db_references": []
-        },
         "cwatm_db": {
             "type": "Data Store",
             "description": "",
@@ -766,13 +737,13 @@
             "type": "Tool",
             "description": "",
             "x": -235.27792191216335,
-            "y": -73.35476991365341,
+            "y": -74.47757288389964,
             "specification": "to_toml",
             "execute_in_work": true,
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "C:\\Git\\CWatM\\Toolkit\\pytesting\\settings\\5min\\rhine_5min_modflow\\settings_rhine5min_gw.ini"
+                    "arg": "<project>/CWATM Model/Input Data/settings_CWatM_template_5min.ini"
                 }
             ],
             "kill_completed_processes": false,
@@ -792,7 +763,7 @@
                 },
                 {
                     "type": "literal",
-                    "arg": "12_5min_modflow"
+                    "arg": "TU-Nexus_base"
                 },
                 {
                     "type": "literal",
@@ -1017,20 +988,6 @@
             "kill_completed_processes": false,
             "log_process_output": false
         },
-        "extra ini file": {
-            "type": "Data Connection",
-            "description": "",
-            "x": -370.66007640173115,
-            "y": 17.696822901049202,
-            "file_references": [
-                {
-                    "type": "path",
-                    "relative": false,
-                    "path": "C:/Git/CWatM/Toolkit/pytesting/settings/5min/rhine_5min_modflow/settings_rhine5min_gw.ini"
-                }
-            ],
-            "db_references": []
-        },
         "process_to_flexTool": {
             "type": "Tool",
             "description": "",
@@ -1082,6 +1039,20 @@
                 },
                 "schema": ""
             }
+        },
+        "CWatM ini file": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -369.08916532547016,
+            "y": -73.75507094830829,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "CWATM Model/Input Data/settings_CWatM_template_5min.ini"
+                }
+            ],
+            "db_references": []
         }
     }
 }
