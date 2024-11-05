@@ -1,3 +1,5 @@
+[![documentation](https://img.shields.io/badge/docs-main-green?logo=github&link=https%3A%2F%2Fjeanlouisnico.github.io%2FCWatM-spinetoolbox%2F)](https://jeanlouisnico.github.io/CWatM-spinetoolbox/)
+
 # CWatM-spinetoolbox
 This [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/	"Github Link") project aimed at implementing the [CWatM Model](https://github.com/iiasa/CWatM	"Github Link") and creating the data workflow as well as scenario management . 
 
