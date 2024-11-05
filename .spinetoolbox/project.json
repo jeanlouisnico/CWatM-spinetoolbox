@@ -210,7 +210,8 @@
                                 "coupling": false,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
-                                "exercise3": false
+                                "exercise3": false,
+                                "high_snow_scenario": true
                             },
                             "alternative_filter": {
                                 "10_Lakes-Reservoirs_Lakes": true,
@@ -229,6 +230,7 @@
                                 "calibration_ini": true,
                                 "coupling": true,
                                 "cwatm_best": true,
+                                "high_snow": true,
                                 "output_cwatm": true
                             }
                         }
@@ -283,7 +285,8 @@
                                 "coupling": true,
                                 "cwatm": true,
                                 "cwatm_best_calib": true,
-                                "exercise3": true
+                                "exercise3": true,
+                                "high_snow_scenario": true
                             },
                             "alternative_filter": {
                                 "10_Lakes-Reservoirs_Lakes": true,
@@ -302,6 +305,7 @@
                                 "calibration_ini": true,
                                 "coupling": true,
                                 "cwatm_best": true,
+                                "high_snow": true,
                                 "output_cwatm": true
                             }
                         }
@@ -375,7 +379,8 @@
                                 "coupling": true,
                                 "cwatm": true,
                                 "cwatm_best_calib": true,
-                                "exercise3": true
+                                "exercise3": true,
+                                "high_snow_scenario": true
                             },
                             "alternative_filter": {
                                 "10_Lakes-Reservoirs_Lakes": false,
@@ -394,6 +399,7 @@
                                 "calibration_ini": true,
                                 "coupling": false,
                                 "cwatm_best": false,
+                                "high_snow": true,
                                 "output_cwatm": false
                             }
                         }
@@ -448,7 +454,8 @@
                                 "coupling": true,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
-                                "exercise3": false
+                                "exercise3": false,
+                                "high_snow_scenario": false
                             },
                             "alternative_filter": {
                                 "10_Lakes-Reservoirs_Lakes": true,
@@ -467,29 +474,11 @@
                                 "calibration_ini": true,
                                 "coupling": true,
                                 "cwatm_best": true,
+                                "high_snow": true,
                                 "output_cwatm": true
                             }
                         }
                     },
-                    "auto_online": true,
-                    "enabled_filter_types": {
-                        "alternative_filter": false,
-                        "scenario_filter": true
-                    }
-                }
-            },
-            {
-                "name": "from export_to_ini_cwatm to cwatm",
-                "from": [
-                    "export_to_ini_cwatm",
-                    "right"
-                ],
-                "to": [
-                    "cwatm",
-                    "left"
-                ],
-                "filter_settings": {
-                    "known_filters": {},
                     "auto_online": true,
                     "enabled_filter_types": {
                         "alternative_filter": false,
@@ -577,25 +566,6 @@
                 }
             },
             {
-                "name": "from cwatm to process_to_flexTool",
-                "from": [
-                    "cwatm",
-                    "right"
-                ],
-                "to": [
-                    "process_to_flexTool",
-                    "left"
-                ],
-                "filter_settings": {
-                    "known_filters": {},
-                    "auto_online": true,
-                    "enabled_filter_types": {
-                        "alternative_filter": false,
-                        "scenario_filter": true
-                    }
-                }
-            },
-            {
                 "name": "from export_to_ini_cwatm to loop_next_day",
                 "from": [
                     "export_to_ini_cwatm",
@@ -604,25 +574,6 @@
                 "to": [
                     "loop_next_day",
                     "right"
-                ],
-                "filter_settings": {
-                    "known_filters": {},
-                    "auto_online": true,
-                    "enabled_filter_types": {
-                        "alternative_filter": false,
-                        "scenario_filter": true
-                    }
-                }
-            },
-            {
-                "name": "from process_to_flexTool to loop_next_day",
-                "from": [
-                    "process_to_flexTool",
-                    "bottom"
-                ],
-                "to": [
-                    "loop_next_day",
-                    "bottom"
                 ],
                 "filter_settings": {
                     "known_filters": {},
@@ -651,6 +602,138 @@
                         "scenario_filter": true
                     }
                 }
+            },
+            {
+                "name": "from cwatm_db to export_to_ini_calib_Cwatm_stdalone",
+                "from": [
+                    "cwatm_db",
+                    "right"
+                ],
+                "to": [
+                    "export_to_ini_calib_Cwatm_stdalone",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@cwatm_db": {
+                            "scenario_filter": {
+                                "Ex10_Lakes": true,
+                                "Ex10_Res": true,
+                                "Ex2_Bhima": true,
+                                "Ex2_Rhine": true,
+                                "Ex5_Bhima": true,
+                                "Ex5_Danube": true,
+                                "calibration": true,
+                                "coupling": true,
+                                "cwatm": true,
+                                "cwatm_best_calib": true,
+                                "exercise3": true,
+                                "high_snow_scenario": true
+                            },
+                            "alternative_filter": {
+                                "10_Lakes-Reservoirs_Lakes": true,
+                                "10_Lakes-Reservoirs_reservoires": true,
+                                "11_1km_buhma": true,
+                                "12_5min_modflow": true,
+                                "2_Choose_Basin_Bhima": true,
+                                "2_Choose_Basin_Rhine": true,
+                                "5_Increasing-resolution_Bhima": true,
+                                "5_Increasing-resolution_Danube": true,
+                                "6_Watercycle": true,
+                                "Base": true,
+                                "Manning": true,
+                                "TU-Nexus_base": true,
+                                "calibration": true,
+                                "calibration_ini": true,
+                                "coupling": true,
+                                "cwatm_best": true,
+                                "high_snow": true,
+                                "output_cwatm": true
+                            }
+                        }
+                    },
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from export_to_ini_calib_Cwatm_stdalone to CWatM_standalone",
+                "from": [
+                    "export_to_ini_calib_Cwatm_stdalone",
+                    "right"
+                ],
+                "to": [
+                    "CWatM_standalone",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from cwatm to process_to_flexTool",
+                "from": [
+                    "cwatm",
+                    "right"
+                ],
+                "to": [
+                    "process_to_flexTool",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from process_to_flexTool to loop_next_day",
+                "from": [
+                    "process_to_flexTool",
+                    "bottom"
+                ],
+                "to": [
+                    "loop_next_day",
+                    "right"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from export_to_ini_cwatm to cwatm",
+                "from": [
+                    "export_to_ini_cwatm",
+                    "right"
+                ],
+                "to": [
+                    "cwatm",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
             }
         ],
         "jumps": [
@@ -662,11 +745,11 @@
                 ],
                 "to": [
                     "export_to_ini_cwatm",
-                    "bottom"
+                    "left"
                 ],
                 "condition": {
                     "script": "from spinedb_api import DatabaseMapping\nimport sys \nimport spinedb_api as api\n\nfile_path = sys.argv[1]\nvar = {}\nwith open(file_path, 'r') as file:\n    for line in file:\n        str_test = line.strip()\n        if str_test.find(\";\")>0:\n            print(line.strip())\n            variables = str_test.split(\";\")\n            var[variables[0]] = variables[1]\n        else:\n            url = str_test\n            print(url)\n\nwith DatabaseMapping(url) as db_map:\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepFlexTool', alternative_name=var['StepEnd'])\n    maxdate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n\n    print(maxdate)\n\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepEnd', alternative_name=var['StepEnd'])\n    enddate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n    print(enddate)\n\nif enddate > maxdate:\n    exit(1) ",
-                    "specification": "Loop_end_conditions",
+                    "specification": "Flextool",
                     "type": "python-script"
                 },
                 "cmd_line_args": [
@@ -682,8 +765,8 @@
         "cwatm_db": {
             "type": "Data Store",
             "description": "",
-            "x": 65.37710489761717,
-            "y": -195.77396452031766,
+            "x": 65.37710489761716,
+            "y": -196.35899537386686,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -699,8 +782,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 427.7971609731453,
-            "y": -91.99244044975752,
+            "x": 426.81105965940174,
+            "y": 32.25632508192743,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -907,30 +990,6 @@
             "kill_completed_processes": false,
             "log_process_output": false
         },
-        "export_to_ini_cwatm": {
-            "type": "Tool",
-            "description": "",
-            "x": 237.89429909007683,
-            "y": -92.72124311306015,
-            "specification": "export_to_ini_calib",
-            "execute_in_work": true,
-            "cmd_line_args": [
-                {
-                    "type": "resource",
-                    "arg": "db_url@cwatm_db"
-                },
-                {
-                    "type": "literal",
-                    "arg": "cwatm_input"
-                },
-                {
-                    "type": "literal",
-                    "arg": "false"
-                }
-            ],
-            "kill_completed_processes": false,
-            "log_process_output": false
-        },
         "best_calib": {
             "type": "Data Store",
             "description": "",
@@ -991,8 +1050,8 @@
         "process_to_flexTool": {
             "type": "Tool",
             "description": "",
-            "x": 569.0390117434641,
-            "y": -85.32004845045535,
+            "x": 587.1583102825525,
+            "y": 33.57211621228322,
             "specification": "process_to_flexTool",
             "execute_in_work": true,
             "cmd_line_args": [],
@@ -1002,8 +1061,8 @@
         "loop_next_day": {
             "type": "Tool",
             "description": "",
-            "x": 322.7192906025307,
-            "y": 37.943599600355725,
+            "x": 321.7331892887871,
+            "y": 161.2759548950923,
             "specification": "loop_next_day",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1026,8 +1085,8 @@
         "data_store_loop": {
             "type": "Data Store",
             "description": "",
-            "x": 169.74774054866157,
-            "y": 37.27784387751656,
+            "x": 168.761639234918,
+            "y": 161.5266094092015,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -1053,6 +1112,74 @@
                 }
             ],
             "db_references": []
+        },
+        "export_to_ini_cwatm": {
+            "type": "Tool",
+            "description": "",
+            "x": 236.90819777633325,
+            "y": 30.79217411771468,
+            "specification": "export_to_ini_calib",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@cwatm_db"
+                },
+                {
+                    "type": "literal",
+                    "arg": "cwatm_input"
+                },
+                {
+                    "type": "literal",
+                    "arg": "false"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "export_to_ini_calib_Cwatm_stdalone": {
+            "type": "Tool",
+            "description": "",
+            "x": 245.53922712213932,
+            "y": -97.6240300606096,
+            "specification": "export_to_ini_calib",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@cwatm_db"
+                },
+                {
+                    "type": "literal",
+                    "arg": "cwatm_input"
+                },
+                {
+                    "type": "literal",
+                    "arg": "false"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "CWatM_standalone": {
+            "type": "Tool",
+            "description": "",
+            "x": 397.3988294386431,
+            "y": -98.61013137435313,
+            "specification": "CWatM",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "literal",
+                    "arg": "cwatm_input.ini"
+                },
+                {
+                    "type": "literal",
+                    "arg": "-l"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
         }
     }
 }

@@ -137,7 +137,7 @@
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",
-                "use_jupyter_console": true,
+                "use_jupyter_console": false,
                 "executable": ""
             }
         }

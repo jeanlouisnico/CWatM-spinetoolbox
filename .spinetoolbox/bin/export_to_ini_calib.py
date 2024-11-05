@@ -127,6 +127,10 @@ def retrieve_db(url, outfile, calib):
 			elif values["type"] == 'date_time':
 				data_spdb = api.from_database(values["value"], values["type"])
 				data = data_spdb.value.strftime("%Y-%m-%d")
+			elif values["type"] == 'duration':
+				data_spdb = api.from_database(values["value"], values["type"])
+				data = str(data_spdb)
+				print(type(data))
 			else:
 				data  = api.from_database(values["value"], values["type"])
 
@@ -147,16 +151,19 @@ def retrieve_db(url, outfile, calib):
 				my_dictionary[values['entity_name']].update(dic)
 				tomldoc[values['entity_name']][values['parameter_definition_name']]=data
 		
-		# This section is meant for the day-by-day loops where we replace the name of the init file to the appropriate file
+		# This section is meant for the coupling loops where we replace the name of the init file to the appropriate file
 		param_val = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="load_initial")
-		data  = api.from_database(param_val[0]["value"], param_val[0]["type"])
-		if data == True:
+		data_init_load  = api.from_database(param_val[0]["value"], param_val[0]["type"])
+		param_val = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="save_initial")
+		data_init_save  = api.from_database(param_val[0]["value"], param_val[0]["type"])
+		if data_init_load == True or data_init_save == True:
 			# Look for the Spinup date and the file name from the initSave variable to build the filename to be loaded
 			param_val_bis = db_map.get_parameter_value_items(entity_class_name="TIME-RELATED_CONSTANTS", entity_byname=("TIME-RELATED_CONSTANTS",), parameter_definition_name="SpinUp")
 			timesaved = api.from_database(param_val_bis[0]["value"], param_val_bis[0]["type"])
 
-			param_val_initsave = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="initSave")
+			param_val_initsave = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="initLoad")
 			initpath = api.from_database(param_val_initsave[0]["value"], param_val_initsave[0]["type"])
+			# Get the file name and change the name of the init file based on the spinup values. This will not change the path, just the file name to be saved
 			if "/" in initpath:
 				splitstr = initpath.split("/")
 				initfile = splitstr[-1]
@@ -165,6 +172,7 @@ def retrieve_db(url, outfile, calib):
 				initfile = splitstr[-1]
 			else:
 				initfile = initpath
+				print(timesaved.value)
 			data = initfile + timesaved.value.strftime("%Y%m%d") + ".nc"
 
 			tomldoc["INITITIAL CONDITIONS"]["initLoad"] = data
@@ -174,22 +182,28 @@ def retrieve_db(url, outfile, calib):
 		# Create output folders for each scenario and avoid writing errors in files
 		#print(my_dictionary)
 		if not my_dictionary["FILE_PATHS"] == None:
-			'''
 			print("Creating the directory")
 			outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
-			initfolder = my_dictionary["INITITIAL CONDITIONS"]["initSave"]
+			initfoldersave = my_dictionary["INITITIAL CONDITIONS"]["initSave"]
+			initfolderload = my_dictionary["INITITIAL CONDITIONS"]["initLoad"]
+			# If the paths are relative, re-write them. !!!! Path should be relative to work in Toolbox !!!!
 			current_directory = os.getcwd()
 			final_directory = os.path.join(current_directory, Path(r"{}".format(outputfolder)))
-			final_directory_init = os.path.join(current_directory, Path(r"{}".format(initfolder)))
+			final_directory_init = os.path.join(current_directory, Path(r"{}".format(initfoldersave)))
+			final_directory_init_save = os.path.join(current_directory, Path(r"{}".format(initfolderload)))
 			if not os.path.exists(final_directory):
 				os.makedirs(final_directory)
 			if not os.path.exists(final_directory_init):
 				os.makedirs(final_directory_init)
+			if not os.path.exists(final_directory_init_save):
+				os.makedirs(final_directory_init_save)
             # Re-write the path to the dictionnary to be used in the ini file
 			tomldoc["FILE_PATHS"]["PathOut"]=final_directory
 			my_dictionary["FILE_PATHS"]["PathOut"] = final_directory
 			tomldoc["INITITIAL CONDITIONS"]["initSave"]=final_directory_init
-			my_dictionary["INITITIAL CONDITIONS"]["initSave"] = final_directory_init '''
+			my_dictionary["INITITIAL CONDITIONS"]["initSave"] = final_directory_init 
+			tomldoc["INITITIAL CONDITIONS"]["initLoad"]=final_directory_init_save
+			my_dictionary["INITITIAL CONDITIONS"]["initLoad"] = final_directory_init_save 
 		else:
 			try:
 				del my_dictionary['FILE_PATHS']
@@ -231,17 +245,17 @@ def retrieve_db(url, outfile, calib):
 		remove symbols and create an invalid toml file. This is because CWatM
 		uses an invalid format of toml as .ini file 
 		'''
-		#dicti = my_dictionary.copy()
-		#print(my_dictionary)
-		#for values in dicti:
-			# Replace PathRoot, PathOut, PathMeteo in subsequent strings
-		#	if not dicti[values] == None:
-		#		for var in dicti[values]:
-		#			if isinstance(dicti[values][var], str):
-		#				newstr = replace_path(dicti[values][var], dicti, values)
-		#				dicti[values][var] = newstr
-		#	else:
-		#		del my_dictionary[values]
+		# dicti = my_dictionary.copy()
+		# #print(my_dictionary)
+		# for values in dicti:
+		# 	# Replace PathRoot, PathOut, PathMeteo in subsequent strings
+		# 	if not dicti[values] == None:
+		# 		for var in dicti[values]:
+		# 			if isinstance(dicti[values][var], str):
+		# 				newstr = replace_path(dicti[values][var], dicti, values)
+		# 				dicti[values][var] = newstr
+		# 	else:
+		# 		del my_dictionary[values]
 		if addemptyoutput:
 			# Convert the dictionnary into a tomlkit valid document
 			for emkey in emptykey:
