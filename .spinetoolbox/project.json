@@ -617,17 +617,17 @@
                     "known_filters": {
                         "db_url@cwatm_db": {
                             "scenario_filter": {
-                                "Ex10_Lakes": true,
-                                "Ex10_Res": true,
-                                "Ex2_Bhima": true,
-                                "Ex2_Rhine": true,
-                                "Ex5_Bhima": true,
-                                "Ex5_Danube": true,
-                                "calibration": true,
-                                "coupling": true,
-                                "cwatm": true,
-                                "cwatm_best_calib": true,
-                                "exercise3": true,
+                                "Ex10_Lakes": false,
+                                "Ex10_Res": false,
+                                "Ex2_Bhima": false,
+                                "Ex2_Rhine": false,
+                                "Ex5_Bhima": false,
+                                "Ex5_Danube": false,
+                                "calibration": false,
+                                "coupling": false,
+                                "cwatm": false,
+                                "cwatm_best_calib": false,
+                                "exercise3": false,
                                 "high_snow_scenario": true
                             },
                             "alternative_filter": {

@@ -1,16 +1,32 @@
 # Getting Started
 ## Before running the workflow
 
-This workflow does not come with CWatM. Therefore, to use this workflow, you will need to get the CWatM model on your local machine as well. The model is well documented and tutorials are available on YouTube to learn how to install it with its dependency.
+This workflow does not come with CWatM. Therefore, to use this workflow, you will need to get the CWatM model on your local machine as well. The model is well documented and tutorials are available on [YouTube](https://www.youtube.com/@MikhailSmilovic) to learn how to install it with its dependency.
 
-Prior to get the workflow working:
+### Python
+
+The best way to interact with the different packages is to work in a virtual environment in e.g. miniconda. 
+
+### SpineToolbox
+
+Make sure you have installed [SpineToolbox](https://github.com/spine-tools/Spine-Toolbox/) as instructed and you are using the latest version of SpineToolbox. The recommended way is to install it using the binary file. In this examples, we are using the Git repository but it does not change the workflow setup.
 
 1. Make sure you have installed SpineToolbox as instructed and you are using the latest version of SpineToolbox.
 2. you are using Spine Database API 
-3. You have cloned CWatM locally in your machine in a separate folder
-4. You have git and miniconda installed
 
-## Setting up the workflow
+### CWatM
+
+The best way to interact with CWatM is to clone or fork the git version of the [repository](https://github.com/iiasa/CWatM).
+
+CWatM model - 
+
+As described in the CWatM instructions to run the model, it is best to download all necessary versions for 30, 5 arcmin and weather data. This is then to be changed in the path to locate where those folders will be downloaded.
+
+### FlexTool
+
+TBD
+
+### CWatM-SpineToolbox
 
 1. using miniconda, create an environment where workflow and CWatM libraries and other dependencies can be installed.
 
@@ -30,11 +46,17 @@ Prior to get the workflow working:
 
 7. Install the required libraries for the workflow to work out
 
-   ```bash
-   (cwatm_wf) C:\Git\<YOUR FOLDER>\ pip install -r .spinetoolbox\requirements.txt
-   ```
+```bash
+(cwatm_wf) C:\Git\<YOUR FOLDER>\ pip install -r .spinetoolbox\requirements.txt
+```
 
 ## How to use
+
+Once all the tools are started you can first launch SpineToolbox from terminal or miniconda (depending on how SpineToolbox has been installed) and then open the SpineToolbox project that integrates CWatM and FlexTool.
+
+
+
+![STB_startingpage](..\docs\images\STB_startingpage.png)
 
 Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below. This workflow is split into different section that can run as a whole or can be run by section (by selection the boxes, one can run only the selected workflows)
 
@@ -112,8 +134,6 @@ Run a regular CWatM flow. This is done from the database and can be run in seque
 
 
 
-
-<!---
 
 Material for MkDocs is published as a [Python package](https://pypi.org/project/mkdocs-material/) and can be installed with `pip`, ideally by using a [virtual environment](https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment). Open up a terminal and install Material for MkDocs with:
 
