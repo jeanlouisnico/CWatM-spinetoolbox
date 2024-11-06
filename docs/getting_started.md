@@ -56,7 +56,7 @@ Once all the tools are started you can first launch SpineToolbox from terminal o
 
 
 
-![STB_startingpage](..\docs\images\STB_startingpage.png)
+![STB_startingpage](images/STB_startingpage.png)
 
 Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below. This workflow is split into different section that can run as a whole or can be run by section (by selection the boxes, one can run only the selected workflows)
 
