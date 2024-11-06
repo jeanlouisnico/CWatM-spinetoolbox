@@ -54,13 +54,41 @@ TBD
 
 Once all the tools are started you can first launch SpineToolbox from terminal or miniconda (depending on how SpineToolbox has been installed) and then open the SpineToolbox project that integrates CWatM and FlexTool.
 
-
-
 ![STB_startingpage](images/STB_startingpage.png)
+
+in File>Open project (ctrl+o), locate the folder where the CWatM-spinetoolbox repository on your computer (following the structure above, it should be located here `C:\Git\<YOUR FOLDER>\`). This will open the basic workflow of the model coupling. With this workflow you can
+
+![open_project](C:\Git\CWatM-spinetoolbox-dev\docs\images\open_project.png)
+
+1. Make calibration runs;
+2. Make CWatM runs as a standalone application
+3. Make model coupling runs between CWatM and IRENA FlexTool 
+
+### What is the workflow about?
 
 Not that if you already have an existing workflow from a previous project, you can change the origin of the ini file from the file you have been previously configuring as shown in the picture below. This workflow is split into different section that can run as a whole or can be run by section (by selection the boxes, one can run only the selected workflows)
 
+[Manninen Jussi: Today's CARO info material, recording and organisational charts](https://teams.microsoft.com/l/message/19:60bb7b92c3e04d508f27b2c641c626d9@thread.tacv2/1730897668051?tenantId=68d6b592-5008-43b5-9b04-23bec4e86cf7&groupId=d9e94673-309f-46ec-969a-805457752226&parentMessageId=1730897668051&teamName=CARO ALL&channelName=CARO 2025 Questions and answers&createdTime=1730897668051)
+
+posted in CARO ALL / CARO 2025 Questions and answers on keskiviikkona 6. marraskuuta 2024 14.54
+
+ 
+
 ![wf_total](images/workflow.svg)
+
+:one: Import of the calibration .ini file into the database
+
+:two: Resetting the database
+
+:three: Import CWatM .ini files
+
+:four: The Spine Database
+
+:five: Run your calibration
+
+:six: Run CWatM as a standalone application
+
+:seven: Run CWatM with IRENA FlexTool 
 
 ### 1. Import of the calibration .ini file into the database
 
