@@ -45,16 +45,31 @@ The second argument :one:: is the name of the *alternative* where the ini file *
 
 !!! Tip
 
-    In case you have multiple ini file that you want to import, repeat this steps as many times as necessary. You can try this out by duplicating the original setting file and change some values in it. Relink the file in the workflow as explained in this section but allocate it to a different alternative. It will create a new alternative and import only the variables that differ from the base database that we first imported into the database.
+    In case you have multiple *ini* file that you want to import, repeat these steps as many times as necessary. You can try this out by duplicating the original setting file and change some values in it. Relink the file in the workflow as explained in this section but allocate it to a different alternative. It will create a new alternative and import only the variables that differ from the base database that we first imported into the database.
 
 
 
 ### Fix the database for Toolbox
-
-https://jeanlouisnico.github.io/CWatM-spinetoolbox/navigating/#4-the-spine-database
 
 !!! Tip
 
     This section refers to the [database section](navigating.md/#4-the-spine-database) part of the workflow
 
 The **Toolbox** database will be displaying exactly what was in the ini file originally. Therefore, the path to weather files and others should be correct. However, if the setting file was imported as is, the path filepaths need to be updated.
+
+The most important one is the *PathRoot* parameter_name in the FILE_PATHS entity. Locate where the input files were saved on the machine. Other filepaths that needs attention are: FILE_PATHS\PathMeteo, and if necessary the FILE_PATHS\Excel_settings_file parameter_names.
+
+The last parameter that requires to be changed is due to the use of Toolbox, this is the output folder location FILE_PATHS\PathOut.
+
+One of the feature of running CWatM with Toolbox is that you can run all your scenarios in parallel. These parallelisation of the runs is automatically handled by Toolbox. However, since CWatM is writing outputs after every loop, the output folder will need to be defined relative to the path of the scenario. Simply replace the string in the FILE_PATHS\PathOut to `.\output`. Toolbox will then create an output folder for every scenario and will avoid reading and writing to the same output files.
+
+#### Other changes
+
+Cold and Warm starts are possible in CWatM, 
+
+
+
+!!! Tip
+
+    After every modification of the database, it needs to be commited by ctrl+enter or click the icon commit 
+
