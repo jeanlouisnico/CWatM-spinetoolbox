@@ -51,4 +51,10 @@ The second argument :one:: is the name of the *alternative* where the ini file *
 
 ### Fix the database for Toolbox
 
+https://jeanlouisnico.github.io/CWatM-spinetoolbox/navigating/#4-the-spine-database
+
+!!! Tip
+
+    This section refers to the [database section](navigating.md/#4-the-spine-database) part of the workflow
+
 The **Toolbox** database will be displaying exactly what was in the ini file originally. Therefore, the path to weather files and others should be correct. However, if the setting file was imported as is, the path filepaths need to be updated.
