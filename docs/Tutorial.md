@@ -42,3 +42,13 @@ The second tool *parse_toml* is very important and the end-user wants to put att
 ![wf3](images/import_ini.png)
 
 The second argument :one:: is the name of the *alternative* where the ini file *parameters* will be imported in, in this tutorial we will name it *5_arcmin_base*. The :two: argument define that it will update the values and should be always set to *true* if you want to update the existing alternative, if not set it to *false*. Select the 3 tool together and run only the selection ![selection_run_icon](images/selection_run_icon.png). Running only this section will import your CWatM *ini* file into the Spine Database.
+
+!!! Tip
+
+    In case you have multiple ini file that you want to import, repeat this steps as many times as necessary. You can try this out by duplicating the original setting file and change some values in it. Relink the file in the workflow as explained in this section but allocate it to a different alternative. It will create a new alternative and import only the variables that differ from the base database that we first imported into the database.
+
+
+
+### Fix the database for Toolbox
+
+The **Toolbox** database will be displaying exactly what was in the ini file originally. Therefore, the path to weather files and others should be correct. However, if the setting file was imported as is, the path filepaths need to be updated.
