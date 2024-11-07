@@ -23,7 +23,11 @@ This step will create an empty database with one alternative called *Base*. This
 
 ### Populating the database
 
-This section refers [import ini file section](navigating.md/#3-import-cwatm-ini-files) 
+This section refers [import ini file section](navigating.md/#3-import-cwatm-ini-files).
+
+!!! Tip
+
+    This section refers [import ini file section](navigating.md/#3-import-cwatm-ini-files).
 
 The best way to start working with **Toolbox** is to take one of the CWatM setting files for the 30 arcmin or 5 arcmin. In this example we will populate the 5 arcmin setting files but this setup can be done with the 30 arcmin as well.
 
@@ -34,3 +38,9 @@ As mentioned earlier, if a tool is marked with an exclamation mark :exclamation:
 The next step is to ensure that the file is considered in the workflow. Select the *convert_to_valid_toml* tool and it will display its Tool Properties window on the right hand side. If the name of the file from the Tool arguments exist in the Available resources listed in the tool, then this is all good and the tool is configured correctly. In case the tool arguments is displayed in red, this means that the file is not available in the Available resources. It usually happens if the file in the data connection is changed (see previous step). Simply drag and drop the file from the Available resources to the Tool arguments, then remove the link displayed in red by selecting the argument and click the - button ![minus_icon](images/minus_icon.png).
 
 ![tool_properties_convertion](images/tool_properties_convertion.png)
+
+The second tool *parse_toml* is very important and the end-user wants to put attention into the arguments that are passed to the tool. Since there can be multiple *ini* files that are imported into the *Spine Database*, each variable should be loaded into a different **alternative**. If the **alternative** name is not changed, it will overwrite the previously imported *ini* file.
+
+![wf3](images/import_ini.png)
+
+The second argument :one:: is the name of the *alternative* where the ini file *parameters* will be imported in, in this tutorial we will name it *5_arcmin_base*. The :two: argument define that it will update the values and should be always set to *true* if you want to update the existing alternative, if not set it to *false*. Select the 3 tool together and run only the selection ![selection_run_icon](images/selection_run_icon.png). Running only this section will import your CWatM *ini* file into the Spine Database.

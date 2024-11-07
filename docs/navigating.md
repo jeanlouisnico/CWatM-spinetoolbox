@@ -35,12 +35,6 @@ The third section Imports your working CWatM *ini* file. In essence, you would n
 
     In the first tool, the original *ini* file is being converted into a valid *toml* file. Ensure that the file you want to use is the one you want to import in the Spine Database. 
 
-The second tool is very important and the end-user wants to put attention into the arguments that are passed to the tool. Since there can be multiple *ini* files that are imported into the *Spine Database*, each variable should be loaded into a different **alternative**. If the **alternative** name is not changed, it will overwrite the previously imported *ini* file.
-
-![wf3](images/import_ini.png)
-
-The second argument :one:: is the name of the *alternative* where the ini file *parameters* will be imported in. The :two:: argument define that it will update the values and should be always set to *true*. Running only this section will import your CWatM *ini* file into the Spine Database.
-
 ## 4. The Spine Database
 
 This is the central database, also called the Spine Database, where all the data are stored. *Alternative* and *Scenario* can be created manually and if any data needs to be changed, added, or add new main section in the *.ini* files can be done from the database. When double clicking on database, it will open the Spine Database interface that would look like somewhat similar to what is shown below.
