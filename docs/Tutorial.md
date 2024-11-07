@@ -23,11 +23,9 @@ This step will create an empty database with one alternative called *Base*. This
 
 ### Populating the database
 
-This section refers [import ini file section](navigating.md/#3-import-cwatm-ini-files).
-
 !!! Tip
 
-    This section refers [import ini file section](navigating.md/#3-import-cwatm-ini-files).
+    This section refers to the [import ini file section](navigating.md/#3-import-cwatm-ini-files) part of the workflow
 
 The best way to start working with **Toolbox** is to take one of the CWatM setting files for the 30 arcmin or 5 arcmin. In this example we will populate the 5 arcmin setting files but this setup can be done with the 30 arcmin as well.
 
