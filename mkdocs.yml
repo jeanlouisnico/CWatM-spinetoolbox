@@ -27,7 +27,7 @@ nav:
   - Overview: introduction.md
   - Getting started:
     - getting_started.md
-      - navigating.md 
+    - navigating.md 
     - Tutorial.md
   - Run models alone: input_data.md
   - Coupling: example_models.md
