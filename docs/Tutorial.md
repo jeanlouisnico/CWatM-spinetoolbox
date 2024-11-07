@@ -2,7 +2,7 @@
 
 Let's setup an instance of SpineToolbox by creating an empty database, importing the initial init file provided by the example of CWatM. We will then import the calibration file. We will then see how to create alternatives to the base init file or import a new initial file from CWatM. Finally, we will to calibration run, running CWatM as a standalone model and running CWatM model as model coupling with an energy system model.
 
-## New database
+## The workflow structure
 
 
 
@@ -69,7 +69,7 @@ Export the database for the calibration and run the calibration. It exports 2 **
 
 ![wf5](images/workflow_5.svg)
 
-### 6. Run CwatM
+### 6. Run CwatM as a standalone process
 
 Run a regular CWatM flow. This is done from the database and can be run in sequence from the calibration set up. By clicking the yellow arrow before the export tool, one can choose which scenario to run into CWatM.
 
