@@ -4,7 +4,7 @@ Let's setup an instance of SpineToolbox by creating an empty database, importing
 
 ## New Database
 
-Before starting setting up a totally new workflow, toolbox requires to be linked to a database. In this particular case we are using .*sqlite*, but one can choose between *sqlite* and *mysql*. Create a new database by first selecting the database <img src="images/db_icon.png" alt="database icon" style="zoom:10%;" />. This will display the *Data Store Properties* (DSP). From the DSP, click the *New Spine db* button to save your database in your environment.
+Before starting setting up a totally new workflow, toolbox requires to be linked to a database. In this particular case we are using .*sqlite*, but one can choose between *sqlite* and *mysql*. Create a new database by first selecting the database <img src="images/db_icon.png" alt="database_icon" style="zoom:10%;" />. This will display the *Data Store Properties* (DSP). From the DSP, click the *New Spine db* button to save your database in your environment.
 
 !!! Tip
 
