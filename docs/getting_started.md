@@ -18,9 +18,7 @@ Make sure you have installed [SpineToolbox](https://github.com/spine-tools/Spine
 
 The best way to interact with CWatM is to clone or fork the git version of the [repository](https://github.com/iiasa/CWatM).
 
-CWatM model - 
-
-As described in the CWatM instructions to run the model, it is best to download all necessary versions for 30, 5 arcmin and weather data. This is then to be changed in the path to locate where those folders will be downloaded.
+As described in the CWatM instructions to run the model, it is best to download all necessary versions for [30](https://github.com/iiasa/CWatM-Earth-30min), [5 arcmin](https://drive.google.com/drive/folders/1HqcBj5fD6DHJpOe-t_6JHFMKFtubghZf?usp=drive_link) and [weather data](https://drive.google.com/drive/folders/1_xlg_RZvx9xsVPddOiqCG3XZmASCBIRM?usp=drive_link) or directly from the [ISIMIP](https://www.isimip.org/gettingstarted/input-data-bias-adjustment/details/110/) repository.  This is then to be changed in the path to locate where those folders will be downloaded. 
 
 ### FlexTool
 
@@ -38,21 +36,21 @@ TBD
 
 5. create your conda environment and activate it
 
-   `conda create -n cwatm_wf python=3.11`
+   `(base) C:\Git\<YOUR FOLDER>\> conda create -n <YOUR ENV> python=3.11`
 
-   `conda activate cwatm_wf`
+   `(base) C:\Git\<YOUR FOLDER>\> conda activate <YOUR ENV>`
 
 6. cd in the folder where the cloned git repo is installed  `cd C:\Git\<YOUR FOLDER>\CWatM-spinetoolbox`
 
 7. Install the required libraries for the workflow to work out
 
 ```bash
-(cwatm_wf) C:\Git\<YOUR FOLDER>\ pip install -r .spinetoolbox\requirements.txt
+(<YOUR ENV>) C:\Git\<YOUR FOLDER>\CWatM-spinetoolbox> pip install -r .spinetoolbox\requirements.txt
 ```
 
 ## How to use
 
-Once all the tools are started you can first launch SpineToolbox from terminal or miniconda (depending on how SpineToolbox has been installed) and then open the SpineToolbox project that integrates CWatM and FlexTool.
+Once all the tools are installed you can first launch SpineToolbox from terminal or miniconda (depending on how SpineToolbox has been installed) and then open the SpineToolbox project that integrates CWatM and FlexTool. It should launch the SpineToolbox interface as below.
 
 ![STB_startingpage](images/STB_startingpage.png)
 
