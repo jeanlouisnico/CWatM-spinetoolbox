@@ -1058,30 +1058,6 @@
             "kill_completed_processes": false,
             "log_process_output": false
         },
-        "loop_next_day": {
-            "type": "Tool",
-            "description": "",
-            "x": 321.7331892887871,
-            "y": 161.2759548950923,
-            "specification": "loop_next_day",
-            "execute_in_work": true,
-            "cmd_line_args": [
-                {
-                    "type": "resource",
-                    "arg": "*.ini"
-                },
-                {
-                    "type": "resource",
-                    "arg": "db_url@data_store_loop"
-                },
-                {
-                    "type": "resource",
-                    "arg": "alt_list.json"
-                }
-            ],
-            "kill_completed_processes": false,
-            "log_process_output": false
-        },
         "data_store_loop": {
             "type": "Data Store",
             "description": "",
@@ -1176,6 +1152,30 @@
                 {
                     "type": "literal",
                     "arg": "-l"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "loop_next_day": {
+            "type": "Tool",
+            "description": "",
+            "x": 321.7331892887871,
+            "y": 161.2759548950923,
+            "specification": "loop_next_day",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "*.ini"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@data_store_loop"
+                },
+                {
+                    "type": "resource",
+                    "arg": "alt_list.json"
                 }
             ],
             "kill_completed_processes": false,
