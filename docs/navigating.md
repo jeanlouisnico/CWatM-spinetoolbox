@@ -21,7 +21,7 @@ The parsing of the formatted toml file is then done and nothing should be change
     This second section is to be used cautiously. This resets the database by deleting all its components except the *Base* alternative. The entities inside the *Base* alternative are removed and only the *Base* alternative remains empty. 
 
 
-![reset_DB](C:\Git\CWatM-spinetoolbox-dev\docs\images\reset_DB.png)
+![reset_DB](images/reset_DB.png)
 
 By default, the second argument is set to ***false***, which does not reset the Spine Database and just bypasses the whole tool. In case one would like to reset the entire database, set the second argument to ***true*** and the entire Spine Database will be reset.
 
