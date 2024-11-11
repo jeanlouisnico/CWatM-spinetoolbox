@@ -77,7 +77,7 @@ Cold and Warm starts are possible in CWatM. The settings are located under the e
 
 The CWatM tool is linked by default to be under the current repository. Often, people will have their own CWatM copy and therefore there a need to relink the CWatM module. This is because when cloning/forking this workflow, **Toolbox** assumes that the tool comes along with it but we do not want to ship CWatM alongside this workflow but rather link to a self-contained CWatM model (whether you are developing it or just using it). In order to do perform the relink, you need to open any CWatM tool e.g.
 
- ![cwatm_tool](images/CWatM_Tool.png)
+ <img src="images/CWatM_Tool.png" alt="cwatm_tool" style="zoom:33%;" />
 
 By double clicking the icon, you will see the files that are included in the tool.
 
@@ -91,7 +91,7 @@ The main programme :one: needs to be updated first and then all the other progra
 
 ## Prepare a scenario
 
-
+When we imported the data from the original ini file from CWatM to the database, we have created an alternative called *5_arcmin_base*. Toolbox can run either a specific alternative or scenario, which is a combination of multiple alternatives. Running scenario is the preferred way to run the data flow to keep consistency between all model runs. 
 
 ## Running standalone version
 
