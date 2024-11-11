@@ -93,6 +93,16 @@ The main programme :one: needs to be updated first and then all the other progra
 
 When we imported the data from the original ini file from CWatM to the database, we have created an alternative called *5_arcmin_base*. Toolbox can run either a specific alternative or scenario, which is a combination of multiple alternatives. Running scenario is the preferred way to run the data flow to keep consistency between all model runs. 
 
+![empty_scenario](images/empty_scenario.png)
+
+![scenario_creation](images/scenario_creation.png)
+
+![drag_atlernative](images/drag_atlernative.png)
+
+![scenario_set](images/scenario_set.png)
+
+By default, the 5_arc_min scenario will be selected into the workflow. If you happen to create more scenarios (by combining multiple alternatives) and want to run only specific scenario, you can select the scenario run by selecting the yellow arrow in the workflow.
+
 ## Running standalone version
 
 With these settings, the database can be modified (adding alternatives and scenario) and can run CWatM as a standalone application. 
