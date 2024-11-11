@@ -14,7 +14,7 @@ SubCatchmentPath = runs_calibration
 ParamRanges = ParamRanges.csv
 
 [Templates]
-ModelSettings = settings_CWatM_template_30min.ini
+ModelSettings = calib_cwatm.ini
 RunModel = runpy.bat
 
 [Option]
@@ -31,9 +31,9 @@ mu = 8
 lambda_ = 8
 
 [DEFAULT]
-Root = C:\Users\JLJEAN\tunexus\CWatM\test
-RootPC = C:\Users\JLJEAN\tunexus\CWatM\Tutorials
-Rootbasin = 09_Calibration_renovation
+Root = .\.\
+RootPC = .\.\
+Rootbasin = .\
 ForcingStart = 1/1/2006
 ForcingEnd = 31/12/2007
 timeperiod = daily

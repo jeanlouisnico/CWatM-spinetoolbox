@@ -211,7 +211,7 @@
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
                                 "exercise3": false,
-                                "high_snow_scenario": true
+                                "high_snow_scenario": false
                             },
                             "alternative_filter": {
                                 "10_Lakes-Reservoirs_Lakes": true,
