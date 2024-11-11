@@ -2,7 +2,7 @@
 
 Let's setup an instance of SpineToolbox (hereafter **Toolbox**) by creating an empty database, importing the initial init file provided by the example of CWatM. We will then import the calibration file. We will then see how to create alternatives to the base init file or import a new initial file from CWatM. Finally, we will to calibration run, running CWatM as a standalone model and running CWatM model as model coupling with an energy system model.
 
-![cwatm_integration](C:\Git\CWatM-spinetoolbox-dev\docs\images\cwatm_integration.png)
+![cwatm_integration](images/cwatm_integration.png)
 
 ## New Database
 
