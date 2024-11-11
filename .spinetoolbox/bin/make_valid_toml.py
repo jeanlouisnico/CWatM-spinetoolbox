@@ -209,6 +209,7 @@ def parse_configuration(settingsFileName):
         print(config.defaults())
         if bool(config.defaults()):
             my_dictionary['DEFAULT'] = None
+            tomldoc['DEFAULT'] = tomlkit.table()
             defaultsec = True
             for opt in config.defaults():
                 dic_temp = dict()
