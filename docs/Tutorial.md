@@ -69,6 +69,16 @@ One of the feature of running CWatM with Toolbox is that you can run all your sc
 
 Cold and Warm starts are possible in CWatM. The settings are located under the entity class INITITIAL CONDITIONS. The parameter **initLoad** and **initSave** should be modified similarly to the output folder and making it relative path to the project e.g. *./init/<FILENAME>* and similarly initLoad should resemble the same pattern *./init/<FILENAME>.nc*
 
+## Relink CWatM
+
+The CWatM tool is linked by default to be under the current repository. Often, people will have their own CWatM copy and therefore there a need to relink the CWatM module. This is because when cloning/forking this workflow, **Toolbox** assumes that the tool comes along with it but we do not want to ship CWatM alongside this workflow but rather link to a self-contained CWatM model (whether you are developing it or just using it). In order to do perform the relink, you need to open any CWatM tool e.g.
+
+ ![cwatm_tool](images/CWatM_Tool.png)
+
+By double clicking the icon, you will see the files that are included in the tool.
+
+
+
 With these settings, the database can be modified (adding alternatives and scenario) and can run CWatM as a standalone application. 
 
 !!! Tip
