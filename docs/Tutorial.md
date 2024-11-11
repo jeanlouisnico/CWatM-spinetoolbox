@@ -77,6 +77,14 @@ The CWatM tool is linked by default to be under the current repository. Often, p
 
 By double clicking the icon, you will see the files that are included in the tool.
 
+![relink_tool](images/relink_cwatm.png)
+
+The main programme :one: needs to be updated first and then all the other programmes
+
+!!! Tip
+
+    There are two ways to relink files, either relink a single file by using the white folder icon ![whitefolder](images/white_folder.png), or relink all the files in a folder by using the balc folder icon ![blackfolder](images/black_folder.png)
+
 
 
 With these settings, the database can be modified (adding alternatives and scenario) and can run CWatM as a standalone application. 
