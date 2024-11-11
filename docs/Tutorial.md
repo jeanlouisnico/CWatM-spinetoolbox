@@ -69,6 +69,10 @@ One of the feature of running CWatM with Toolbox is that you can run all your sc
 
 Cold and Warm starts are possible in CWatM. The settings are located under the entity class INITITIAL CONDITIONS. The parameter **initLoad** and **initSave** should be modified similarly to the output folder and making it relative path to the project e.g. *./init/<FILENAME>* and similarly initLoad should resemble the same pattern *./init/<FILENAME>.nc*
 
+!!! Tip
+
+    After every modification of the database, it needs to be commited by ctrl+enter or click the icon commit 
+
 ## Relink CWatM
 
 The CWatM tool is linked by default to be under the current repository. Often, people will have their own CWatM copy and therefore there a need to relink the CWatM module. This is because when cloning/forking this workflow, **Toolbox** assumes that the tool comes along with it but we do not want to ship CWatM alongside this workflow but rather link to a self-contained CWatM model (whether you are developing it or just using it). In order to do perform the relink, you need to open any CWatM tool e.g.
@@ -79,17 +83,19 @@ By double clicking the icon, you will see the files that are included in the too
 
 ![relink_tool](images/relink_cwatm.png)
 
-The main programme :one: needs to be updated first and then all the other programmes
+The main programme :one: needs to be updated first and then all the other programmes. While the main programme is selected, open the white folder :two:and locate the CWatM folder locally, and select the *toolbox_compatibility.py* file. For the files in :four:, open the white folder and multi-select each of the three python scripts, then select the black folder in :three: to relink all the files from the *cwatm* and the *mf6* folders. Save your work and you can close the window.
 
 !!! Tip
 
-    There are two ways to relink files, either relink a single file by using the white folder icon ![whitefolder](images/white_folder.png), or relink all the files in a folder by using the balc folder icon ![blackfolder](images/black_folder.png)
+    There are two ways to relink files, either relink a single file by using the white folder icon ![whitefolder](images/white_folder.png), or relink all the files in a folder by using the black folder icon ![blackfolder](images/black_folder.png)
+
+## Prepare a scenario
 
 
+
+## Running standalone version
 
 With these settings, the database can be modified (adding alternatives and scenario) and can run CWatM as a standalone application. 
 
-!!! Tip
-
-    After every modification of the database, it needs to be commited by ctrl+enter or click the icon commit 
+Select the two tools in [standalone workflow](navigating.md/#6-run-cwatm-as-a-standalone-process), and run the select button ![selection_run_icon](images/selection_run_icon.png). This will run the scenario 
 
