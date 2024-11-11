@@ -59,17 +59,17 @@ The second argument :one:: is the name of the *alternative* where the ini file *
 
 The **Toolbox** database will be displaying exactly what was in the ini file originally. Therefore, the path to weather files and others should be correct. However, if the setting file was imported as is, the path filepaths need to be updated.
 
-The most important one is the *PathRoot* parameter_name in the FILE_PATHS entity. Locate where the input files were saved on the machine. Other filepaths that needs attention are: FILE_PATHS\PathMeteo, and if necessary the FILE_PATHS\Excel_settings_file parameter_names.
+The most important one is the ***PathRoot*** parameter_name in the FILE_PATHS entity. Locate where the input files were saved on the machine. Other filepaths that needs attention are: **FILE_PATHS\PathMeteo**, and if necessary the **FILE_PATHS\Excel_settings_file parameter_names**.
 
 The last parameter that requires to be changed is due to the use of Toolbox, this is the output folder location FILE_PATHS\PathOut.
 
-One of the feature of running CWatM with Toolbox is that you can run all your scenarios in parallel. These parallelisation of the runs is automatically handled by Toolbox. However, since CWatM is writing outputs after every loop, the output folder will need to be defined relative to the path of the scenario. Simply replace the string in the FILE_PATHS\PathOut to `.\output`. Toolbox will then create an output folder for every scenario and will avoid reading and writing to the same output files.
+One of the feature of running CWatM with Toolbox is that you can run all your scenarios in parallel. These parallelisation of the runs is automatically handled by Toolbox. However, since CWatM is writing outputs after every loop, the output folder will need to be defined relative to the path of the scenario. Simply replace the string in the **FILE_PATHS\PathOut** to `./output`. Toolbox will then create an output folder for every scenario and will avoid reading and writing to the same output files.
 
 #### Other changes
 
-Cold and Warm starts are possible in CWatM, 
+Cold and Warm starts are possible in CWatM. The settings are located under the entity class INITITIAL CONDITIONS. The parameter **initLoad** and **initSave** should be modified similarly to the output folder and making it relative path to the project e.g. *./init/<FILENAME>* and similarly initLoad should resemble the same pattern *./init/<FILENAME>.nc*
 
-
+With these settings, the database can be modified (adding alternatives and scenario) and can run CWatM as a standalone application. 
 
 !!! Tip
 
