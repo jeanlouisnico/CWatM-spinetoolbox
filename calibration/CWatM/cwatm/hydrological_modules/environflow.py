@@ -69,7 +69,7 @@ class environflow(object):
 
             else:
                 dismap = ["EFDis"]
-                multinetdf(dismap, startcheck = 'dateStart')
+                multinetdf(dismap, False, startcheck = 'dateStart')
 
 
 

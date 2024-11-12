@@ -86,7 +86,7 @@ print("set the paths")
 ParamRangesPath = os.path.join(rootbasin,parser.get('Path','ParamRanges'))
 SubCatchmentPath = os.path.join(rootbasin,parser.get('Path','SubCatchmentPath'))
 Qtss_csv = os.path.join(rootbasin,parser.get('ObservedData', 'Qtss'))
-Qtss_col = parser.get('ObservedData', 'Column')
+#Qtss_col = parser.get('ObservedData', 'Column')
 
 modeltemplate = parser.get('Path','Templates')
 ModelSettings_template = parser.get('Templates','ModelSettings')
@@ -137,8 +137,12 @@ ParamRanges = pandas.read_csv(ParamRangesPath,sep=",",index_col=0)
 # ar = np.recfromcsv('example.csv'), my_data = genfromtxt('my_file.csv', delimiter=',')
 
 # Load observed streamflow
-streamflow_data = pandas.read_csv(Qtss_csv,sep=",", parse_dates=True, index_col=0)
-observed_streamflow = streamflow_data[Qtss_col]
+streamflow_data = pandas.read_csv(Qtss_csv,sep=",", dayfirst=True, parse_dates=True,
+								  index_col=0, header = None, skiprows = 1,
+								  names=['Date', 'Observation'])
+observed_streamflow = streamflow_data['Observation']
+#observed_streamflow = streamflow_data[Qtss_col]
+observed_streamflow = streamflow_data.values.astype(np.float32)
 observed_streamflow[observed_streamflow<-9000]= np.nan
 
 
@@ -231,6 +235,8 @@ def RunModel(Individual):
 		currentdir = os.getcwd()
 		os.chdir(directory_run)
 		print("runfile location: " + runfile + " end of path")
+		print("This is the path called in the shell: " + os.path.join(currentdir, runfile))
+		print("Does the path exists? " + str(os.path.exists(os.path.join(currentdir, runfile))))
 		p = Popen(os.path.join(currentdir, runfile), shell=True, stdout=PIPE, stderr=PIPE, bufsize=16*1024*1024)
 		output, errors = p.communicate()
 		print(errors)
@@ -374,10 +380,10 @@ if __name__ == "__main__":
 			population[0][-1] = 0.
 
 
-	effmax = np.zeros(shape=(ngen+1,1))*np.NaN
-	effmin = np.zeros(shape=(ngen+1,1))*np.NaN
-	effavg = np.zeros(shape=(ngen+1,1))*np.NaN
-	effstd = np.zeros(shape=(ngen+1,1))*np.NaN
+	effmax = np.zeros(shape=(ngen+1,1))*np.nan
+	effmin = np.zeros(shape=(ngen+1,1))*np.nan
+	effavg = np.zeros(shape=(ngen+1,1))*np.nan
+	effstd = np.zeros(shape=(ngen+1,1))*np.nan
 	if startlater == False:
 		halloffame = tools.ParetoFront()
 
@@ -499,7 +505,7 @@ if __name__ == "__main__":
 	print("This is the best values: " )
 	# Convert the scaled parameter values of halloffame ranging from 0 to 1 to unscaled parameter values
 	paramvals = np.zeros(shape=(len(halloffame),len(halloffame[0])))
-	paramvals[:] = np.NaN
+	paramvals[:] = np.nan
 	for kk in range(len(halloffame)):
 		for ii in range(len(ParamRanges)):
 			paramvals[kk][ii] = halloffame[kk][ii]*(float(ParamRanges.iloc[ii,1])-float(ParamRanges.iloc[ii,0]))+float(ParamRanges.iloc[ii,0])
@@ -564,6 +570,7 @@ if __name__ == "__main__":
 		else:
 			runfile = runfile + ".sh"
 		f = open(runfile, "w")
+		os.chmod(runfile, 0o744)
 		f.write(template_bat_new)
 		f.close()
 

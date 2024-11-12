@@ -17,16 +17,14 @@ class runoff_concentration(object):
 
     """
     Runoff concentration
-
     this is the part between runoff generation and routing
     for each gridcell and for each land cover class the generated runoff is concentrated at a corner of a gridcell
     this concentration needs some lag-time (and peak time) and leads to diffusion
     lag-time/ peak time is calculated using slope, length and land cover class
     diffusion is calculated using a triangular-weighting-function
 
-    :math:`Q(t) = sum_{i=0}^{max} c(i) * Q_{\mathrm{GW}} (t - i + 1)`
-
-    where :math:`c(i) = \int_{i-1}^{i} {2 \over{max}} - | u - {max \over {2}} | * {4 \over{max^2}} du`
+    :math:`Q(t) = sum_{i=0}^{max} c(i) * Q_{mathrm{GW}} (t - i + 1)`
+    where :math:`c(i) = int_{i-1}^{i} {2 over{max}} - | u - {max over {2}} | * {4 over{max^2}} du`
 
     see also:
 
@@ -253,15 +251,15 @@ class runoff_concentration(object):
 
             # glacier melt time of concentration
             if self.var.includeGlaciers:
-               lib2.runoffConc(self.var.runoff_conc, self.var.tpeak_glaciers, self.var.fracGlacierCover, self.var.directRunoffGlacier, self.var.maxtime_runoff_conc, maskinfo['mapC'][0])
+               lib2.runoffConc(self.var.runoff_conc, self.var.tpeak_glaciers, self.var.fracGlacierCover, self.var.directRunoffGlacier.astype('float64'), self.var.maxtime_runoff_conc, maskinfo['mapC'][0])
             # interflow time of concentration
             #self.var.runoff_conc = runoff_concentration(self.var.maxtime_runoff_conc, self.var.tpeak_interflow, 1.0, self.var.sum_interflow, self.var.runoff_conc)
             lib2.runoffConc(self.var.runoff_conc, self.var.tpeak_interflow,globals.inZero +1 ,self.var.sum_interflow,self.var.maxtime_runoff_conc,maskinfo['mapC'][0])
             #self.var.sum_landSurfaceRunoff = self.var.runoff_conc[0].copy()
 
             # baseflow time of concentration
-            self.var.baseflow = self.var.baseflow.astype(np.float64)
-            lib2.runoffConc(self.var.runoff_conc, self.var.tpeak_baseflow,globals.inZero +1 ,self.var.baseflow,self.var.maxtime_runoff_conc,maskinfo['mapC'][0])
+            #self.var.baseflow = self.var.baseflow.astype(np.float64)
+            lib2.runoffConc(self.var.runoff_conc, self.var.tpeak_baseflow,globals.inZero +1 ,self.var.baseflow.astype(np.float64),self.var.maxtime_runoff_conc,maskinfo['mapC'][0])
             #self.var.baseflow = self.var.runoff_conc[0] - self.var.sum_landSurfaceRunoff
             # -------------------------------------------------------------------------------
             #  --- from routing module -------

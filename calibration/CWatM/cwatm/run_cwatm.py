@@ -35,14 +35,10 @@ from cwatm import __author__, __version__, __date__, __copyright__, __maintainer
 from pyexpat import *
 
 import os
-import sys
-print(sys.path)
-import imp
-imp.find_module('numpy')
 import numpy as np
 # to work with some versions of Linux  - a workaround with pyexpat is needed
 import glob
-
+import sys
 import time
 import datetime
 
@@ -69,6 +65,7 @@ if "modflow_coupling" in option:
 
 #import xlrd
 #import openpyxl
+gdal.UseExceptions()
 
 # ---------------------------
 
@@ -81,7 +78,6 @@ def usage():
     * -v --veryquiet   no output progression is given
     * -l --loud        output progression given as time step, date and discharge
     * -c --check       input maps and stack maps are checked, output for each input map BUT no model run
-    * -h --noheader    .tss file have no header and start immediately with the time series
     * -t --printtime   the computation time for hydrological modules are printed
 
     """
@@ -98,7 +94,6 @@ def usage():
     -v --veryquiet   no output progression is given
     -l --loud        output progression given as time step, date and discharge
     -c --check       input maps and stack maps are checked, output for each input map BUT no model run
-    -h --noheader    .tss file have no header and start immediately with the time series
     -t --printtime   the computation time for hydrological modules are printed
     -w --warranty    copyright and warranty information
     """)
@@ -119,7 +114,6 @@ def CWATMexe(settings):
 
 
     """
-
     parse_configuration(settings)
     # print option
     # print binding
@@ -309,12 +303,12 @@ def mainwarm(settings, args, meteo):
     Flags['warm'] = True
 
     headerinfo()
-    if meteo == []:
+    
+    if isinstance(meteo, np.ndarray):
+        success, last_dis = CWATMexe2(settingsfile[0],meteo)
+    else:
         Flags['warm'] = False
         success, last_dis = CWATMexe(settingsfile[0])
-    else:
-        success, last_dis = CWATMexe2(settingsfile[0],meteo)
-
     return success, last_dis
 
 
