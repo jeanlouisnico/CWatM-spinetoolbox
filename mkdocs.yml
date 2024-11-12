@@ -29,7 +29,7 @@ nav:
     - getting_started.md
     - navigating.md 
     - Tutorial.md
-  - Run models alone: input_data.md
+    - setting_calibration.md
   - Coupling: example_models.md
   #- References: references.md
 
