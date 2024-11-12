@@ -1,4 +1,4 @@
-# Tutorial
+# Running standalone version
 
 Let's setup an instance of SpineToolbox (hereafter **Toolbox**) by creating an empty database, importing the initial init file provided by the example of CWatM. We will then import the calibration file. We will then see how to create alternatives to the base init file or import a new initial file from CWatM. Finally, we will to calibration run, running CWatM as a standalone model and running CWatM model as model coupling with an energy system model.
 
@@ -103,15 +103,17 @@ Select an empty scenario and input a name for a scenario e.g. *5_arc_min*.
 
 ![scenario_creation](images/scenario_creation.png)
 
-
+You can now drag and drop alternatives to a specific scenario. There are no limitations to how many alternatives are allocated to a scenario, however, one must be careful in which order they are listed in the scenario. **Toolbox** handles the data allocations based on the order the alternatives were set in the scenario. In essence, Toolbox will take all the values from the first alternative, then take the values from the n<sup>th</sup> alternative to either replace the values or supplement the data with new data if it was not present in the previous alternative.
 
 ![drag_atlernative](images/drag_atlernative.png)
+
+This is the reason it is recommended to have a *Base* alternative that the modeller can always refer to and alter with other alternatives when necessary.
 
 ![scenario_set](images/scenario_set.png)
 
 By default, the 5_arc_min scenario will be selected into the workflow. If you happen to create more scenarios (by combining multiple alternatives) and want to run only specific scenario, you can select the scenario run by selecting the yellow arrow in the workflow.
 
-## Running standalone version
+## Running CWatM as a standalone version
 
 With these settings, the database can be modified (adding alternatives and scenario) and can run CWatM as a standalone application. 
 
