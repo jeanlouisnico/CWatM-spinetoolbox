@@ -91,11 +91,19 @@ The main programme :one: needs to be updated first and then all the other progra
 
 ## Prepare a scenario
 
-When we imported the data from the original ini file from CWatM to the database, we have created an alternative called *5_arcmin_base*. Toolbox can run either a specific alternative or scenario, which is a combination of multiple alternatives. Running scenario is the preferred way to run the data flow to keep consistency between all model runs. 
+When we imported the data from the original ini file from CWatM to the database, we have created an alternative called *5_arcmin_base*. Toolbox can run either a specific alternative or scenario, which is a combination of multiple alternatives. Running scenario is the preferred way to run the data flow to keep consistency between all model runs. From the database, there is a list of scenario that user can create on the right-hand side.
 
 ![empty_scenario](images/empty_scenario.png)
 
+Select an empty scenario and input a name for a scenario e.g. *5_arc_min*. 
+
+!!! Tip
+
+    For differentiating alternative and scenario names, it is good practice to change the name that it is clearer when you are using the workflow what you are using, an alternative or a scenario setup.
+
 ![scenario_creation](images/scenario_creation.png)
+
+
 
 ![drag_atlernative](images/drag_atlernative.png)
 
