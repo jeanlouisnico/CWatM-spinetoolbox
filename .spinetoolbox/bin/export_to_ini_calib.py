@@ -152,30 +152,31 @@ def retrieve_db(url, outfile, calib):
 				tomldoc[values['entity_name']][values['parameter_definition_name']]=data
 		
 		# This section is meant for the coupling loops where we replace the name of the init file to the appropriate file
-		param_val = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="load_initial")
-		data_init_load  = api.from_database(param_val[0]["value"], param_val[0]["type"])
-		param_val = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="save_initial")
-		data_init_save  = api.from_database(param_val[0]["value"], param_val[0]["type"])
-		if data_init_load == True or data_init_save == True:
-			# Look for the Spinup date and the file name from the initSave variable to build the filename to be loaded
-			param_val_bis = db_map.get_parameter_value_items(entity_class_name="TIME-RELATED_CONSTANTS", entity_byname=("TIME-RELATED_CONSTANTS",), parameter_definition_name="SpinUp")
-			timesaved = api.from_database(param_val_bis[0]["value"], param_val_bis[0]["type"])
+		if not my_dictionary["INITITIAL CONDITIONS"] == None:
+			param_val = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="load_initial")
+			data_init_load  = api.from_database(param_val[0]["value"], param_val[0]["type"])
+			param_val = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="save_initial")
+			data_init_save  = api.from_database(param_val[0]["value"], param_val[0]["type"])
+			if data_init_load == True or data_init_save == True:
+				# Look for the Spinup date and the file name from the initSave variable to build the filename to be loaded
+				param_val_bis = db_map.get_parameter_value_items(entity_class_name="TIME-RELATED_CONSTANTS", entity_byname=("TIME-RELATED_CONSTANTS",), parameter_definition_name="SpinUp")
+				timesaved = api.from_database(param_val_bis[0]["value"], param_val_bis[0]["type"])
 
-			param_val_initsave = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="initLoad")
-			initpath = api.from_database(param_val_initsave[0]["value"], param_val_initsave[0]["type"])
-			# Get the file name and change the name of the init file based on the spinup values. This will not change the path, just the file name to be saved
-			if "/" in initpath:
-				splitstr = initpath.split("/")
-				initfile = splitstr[-1]
-			elif "\\" in initpath:
-				splitstr = initpath.split("\\")
-				initfile = splitstr[-1]
-			else:
-				initfile = initpath
-				print(timesaved.value)
-			data = initfile + timesaved.value.strftime("%Y%m%d") + ".nc"
+				param_val_initsave = db_map.get_parameter_value_items(entity_class_name="INITITIAL CONDITIONS", entity_byname=("INITITIAL CONDITIONS",), parameter_definition_name="initLoad")
+				initpath = api.from_database(param_val_initsave[0]["value"], param_val_initsave[0]["type"])
+				# Get the file name and change the name of the init file based on the spinup values. This will not change the path, just the file name to be saved
+				if "/" in initpath:
+					splitstr = initpath.split("/")
+					initfile = splitstr[-1]
+				elif "\\" in initpath:
+					splitstr = initpath.split("\\")
+					initfile = splitstr[-1]
+				else:
+					initfile = initpath
+					print(timesaved.value)
+				data = initfile + timesaved.value.strftime("%Y%m%d") + ".nc"
 
-			tomldoc["INITITIAL CONDITIONS"]["initLoad"] = data
+				tomldoc["INITITIAL CONDITIONS"]["initLoad"] = data
 
 			# Change the StepInit to the value of StepEnd in case the initSave value is true
 
@@ -278,7 +279,7 @@ retrieve_db(url, outfile, calib)
 
 # Get the alternative for each scenario where it writes the scenario and the winning alternative in a separate file
 
-with DatabaseMapping(url) as db_map:
+""" with DatabaseMapping(url) as db_map:
 	filter_configs = db_map.get_filter_configs()
 	for config in filter_configs:
 		scenario_name = filter_tools.name_from_dict(config)
@@ -299,4 +300,4 @@ with DatabaseMapping(url) as db_map:
 		setofalt[item['rank']] = item['alternative_name']
 	
 	with open('alt_list.json', 'w') as json_file:     
-		json.dump(setofalt, json_file)
+		json.dump(setofalt, json_file) """

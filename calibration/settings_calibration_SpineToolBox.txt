@@ -1,3 +1,12 @@
+[DEFAULT]
+Root = .\.\
+RootPC = .\.\
+Rootbasin = .\
+# start date of simulation outputs
+ForcingStart = 1/1/2006
+ForcingEnd = 31/12/2007
+timeperiod = daily
+
 [ObservedData]
 Qtss = observed_data/lobith2006.csv
 Column = lobith
@@ -15,28 +24,30 @@ ParamRanges = ParamRanges.csv
 
 [Templates]
 ModelSettings = calib_cwatm.ini
+# for Windows use runpy.bat
 RunModel = runpy.bat
-
+# for Linux and Mac use runpy.sh
+#RunModel = runpy.sh
 [Option]
-firstrun = false
+# Sets initial parameter values according to the para_first array
+firstrun = False
+# Standard calibation parameter set
+# crop KC, soil depth, pref. flow, arno beta, interflow factor, groundwater recession, routing, normalStorageLimit, No of run
 para_first = [1.2, 1.0, 4.0, 0.5, 1.0, 1.0, 1.0, 0.5, 1.]
-bestrun = true
+# the model runs with the best parameter set after the calibration
+bestrun = True
 
 [DEAP]
-maximize = true
-use_multiprocessing = 0
-pool_limit = 32
-ngen = 10
+maximize = True
+# if more than one node is to be used for parallel processing 
+use_multiprocessing = 1
+# Number of nodes used for multiprocessing, recommended 1-8
+pool_limit = 4
+# Number of generations, recommended 10-40
+ngen = 3
+# Initial population, recommended 16-128
 mu = 8
 lambda_ = 8
-
-[DEFAULT]
-Root = .\.\
-RootPC = .\.\
-Rootbasin = .\
-ForcingStart = 1/1/2006
-ForcingEnd = 31/12/2007
-timeperiod = daily
 
 [CALIBRATION]
 OUT_Dir = %run_rand_id

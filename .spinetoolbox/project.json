@@ -226,10 +226,12 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
-                                "calibration": true,
                                 "calibration_ini": true,
+                                "calibrationfile": true,
+                                "calibrationxx": true,
                                 "coupling": true,
                                 "cwatm_best": true,
+                                "cwatm_best_test": true,
                                 "high_snow": true,
                                 "output_cwatm": true
                             }
@@ -301,10 +303,12 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
-                                "calibration": true,
                                 "calibration_ini": true,
+                                "calibrationfile": true,
+                                "calibrationxx": true,
                                 "coupling": true,
                                 "cwatm_best": true,
+                                "cwatm_best_test": true,
                                 "high_snow": true,
                                 "output_cwatm": true
                             }
@@ -395,10 +399,12 @@
                                 "Base": false,
                                 "Manning": false,
                                 "TU-Nexus_base": false,
-                                "calibration": false,
                                 "calibration_ini": true,
+                                "calibrationfile": true,
+                                "calibrationxx": true,
                                 "coupling": false,
                                 "cwatm_best": false,
+                                "cwatm_best_test": true,
                                 "high_snow": false,
                                 "output_cwatm": false
                             }
@@ -470,10 +476,12 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
-                                "calibration": true,
                                 "calibration_ini": true,
+                                "calibrationfile": true,
+                                "calibrationxx": true,
                                 "coupling": true,
                                 "cwatm_best": true,
+                                "cwatm_best_test": true,
                                 "high_snow": true,
                                 "output_cwatm": true
                             }
@@ -643,10 +651,12 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
-                                "calibration": true,
                                 "calibration_ini": true,
+                                "calibrationfile": true,
+                                "calibrationxx": true,
                                 "coupling": true,
                                 "cwatm_best": true,
+                                "cwatm_best_test": true,
                                 "high_snow": true,
                                 "output_cwatm": true
                             }
@@ -766,7 +776,7 @@
             "type": "Data Store",
             "description": "",
             "x": 65.37710489761716,
-            "y": -196.35899537386686,
+            "y": -197.53328164214543,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -850,6 +860,10 @@
                 },
                 {
                     "type": "literal",
+                    "arg": "initfile"
+                },
+                {
+                    "type": "literal",
                     "arg": "true"
                 }
             ],
@@ -881,6 +895,10 @@
                 {
                     "type": "resource",
                     "arg": "db_url@cwatm_db"
+                },
+                {
+                    "type": "literal",
+                    "arg": "calibration_ini"
                 },
                 {
                     "type": "literal",
@@ -1041,7 +1059,7 @@
                 },
                 {
                     "type": "literal",
-                    "arg": "cwatm_best"
+                    "arg": "cwatm_best_test"
                 },
                 {
                     "type": "literal",
@@ -1144,8 +1162,8 @@
         "CWatM_standalone": {
             "type": "Tool",
             "description": "",
-            "x": 397.3988294386431,
-            "y": -98.61013137435313,
+            "x": 383.9063420375809,
+            "y": -97.57224772811759,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [

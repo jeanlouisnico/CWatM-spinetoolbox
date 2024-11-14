@@ -12,7 +12,7 @@ import sys
 settingsFNTOML = "validTOML_settings_CWatM.ini"
 sql_url = sys.argv[1] 
 alternative = sys.argv[2]
- 
+typefile = sys.argv[3]
 with open(settingsFNTOML, 'r') as f:
     config = toml.load(f)
 class X(object):
@@ -53,12 +53,13 @@ def check_base_alternative(sql_url, entity_name, param):
     #if inspect.isclass(value):
 
     return value
-def populate_ini(sql_url, config, alternative):
+def populate_ini(sql_url, config, alternative, typefile):
     with DatabaseMapping(sql_url) as db_map:
     # Allocate to the Spine mapping structure
         #param_val =db_map.get_alternative_items()
         #print(param_val)
         db_map.add_alternative_item(check=True, name=alternative)
+        alt = db_map.get_alternative_items()
         for key in config:
             # allocate the entity class items for upper layers
             #print(key)
@@ -88,19 +89,33 @@ def populate_ini(sql_url, config, alternative):
 
                 value_in_db = check_base_alternative(sql_url, key, key2)
 
-                print(value_in_db)
-                print(value)
+                #print(value_in_db)
+                #print(value)
                 if value_in_db == api.from_database(value,type_):
                     print("same value, skipping")
                     continue
                 else:
                     print(f"not the same value value_in_db={value_in_db} and value_ini={value}")
 
+                
+                if key=="CALIBRATION" and typefile=="calibration":
+                    # Test if the alternative exists
+                    try:
+                        next(item for item in alt if item["name"] == "calibration")
+                        alternativename = "calibrationxx"                                               
+                    except:
+                        # The alternative name does not exist
+                        alternativename = "calibration"
+                    db_map.add_alternative_item(check=True, name=alternativename)
+                else:
+                    alternativename = alternative
+
+
                 db_map.add_parameter_value_item(
                     entity_class_name=key,
                     entity_byname=(key,),
                     parameter_definition_name=key2,
-                    alternative_name=alternative,
+                    alternative_name=alternativename,
                     value=value,
                     type=type_
                     )
@@ -118,8 +133,8 @@ with DatabaseMapping(sql_url) as db_map:
     entity_classes = db_map.get_entity_class_items()
     #print(scenario)
     #print(entity_classes)
-    if len(sys.argv) == 4:
-        update = sys.argv[3].lower() in ['true', '1']
+    if len(sys.argv) == 5:
+        update = sys.argv[4].lower() in ['true', '1']
     else:
         if not entity_classes and not scenario:
             update = True
