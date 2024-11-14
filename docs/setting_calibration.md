@@ -69,3 +69,18 @@ Toolbox will now recreate the CWatM init file taking the base scenario input var
 
     This section refers to the [running calibration file in SpineToolbox](navigating.md/#5-run-your-calibration) part of the workflow
 
+To run the calibration, we need to go through two steps. The first steps is to ensure we are creating the correct calibration init file to CWatM and create the correct CWatM init file to run the model in calibration mode
+
+The first step consists in selecting the correct **alternative** from the filter. Filter is displayed while selecting the yellow arrow connecting the database to the export_to_ini_calibtxt tool.
+
+![relink_tool](images/calib_atl.png)
+
+Then in the second flow, we are sending the calibration scenario we created earlier. Ensure you select only the calibration scenario from the link properties of the workflow.
+
+![relink_tool](images/calib_scenario.png)
+
+The last task is to ensure what will be the name of the alternative where you want to store the ***best*** results run from the calibration. You can rename the arguments :one: freely.
+
+![relink_tool](images/calib_best_scenario.png)
+
+Select then the workflow and run the selection ![selection_run_icon](images/selection_run_icon.png).
