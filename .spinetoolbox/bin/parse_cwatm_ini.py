@@ -107,6 +107,15 @@ def populate_ini(sql_url, config, alternative, typefile):
                         # The alternative name does not exist
                         alternativename = "calibration"
                     db_map.add_alternative_item(check=True, name=alternativename)
+                elif key=="OUTPUT" and typefile=="initfile":
+                    # Test if the alternative exists
+                    try:
+                        next(item for item in alt if item["name"] == "output_" + alternative)
+                        alternativename = "output_" + alternative + "xx"                                            
+                    except:
+                        # The alternative name does not exist
+                        alternativename = "output_" + alternative
+                    db_map.add_alternative_item(check=True, name=alternativename)
                 else:
                     alternativename = alternative
 
@@ -119,7 +128,7 @@ def populate_ini(sql_url, config, alternative, typefile):
                     value=value,
                     type=type_
                     )
-        param_val =db_map.get_parameter_value_items()
+        #param_val =db_map.get_parameter_value_items()
         #print(param_val)
         try:
             db_map.commit_session("initalized CWatM database")
