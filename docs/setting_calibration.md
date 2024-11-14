@@ -64,3 +64,8 @@ Create a scenario named *calibration* and drag&drop the cwatm base alternative a
 Toolbox will now recreate the CWatM init file taking the base scenario input variables and add/replace the variables with the calibration data.
 
 ## Running the calibration
+
+!!! Tip
+
+    This section refers to the [running calibration file in SpineToolbox](navigating.md/#5-run-your-calibration) part of the workflow
+
