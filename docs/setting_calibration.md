@@ -56,3 +56,11 @@ Templates: ModelSettings = calib_cwatm.ini
 To run any calibration, one will need 1. a cwatm ini file against which the calibration is made, and a calibration file to know how to calibrate it.
 
 The first step is to recreate a valid CWatM file. If you have not imported any CWatM file into the database as a Base alternative, please go to have a look at the [create a standalone model section](Tutorial.md/#running-standalone-version).
+
+Create a scenario named *calibration* and drag&drop the cwatm base alternative and the *calibration* alternative and you should have this scenario displayed as below
+
+![relink_tool](images/calibration_scenario.png)
+
+Toolbox will now recreate the CWatM init file taking the base scenario input variables and add/replace the variables with the calibration data.
+
+## Running the calibration
