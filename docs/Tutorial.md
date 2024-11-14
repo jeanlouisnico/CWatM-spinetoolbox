@@ -43,7 +43,9 @@ The second tool *parse_toml* is very important and the end-user wants to put att
 
 ![wf3](images/import_ini.png)
 
-The second argument :one:: is the name of the *alternative* where the ini file *parameters* will be imported in, in this tutorial we will name it *5_arcmin_base*. The :two: argument define that it will update the values and should be always set to *true* if you want to update the existing alternative, if not set it to *false*. Select the 3 tool together and run only the selection ![selection_run_icon](images/selection_run_icon.png). Running only this section will import your CWatM *ini* file into the Spine Database.
+The second argument :one:: is the name of the *alternative* where the ini file *parameters* will be imported in, in this tutorial we will name it *5_arcmin_base*. The :two: argument should not be touched and left as is. This is to tell the importer that we are importing a cwatm ini file. The :three: argument define that it will update the values and should be always set to *true* if you want to update the existing alternative, if not set it to *false*. Select the 3 tool together and run only the selection ![selection_run_icon](images/selection_run_icon.png). Running only this section will import your CWatM *ini* file into the Spine Database.
+
+This will import 2 alternatives, the first one being the CWatM core ini file, and another one named <YOUR ALTERNATIVE>_output, which allocate the outputs in a separate alternative. This is to better use the structure of the data with the calibration runs.
 
 !!! Tip
 
