@@ -84,3 +84,9 @@ The last task is to ensure what will be the name of the alternative where you wa
 ![relink_tool](images/calib_best_scenario.png)
 
 Select then the workflow and run the selection ![selection_run_icon](images/selection_run_icon.png).
+
+## Results and running best calibration
+
+The calibration run will be committed to the database automatically under the *cwatm_best_test* alternative (or whatever the name of the alternative the use has defined)
+
+ 

@@ -53,7 +53,7 @@ def check_base_alternative(sql_url, entity_name, param):
     #if inspect.isclass(value):
 
     return value
-def populate_ini(sql_url, config, alternative, typefile):
+def populate_ini(sql_url, config, alternative):
     with DatabaseMapping(sql_url) as db_map:
     # Allocate to the Spine mapping structure
         #param_val =db_map.get_alternative_items()

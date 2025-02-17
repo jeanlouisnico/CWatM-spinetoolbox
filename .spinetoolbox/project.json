@@ -206,6 +206,7 @@
                                 "Ex2_Rhine": false,
                                 "Ex5_Bhima": false,
                                 "Ex5_Danube": false,
+                                "Matin": true,
                                 "calibration": true,
                                 "coupling": false,
                                 "cwatm": false,
@@ -226,6 +227,7 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
+                                "TU-Nexus_best_Matin": true,
                                 "calibration_ini": true,
                                 "calibrationfile": true,
                                 "calibrationxx": true,
@@ -283,6 +285,7 @@
                                 "Ex2_Rhine": true,
                                 "Ex5_Bhima": true,
                                 "Ex5_Danube": true,
+                                "Matin": true,
                                 "calibration": true,
                                 "coupling": true,
                                 "cwatm": true,
@@ -303,6 +306,7 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
+                                "TU-Nexus_best_Matin": true,
                                 "calibration_ini": true,
                                 "calibrationfile": true,
                                 "calibrationxx": true,
@@ -379,6 +383,7 @@
                                 "Ex2_Rhine": true,
                                 "Ex5_Bhima": true,
                                 "Ex5_Danube": true,
+                                "Matin": true,
                                 "calibration": true,
                                 "coupling": true,
                                 "cwatm": true,
@@ -399,12 +404,13 @@
                                 "Base": false,
                                 "Manning": false,
                                 "TU-Nexus_base": false,
-                                "calibration_ini": true,
-                                "calibrationfile": true,
+                                "TU-Nexus_best_Matin": true,
+                                "calibration_ini": false,
+                                "calibrationfile": false,
                                 "calibrationxx": true,
                                 "coupling": false,
                                 "cwatm_best": false,
-                                "cwatm_best_test": true,
+                                "cwatm_best_test": false,
                                 "high_snow": false,
                                 "output_cwatm": false
                             }
@@ -451,13 +457,14 @@
                         "db_url@cwatm_db": {
                             "scenario_filter": {
                                 "Ex10_Lakes": false,
-                                "Ex10_Res": false,
+                                "Ex10_Res": true,
                                 "Ex2_Bhima": false,
-                                "Ex2_Rhine": false,
+                                "Ex2_Rhine": true,
                                 "Ex5_Bhima": false,
                                 "Ex5_Danube": false,
+                                "Matin": true,
                                 "calibration": false,
-                                "coupling": true,
+                                "coupling": false,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
                                 "exercise3": false,
@@ -476,6 +483,7 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
+                                "TU-Nexus_best_Matin": true,
                                 "calibration_ini": true,
                                 "calibrationfile": true,
                                 "calibrationxx": true,
@@ -631,12 +639,13 @@
                                 "Ex2_Rhine": false,
                                 "Ex5_Bhima": false,
                                 "Ex5_Danube": false,
+                                "Matin": true,
                                 "calibration": false,
                                 "coupling": false,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
                                 "exercise3": false,
-                                "high_snow_scenario": true
+                                "high_snow_scenario": false
                             },
                             "alternative_filter": {
                                 "10_Lakes-Reservoirs_Lakes": true,
@@ -651,6 +660,7 @@
                                 "Base": true,
                                 "Manning": true,
                                 "TU-Nexus_base": true,
+                                "TU-Nexus_best_Matin": true,
                                 "calibration_ini": true,
                                 "calibrationfile": true,
                                 "calibrationxx": true,
@@ -836,7 +846,7 @@
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "<project>/CWATM Model/Input Data/settings_CWatM_template_5min.ini"
+                    "arg": "C:\\Users\\JLJEAN\\Downloads\\settings_CWatM_template-Run07_best.ini"
                 }
             ],
             "kill_completed_processes": false,
@@ -856,7 +866,7 @@
                 },
                 {
                     "type": "literal",
-                    "arg": "TU-Nexus_base"
+                    "arg": "TU-Nexus_best_Matin"
                 },
                 {
                     "type": "literal",
@@ -1063,6 +1073,10 @@
                 },
                 {
                     "type": "literal",
+                    "arg": "initfile"
+                },
+                {
+                    "type": "literal",
                     "arg": "true"
                 }
             ],
@@ -1105,8 +1119,8 @@
             "file_references": [
                 {
                     "type": "path",
-                    "relative": true,
-                    "path": "CWATM Model/Input Data/settings_CWatM_template_5min.ini"
+                    "relative": false,
+                    "path": "C:/Users/JLJEAN/Downloads/settings_CWatM_template-Run07_best.ini"
                 }
             ],
             "db_references": []
