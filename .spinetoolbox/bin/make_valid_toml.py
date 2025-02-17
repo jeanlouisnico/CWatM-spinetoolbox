@@ -208,6 +208,7 @@ def parse_configuration(settingsFileName):
     if "DEFAULT" in list(config.keys()):
         print(config.defaults())
         if bool(config.defaults()):
+            # Create a default section in the dictionnary
             my_dictionary['DEFAULT'] = None
             tomldoc['DEFAULT'] = tomlkit.table()
             defaultsec = True
