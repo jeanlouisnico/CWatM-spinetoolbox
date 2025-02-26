@@ -67,7 +67,13 @@ Toolbox will now recreate the CWatM init file taking the base scenario input var
 
 !!! Tip
 
-    This section refers to the [running calibration file in SpineToolbox](navigating.md/#5-run-your-calibration) part of the workflow
+    This section refers to the [running calibration file in SpineToolbox](navigating.md/#5-run-your-calibration) part of the workflow.
+
+!!! Warning
+
+    Remember to add your measurement files in the calibration tool defined. In the observed data, only those provided by CWatM community for their tutorial is added. Double click the Calibration tool > in the Additional program files section, open the observed_data folder > add your measurements csv (in the correct format as recommended by CWatM) 
+
+
 
 To run the calibration, we need to go through two steps. The first steps is to ensure we are creating the correct calibration init file to CWatM and create the correct CWatM init file to run the model in calibration mode
 
@@ -88,5 +94,7 @@ Select then the workflow and run the selection ![selection_run_icon](images/sele
 ## Results and running best calibration
 
 The calibration run will be committed to the database automatically under the *cwatm_best_test* alternative (or whatever the name of the alternative the use has defined)
+
+
 
  

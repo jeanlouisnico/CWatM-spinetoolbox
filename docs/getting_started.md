@@ -48,6 +48,10 @@ The best way to interact with CWatM is to clone or fork the git version of the [
 
 As described in the CWatM instructions to run the model, it is best to download all necessary versions for [30](https://github.com/iiasa/CWatM-Earth-30min), [5 arcmin](https://drive.google.com/drive/folders/1HqcBj5fD6DHJpOe-t_6JHFMKFtubghZf?usp=drive_link) and [weather data](https://drive.google.com/drive/folders/1_xlg_RZvx9xsVPddOiqCG3XZmASCBIRM?usp=drive_link) or directly from the [ISIMIP](https://www.isimip.org/gettingstarted/input-data-bias-adjustment/details/110/) repository.  This is then to be changed in the path to locate where those folders will be downloaded. 
 
+!!! Warning
+
+    The weather files provided from CWatM are from 1980 to 2019 (as of February 2025). If your calibration runs start before this data, you should download the data from the ISIMIP repository (starts from 1901).
+
 Alongside the CWatM-SpineToolbox deliverable, the *toolbox_compatibility.py* file needs to be copied to the CWatM folder. this python script allows to start different instances of CWatM from python script instead of command line as traditionally used by the CWatM community. The file is currently located under *.\CWatM-spinetoolbox\calibration\CWatM*. This python file needs to be placed under *.\CWatM* folder in the local computer.
 
 ## How to use
