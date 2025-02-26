@@ -68,7 +68,7 @@ if platform == "win32":
 else:
 	root = parser.get('DEFAULT', 'Root')
 rootbasin = os.path.join(root,parser.get('DEFAULT', 'Rootbasin'))
-
+print(rootbasin)
 ForcingStart = datetime.datetime.strptime(parser.get('DEFAULT','ForcingStart'),"%d/%m/%Y")  # Start of forcing
 
 timeperiod = parser.get('DEFAULT','timeperiod')
@@ -86,6 +86,7 @@ print("set the paths")
 ParamRangesPath = os.path.join(rootbasin,parser.get('Path','ParamRanges'))
 SubCatchmentPath = os.path.join(rootbasin,parser.get('Path','SubCatchmentPath'))
 Qtss_csv = os.path.join(rootbasin,parser.get('ObservedData', 'Qtss'))
+print(Qtss_csv)
 #Qtss_col = parser.get('ObservedData', 'Column')
 
 modeltemplate = parser.get('Path','Templates')
