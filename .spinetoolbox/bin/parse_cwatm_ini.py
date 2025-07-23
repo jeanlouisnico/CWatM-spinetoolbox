@@ -120,7 +120,7 @@ def populate_ini(sql_url, config, alternative):
                     alternativename = alternative
 
 
-                db_map.add_parameter_value_item(
+                db_map.add_parameter_value(
                     entity_class_name=key,
                     entity_byname=(key,),
                     parameter_definition_name=key2,

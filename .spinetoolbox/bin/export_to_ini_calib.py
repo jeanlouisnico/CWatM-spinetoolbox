@@ -9,12 +9,14 @@ import os
 import re
 import fileinput
 import json
-
+import datetime
 url = sys.argv[1]
 outfile = sys.argv[2]
 calib = sys.argv[3]
 #url = "sqlite:///C:/Git/CWatM-spinetoolbox-dev/.spinetoolbox/items/data_store/cwatmdb_new.sqlite"
-#outfile = "calib_ini"
+#outfile = "cwatm_input"
+#calib = "False"
+
 def use_regex_date(filein):
 
 	with open (filein, 'r' ) as f:
@@ -81,6 +83,15 @@ def replace_path(strin, dic, maincat):
 			pass
 
 	return str_mod
+
+def get_values_spindedbapi(url, name, varname):
+	with DatabaseMapping(url) as db_map:
+		param_val = db_map.get_parameter_value_items(entity_class_name=name, entity_byname=(name,), parameter_definition_name=varname)
+		if bool(param_val):
+			data  = api.from_database(param_val[0]["value"], param_val[0]["type"])
+		else:
+			data = []
+	return data 
 
 def retrieve_db(url, outfile, calib):
 	doc = document()
@@ -179,19 +190,50 @@ def retrieve_db(url, outfile, calib):
 				tomldoc["INITITIAL CONDITIONS"]["initLoad"] = data
 
 			# Change the StepInit to the value of StepEnd in case the initSave value is true
-
+		# Check if the time related constant for the coupling exist. If not, continue as is otherwise check that the values are correctly allocated
+		if not my_dictionary["TIME-RELATED_CONSTANTS"] == None:
+			data_spinup = get_values_spindedbapi(url, "TIME-RELATED_CONSTANTS", "SpinUp")
+			data_stepend = get_values_spindedbapi(url, "TIME-RELATED_CONSTANTS", "StepEnd")
+			data_rollflextool = get_values_spindedbapi(url, "TIME-RELATED_CONSTANTS", "RollFlexTool")
+			if data_rollflextool:
+				# This means that the variable exists in the dictionnary and can be checked
+				timediff = data_stepend.value - data_spinup.value
+				if not data_rollflextool.value.days == timediff.days:
+					data_stepend_bis = data_spinup.value + data_rollflextool.value
+					tomldoc["TIME-RELATED_CONSTANTS"]["StepEnd"] = data_stepend_bis.strftime("%Y-%m-%d")
 		# Create output folders for each scenario and avoid writing errors in files
 		#print(my_dictionary)
 		if not my_dictionary["FILE_PATHS"] == None:
 			print("Creating the directory")
+			looptoolbox = my_dictionary["OPTIONS"]["looptoolbox"]
+			current_directory = os.getcwd()
+			if looptoolbox == True:
+				# Check if the key for loopcount exist
+				if "loopcount" in my_dictionary["OPTIONS"]:
+					# Start the iteration
+					print("		Loopcount exists and will be set to true")
+					my_dictionary["OPTIONS"]["loopcount"] += True
+					tomldoc["OPTIONS"]["loopcount"] += True
+				else:
+					# Create the key and set it to 0
+					print("		Loopcount does not exist and will be set to 0")
+					my_dictionary["OPTIONS"] = {"loopcount": False}
+					tomldoc["OPTIONS"]["loopcount"] = False
+				if my_dictionary["OPTIONS"]["loopcount"] == True:
+					# This means we already did one loop
+					# Get the old path from the previous run where the file was saved and set the loadinit path with this path
+					final_directory_init_save = my_dictionary["INITITIAL CONDITIONS"]["initLoad"]
+				else:
+					#This means this is the first loop. The init filepath needs to be set and the init save 
+					initfolderload = my_dictionary["INITITIAL CONDITIONS"]["initLoad"]
+					final_directory_init_save = os.path.join(current_directory, Path(r"{}".format(initfolderload)))
+			
 			outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
 			initfoldersave = my_dictionary["INITITIAL CONDITIONS"]["initSave"]
-			initfolderload = my_dictionary["INITITIAL CONDITIONS"]["initLoad"]
 			# If the paths are relative, re-write them. !!!! Path should be relative to work in Toolbox !!!!
-			current_directory = os.getcwd()
 			final_directory = os.path.join(current_directory, Path(r"{}".format(outputfolder)))
 			final_directory_init = os.path.join(current_directory, Path(r"{}".format(initfoldersave)))
-			final_directory_init_save = os.path.join(current_directory, Path(r"{}".format(initfolderload)))
+			
 			if not os.path.exists(final_directory):
 				os.makedirs(final_directory)
 			if not os.path.exists(final_directory_init):
@@ -279,7 +321,7 @@ retrieve_db(url, outfile, calib)
 
 # Get the alternative for each scenario where it writes the scenario and the winning alternative in a separate file
 
-""" with DatabaseMapping(url) as db_map:
+with DatabaseMapping(url) as db_map:
 	filter_configs = db_map.get_filter_configs()
 	for config in filter_configs:
 		scenario_name = filter_tools.name_from_dict(config)
@@ -300,4 +342,4 @@ retrieve_db(url, outfile, calib)
 		setofalt[item['rank']] = item['alternative_name']
 	
 	with open('alt_list.json', 'w') as json_file:     
-		json.dump(setofalt, json_file) """
+		json.dump(setofalt, json_file)

@@ -125,7 +125,7 @@
                 "executable": ""
             }
         },
-        "loop_next_day": {
+        "Loop_end_conditions": {
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",
@@ -133,7 +133,15 @@
                 "executable": ""
             }
         },
-        "Loop_end_conditions": {
+        "loop_test": {
+            "execution_settings": {
+                "env": "conda",
+                "kernel_spec_name": "conda-env-flex_cwatm-py",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
+        "loop_next_day": {
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",

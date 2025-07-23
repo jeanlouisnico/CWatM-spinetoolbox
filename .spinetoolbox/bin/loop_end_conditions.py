@@ -27,3 +27,6 @@ with DatabaseMapping(url) as db_map:
 
 if enddate > maxdate:
     exit(1) 
+    print("exiting loop")
+else:
+    print("continue loop to the next step")

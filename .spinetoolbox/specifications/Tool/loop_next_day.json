@@ -16,6 +16,7 @@
     ],
     "inputfiles_opt": [],
     "outputfiles": [
+        "cwatm_input.ini",
         "out.dat"
     ],
     "cmdline_args": [],

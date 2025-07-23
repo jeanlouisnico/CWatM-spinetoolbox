@@ -6,21 +6,33 @@
                 "password": ""
             }
         },
+        "cwatm": {},
         "Data Store": {
             "url": {
                 "username": "",
                 "password": ""
             }
         },
+        "convert_to_valid_toml": {},
+        "parse_toml": {},
         "calibration init (1)": {
             "db_credentials": {}
         },
+        "parse_toml (2)": {},
+        "convert_to_valid_toml (2)": {},
+        "Calibration (1)": {},
+        "export_to_ini_calib": {},
+        "update_clean_db": {},
+        "export_to_ini_calibtxt": {},
         "best_calib": {
             "url": {
                 "username": "",
                 "password": ""
             }
         },
+        "convert_to_valid_toml (1)": {},
+        "parse_toml (1)": {},
+        "process_to_flexTool": {},
         "data_store_loop": {
             "url": {
                 "username": "",
@@ -29,6 +41,11 @@
         },
         "CWatM ini file": {
             "db_credentials": {}
-        }
+        },
+        "export_to_ini_cwatm": {},
+        "export_to_ini_calib_Cwatm_stdalone": {},
+        "CWatM_standalone": {},
+        "loop_next_day": {},
+        "loop_test": {}
     }
 }
