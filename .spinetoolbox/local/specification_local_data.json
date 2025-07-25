@@ -17,6 +17,9 @@
         "ReduceModel": {
             "execution_settings": {}
         },
+        "Run SpineOpt": {
+            "execution_settings": {}
+        },
         "Load template": {
             "execution_settings": {}
         },
@@ -125,6 +128,14 @@
                 "executable": ""
             }
         },
+        "loop_next_day": {
+            "execution_settings": {
+                "env": "conda",
+                "kernel_spec_name": "conda-env-flex_cwatm-py",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
         "Loop_end_conditions": {
             "execution_settings": {
                 "env": "conda",
@@ -134,14 +145,6 @@
             }
         },
         "loop_test": {
-            "execution_settings": {
-                "env": "conda",
-                "kernel_spec_name": "conda-env-flex_cwatm-py",
-                "use_jupyter_console": false,
-                "executable": ""
-            }
-        },
-        "loop_next_day": {
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",

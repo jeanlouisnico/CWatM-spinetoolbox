@@ -7,9 +7,7 @@
     "description": "",
     "inputfiles": [],
     "inputfiles_opt": [],
-    "outputfiles": [
-        "input.txt"
-    ],
+    "outputfiles": [],
     "cmdline_args": [],
     "includes_main_path": "../../bin"
 }

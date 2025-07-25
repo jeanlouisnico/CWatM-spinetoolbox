@@ -45,7 +45,6 @@
         "export_to_ini_cwatm": {},
         "export_to_ini_calib_Cwatm_stdalone": {},
         "CWatM_standalone": {},
-        "loop_next_day": {},
-        "loop_test": {}
+        "loop_next_day": {}
     }
 }

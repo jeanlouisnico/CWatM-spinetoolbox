@@ -201,6 +201,9 @@
                     "export_to_ini_calib",
                     "left"
                 ],
+                "options": {
+                    "require_scenario_filter": false
+                },
                 "filter_settings": {
                     "known_filters": {
                         "db_url@cwatm_db": {
@@ -397,31 +400,31 @@
                                 "high_snow_scenario": true
                             },
                             "alternative_filter": {
-                                "10_Lakes-Reservoirs_Lakes": true,
-                                "10_Lakes-Reservoirs_reservoires": true,
-                                "11_1km_buhma": true,
-                                "12_5min_modflow": true,
-                                "2_Choose_Basin_Bhima": true,
-                                "2_Choose_Basin_Rhine": true,
-                                "5_Increasing-resolution_Bhima": true,
-                                "5_Increasing-resolution_Danube": true,
-                                "6_Watercycle": true,
+                                "10_Lakes-Reservoirs_Lakes": false,
+                                "10_Lakes-Reservoirs_reservoires": false,
+                                "11_1km_buhma": false,
+                                "12_5min_modflow": false,
+                                "2_Choose_Basin_Bhima": false,
+                                "2_Choose_Basin_Rhine": false,
+                                "5_Increasing-resolution_Bhima": false,
+                                "5_Increasing-resolution_Danube": false,
+                                "6_Watercycle": false,
                                 "Base": false,
-                                "Manning": true,
-                                "TU-Nexus_base": true,
-                                "TU-Nexus_best_Matin": true,
-                                "calibration_ini": false,
-                                "calibrationfile": true,
+                                "Manning": false,
+                                "TU-Nexus_base": false,
+                                "TU-Nexus_best_Matin": false,
+                                "calibration_ini": true,
+                                "calibrationfile": false,
                                 "calibrationxx": false,
-                                "coupling": true,
-                                "cwatm_best": true,
-                                "cwatm_best_test": true,
-                                "high_snow": true,
-                                "output_cwatm": true
+                                "coupling": false,
+                                "cwatm_best": false,
+                                "cwatm_best_test": false,
+                                "high_snow": false,
+                                "output_cwatm": false
                             }
                         }
                     },
-                    "auto_online": true,
+                    "auto_online": false,
                     "enabled_filter_types": {
                         "alternative_filter": true,
                         "scenario_filter": false
@@ -619,19 +622,19 @@
                     "known_filters": {
                         "db_url@cwatm_db": {
                             "scenario_filter": {
-                                "Ex10_Lakes": true,
-                                "Ex10_Res": true,
-                                "Ex2_Bhima": true,
-                                "Ex2_Rhine": true,
-                                "Ex5_Bhima": true,
-                                "Ex5_Danube": true,
+                                "Ex10_Lakes": false,
+                                "Ex10_Res": false,
+                                "Ex2_Bhima": false,
+                                "Ex2_Rhine": false,
+                                "Ex5_Bhima": false,
+                                "Ex5_Danube": false,
                                 "Matin": true,
                                 "calibration": false,
-                                "coupling": true,
-                                "cwatm": true,
-                                "cwatm_best_calib": true,
-                                "exercise3": true,
-                                "high_snow_scenario": true
+                                "coupling": false,
+                                "cwatm": false,
+                                "cwatm_best_calib": false,
+                                "exercise3": false,
+                                "high_snow_scenario": false
                             },
                             "alternative_filter": {
                                 "10_Lakes-Reservoirs_Lakes": true,
@@ -704,14 +707,14 @@
                 }
             },
             {
-                "name": "from process_to_flexTool to loop_next_day",
+                "name": "from loop_next_day to data_store_loop",
                 "from": [
-                    "process_to_flexTool",
+                    "loop_next_day",
                     "bottom"
                 ],
                 "to": [
-                    "loop_next_day",
-                    "right"
+                    "data_store_loop",
+                    "bottom"
                 ],
                 "filter_settings": {
                     "known_filters": {},
@@ -740,6 +743,25 @@
                         "scenario_filter": true
                     }
                 }
+            },
+            {
+                "name": "from process_to_flexTool to loop_next_day",
+                "from": [
+                    "process_to_flexTool",
+                    "bottom"
+                ],
+                "to": [
+                    "loop_next_day",
+                    "right"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
             }
         ],
         "jumps": [
@@ -751,10 +773,10 @@
                 ],
                 "to": [
                     "export_to_ini_cwatm",
-                    "left"
+                    "bottom"
                 ],
                 "condition": {
-                    "script": "from spinedb_api import DatabaseMapping\nimport sys \nimport spinedb_api as api\n\nfile_path = sys.argv[1]\nvar = {}\nwith open(file_path, 'r') as file:\n    for line in file:\n        str_test = line.strip()\n        if str_test.find(\";\")>0:\n            print(line.strip())\n            variables = str_test.split(\";\")\n            var[variables[0]] = variables[1]\n        else:\n            url = str_test\n            print(url)\n\nwith DatabaseMapping(url) as db_map:\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepFlexTool', alternative_name=var['StepEnd'])\n    maxdate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n\n    print(maxdate)\n\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepEnd', alternative_name=var['StepEnd'])\n    enddate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n    print(enddate)\n\nif enddate > maxdate:\n    exit(1) \n    print(\"exiting loop\")\nelse:\n\texit(0) \n    print(\"continue loop to the next step\") ",
+                    "script": "from spinedb_api import DatabaseMapping\nimport sys \nimport spinedb_api as api\n\nfile_path = sys.argv[1]\nvar = {}\nwith open(file_path, 'r') as file:\n    for line in file:\n        str_test = line.strip()\n        if str_test.find(\";\")>0:\n            print(line.strip())\n            variables = str_test.split(\";\")\n            var[variables[0]] = variables[1]\n        else:\n            url = str_test\n            print(url)\n\nwith DatabaseMapping(url) as db_map:\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepFlexTool', alternative_name=var['StepEnd'])\n    maxdate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n\n    print(maxdate)\n\n    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepEnd', alternative_name=var['StepEnd'])\n    enddate = api.from_database(param_value[\"value\"], param_value[\"type\"])\n    print(enddate)\n\nif enddate > maxdate:\n    exit(1) \n    print(\"exiting loop\")\nelse:\n    print(\"continue loop to the next step\")\n",
                     "specification": "Loop_end_conditions",
                     "type": "tool-specification"
                 },
@@ -762,32 +784,6 @@
                     {
                         "type": "resource",
                         "arg": "out.dat"
-                    },
-                    {
-                        "type": "resource",
-                        "arg": "cwatm_input.ini"
-                    }
-                ]
-            },
-            {
-                "name": "from loop_test to loop_test",
-                "from": [
-                    "loop_test",
-                    "right"
-                ],
-                "to": [
-                    "loop_test",
-                    "bottom"
-                ],
-                "condition": {
-                    "script": "import sys\n\nfile = sys.argv[1]\nnum = -1\nfor row in open(file):\n   num = int(row.strip())\n   if num == 5:\n      exit(1)\nprint(f\"Going for round {num + 1}\")\n",
-                    "specification": "Flextool",
-                    "type": "python-script"
-                },
-                "cmd_line_args": [
-                    {
-                        "type": "resource",
-                        "arg": "input.txt"
                     }
                 ]
             }
@@ -829,7 +825,7 @@
                 }
             ],
             "kill_completed_processes": true,
-            "log_process_output": false
+            "log_process_output": true
         },
         "Data Store": {
             "type": "Data Store",
@@ -1109,8 +1105,8 @@
         "data_store_loop": {
             "type": "Data Store",
             "description": "",
-            "x": 168.761639234918,
-            "y": 161.5266094092015,
+            "x": 136.60737736374202,
+            "y": 164.449724124763,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -1140,8 +1136,8 @@
         "export_to_ini_cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 234.95945463262558,
-            "y": 29.871563014072304,
+            "x": 234.9594546326256,
+            "y": 28.04125641835673,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1203,13 +1199,13 @@
                 }
             ],
             "kill_completed_processes": false,
-            "log_process_output": false
+            "log_process_output": true
         },
         "loop_next_day": {
             "type": "Tool",
             "description": "",
-            "x": 319.20626786098956,
-            "y": 161.9102687799143,
+            "x": 319.20626786098944,
+            "y": 160.07193565918317,
             "specification": "loop_next_day",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1222,17 +1218,6 @@
                     "arg": "alt_list.json"
                 }
             ],
-            "kill_completed_processes": false,
-            "log_process_output": false
-        },
-        "loop_test": {
-            "type": "Tool",
-            "description": "",
-            "x": 1239.7076843359514,
-            "y": -235.59020569483945,
-            "specification": "loop_test",
-            "execute_in_work": false,
-            "cmd_line_args": [],
             "kill_completed_processes": false,
             "log_process_output": false
         }
