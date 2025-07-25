@@ -8,7 +8,7 @@ Let's setup an instance of SpineToolbox (hereafter **Toolbox**) by creating an e
 
 ### Setting the database
 
-Before starting setting up a totally new workflow, **Toolbox** requires to be linked to a database. In this particular case we are using .*sqlite*, but one can choose between *sqlite* and *mysql*. Create a new database by first selecting the database ![databaseicon](images/db_icon_small.png). This will display the *Data Store Properties* (DSP). From the DSP, click the *New Spine db* button to save your database in your environment.
+Before starting setting up a totally new workflow, **Toolbox** requires to be linked to a database. In this particular case we are using .*sqlite*, but one can choose between *sqlite* and *mysql*. Create a new database by first selecting the data store ![databaseicon](images/db_icon_small.png). This will display the *Data Store Properties* (DSP). From the DSP, click the *New Spine db* button to save your database in your environment.
 
 !!! Tip
 
@@ -21,15 +21,21 @@ You will then need to:
   - *data_store_loop*
   - *best_calib*
 
-This step will create an empty database with one alternative called *Base*. This alternative will be empty and we can now start populating the data from the **.ini* file into the database
+This step will create an empty database with one alternative called *Base*. This alternative will be empty and we can now start populating the data from 1. a data structure that can be imported into the database or 2. a n existing CWatM **.ini* file into the database. 
 
 ### Populating the database
+#### Method 1: Import an existing database
 
+This method is the easiest if you are starting with a new CWatM project. [Download](../.spinetoolbox/Data/basic_model.json) (right-click and save the file) the .json document that will parse the database with the CWatM 30 min examples with already pre-defined alternatives and scenario (for a single run of CWatM and calibration). This database has more parameters already defined from other CWatM projects (i.e. 5-arcmin). 
+
+This method is the most convenient and should be done anyway as parameters are declared properly. one could then import an existing ini file into this database later on.
+
+#### Method 2: Import from CWatM ini file
 !!! Tip
 
     This section refers to the [import ini file section](navigating.md/#3-import-cwatm-ini-files) part of the workflow
 
-The best way to start working with **Toolbox** is to take one of the CWatM setting files for the 30 arcmin or 5 arcmin. In this example we will populate the 5 arcmin setting files but this setup can be done with the 30 arcmin as well.
+The best way to start importing existing ini file within **Toolbox** is to take one of the CWatM setting files for the 30 arcmin or 5 arcmin. In this example we will populate the 5 arcmin setting files but this setup can be done with the 30 arcmin as well.
 
 First, select the data connection box ![input_setting_file_icon_small](images/input_setting_file_icon_small.png)that will link the ini file to **Toolbox**. This will display the Data Connection Properties (DCP) window on the right-hand side. In case a filepath is already present in the File paths field, adding a new file will be made in addition to the current file path. One can safely remove the link by right cliking the filepath and click *remove reference(s)* or click the - button![minus_icon](images/minus_icon.png) while having the filepath selected. By clicking the + icon ![plus_icon](images/plus_icon.png)you can select the ini setting file.
 
@@ -63,7 +69,11 @@ The **Toolbox** database will be displaying exactly what was in the ini file ori
 
 The most important one is the ***PathRoot*** parameter_name in the FILE_PATHS entity. Locate where the input files were saved on the machine. Other filepaths that needs attention are: **FILE_PATHS\PathMeteo**, and if necessary the **FILE_PATHS\Excel_settings_file parameter_names**.
 
-The last parameter that requires to be changed is due to the use of Toolbox, this is the output folder location FILE_PATHS\PathOut.
+The last parameter that requires to be changed is due to the use of Toolbox, this is the output folder location FILE_PATHS\PathOut. 
+
+!!! Tip
+
+    If you have first imported the CWatM database from the json file, the output database alternative already exists. Either change the alternative name for the output variables or simply delete the parameters.
 
 One of the feature of running CWatM with Toolbox is that you can run all your scenarios in parallel. These parallelisation of the runs is automatically handled by Toolbox. However, since CWatM is writing outputs after every loop, the output folder will need to be defined relative to the path of the scenario. Simply replace the string in the **FILE_PATHS\PathOut** to `./output`. Toolbox will then create an output folder for every scenario and will avoid reading and writing to the same output files.
 
