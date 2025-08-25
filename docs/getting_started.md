@@ -62,7 +62,7 @@ Once all the tools are installed you can first launch SpineToolbox from terminal
 
 in File>Open project (ctrl+o), locate the folder where the CWatM-spinetoolbox repository on your computer (following the structure above, it should be located here `C:\Git\<YOUR FOLDER>\`). This will open the basic workflow of the model coupling. With this workflow you can
 
-![open_project](C:\Git\CWatM-spinetoolbox-dev\docs\images\open_project.png)
+![open_project](images/open_project.png)
 
 1. Make calibration runs;
 2. Make CWatM runs as a standalone application
