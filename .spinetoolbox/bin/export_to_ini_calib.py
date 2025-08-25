@@ -13,7 +13,8 @@ import datetime
 url = sys.argv[1]
 outfile = sys.argv[2]
 calib = sys.argv[3]
-#url = "sqlite:///C:/Git/CWatM-spinetoolbox-dev/.spinetoolbox/items/data_store/cwatmdb_new.sqlite"
+
+#url = "sqlite:///c:/git/cwatm-spinetoolbox-dev/.spinetoolbox/data/basic_model.sqlite"
 #outfile = "cwatm_input"
 #calib = "False"
 
@@ -195,7 +196,12 @@ def retrieve_db(url, outfile, calib):
 			data_spinup = get_values_spindedbapi(url, "TIME-RELATED_CONSTANTS", "SpinUp")
 			data_stepend = get_values_spindedbapi(url, "TIME-RELATED_CONSTANTS", "StepEnd")
 			data_rollflextool = get_values_spindedbapi(url, "TIME-RELATED_CONSTANTS", "RollFlexTool")
-			if data_rollflextool:
+			if "looptoolbox" in my_dictionary["OPTIONS"]:
+				looptoolbox = my_dictionary["OPTIONS"]["looptoolbox"]
+			else:
+				looptoolbox = False
+
+			if data_rollflextool and looptoolbox:
 				# This means that the variable exists in the dictionnary and can be checked
 				timediff = data_stepend.value - data_spinup.value
 				if not data_rollflextool.value.days == timediff.days:
@@ -205,18 +211,21 @@ def retrieve_db(url, outfile, calib):
 		#print(my_dictionary)
 		if not my_dictionary["FILE_PATHS"] == None:
 			print("Creating the directory")
-			looptoolbox = my_dictionary["OPTIONS"]["looptoolbox"]
+			if "looptoolbox" in my_dictionary["OPTIONS"]:
+				looptoolbox = my_dictionary["OPTIONS"]["looptoolbox"]
+			else:
+				looptoolbox = False
 			current_directory = os.getcwd()
 			if looptoolbox == True:
 				# Check if the key for loopcount exist
 				if "loopcount" in my_dictionary["OPTIONS"]:
 					# Start the iteration
-					print("		Loopcount exists and will be set to true")
-					my_dictionary["OPTIONS"]["loopcount"] += True
-					tomldoc["OPTIONS"]["loopcount"] += True
+					print("		Loopcount exists, all good")
+					#my_dictionary["OPTIONS"]["loopcount"] = True
+					#tomldoc["OPTIONS"]["loopcount"] = True
 				else:
 					# Create the key and set it to 0
-					print("		Loopcount does not exist and will be set to 0")
+					print("		Loopcount does not exist and will be set to False")
 					my_dictionary["OPTIONS"] = {"loopcount": False}
 					tomldoc["OPTIONS"]["loopcount"] = False
 				if my_dictionary["OPTIONS"]["loopcount"] == True:
@@ -227,6 +236,10 @@ def retrieve_db(url, outfile, calib):
 					#This means this is the first loop. The init filepath needs to be set and the init save 
 					initfolderload = my_dictionary["INITITIAL CONDITIONS"]["initLoad"]
 					final_directory_init_save = os.path.join(current_directory, Path(r"{}".format(initfolderload)))
+			else:
+				#This means this is the first loop. The init filepath needs to be set and the init save 
+				initfolderload = my_dictionary["INITITIAL CONDITIONS"]["initLoad"]
+				final_directory_init_save = os.path.join(current_directory, Path(r"{}".format(initfolderload)))
 			
 			outputfolder = my_dictionary["FILE_PATHS"]["PathOut"]
 			initfoldersave = my_dictionary["INITITIAL CONDITIONS"]["initSave"]

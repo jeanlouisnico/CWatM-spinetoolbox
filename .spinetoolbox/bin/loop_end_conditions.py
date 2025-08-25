@@ -1,6 +1,8 @@
 from spinedb_api import DatabaseMapping
 import sys 
 import spinedb_api as api
+from datetime import timedelta
+from datetime import datetime
 
 file_path = sys.argv[1]
 var = {}
@@ -18,14 +20,15 @@ with open(file_path, 'r') as file:
 with DatabaseMapping(url) as db_map:
     param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepFlexTool', alternative_name=var['StepEnd'])
     maxdate = api.from_database(param_value["value"], param_value["type"])
-
     print(maxdate)
 
-    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepEnd', alternative_name=var['StepEnd'])
-    enddate = api.from_database(param_value["value"], param_value["type"])
-    print(enddate)
+    param_value = db_map.get_parameter_value_item(entity_class_name='TIME-RELATED_CONSTANTS', entity_byname=('TIME-RELATED_CONSTANTS',), parameter_definition_name='StepStart', alternative_name=var['StepEnd'])
+    startdate = api.from_database(param_value["value"], param_value["type"])
+    print(startdate)
 
-if enddate > maxdate:
+date2compare = startdate.value + timedelta(days=1)
+
+if startdate.value > maxdate.value:
     exit(1) 
     print("exiting loop")
 else:
