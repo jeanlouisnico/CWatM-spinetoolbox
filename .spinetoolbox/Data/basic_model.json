@@ -807,6 +807,13 @@
         ],
         [
             "FILE_PATHS",
+            "PathCombinednc",
+            null,
+            null,
+            null
+        ],
+        [
+            "FILE_PATHS",
             "PathGroundwaterModflow",
             null,
             null,
@@ -1952,7 +1959,7 @@
             "fossil_water_treated_normally",
             null,
             null,
-            null
+            "fossil water that is not consumed is not lost, but treated normally"
         ],
         [
             "OPTIONS",
@@ -2034,9 +2041,9 @@
         [
             "OPTIONS",
             "loopcount",
+            false,
             null,
-            null,
-            null
+            "Default value is 0 to count the number of loops when coupled with FlexTool"
         ],
         [
             "OPTIONS",
@@ -2099,7 +2106,7 @@
             "sectorSourceAbstractionFractions",
             null,
             null,
-            null
+            "Sector- source-abstraction fractions are specified, in WATERDEMAND"
         ],
         [
             "OPTIONS",
@@ -3979,6 +3986,12 @@
         ],
         [
             "FILE_PATHS",
+            "PathCombinednc",
+            "str",
+            0
+        ],
+        [
+            "FILE_PATHS",
             "PathGroundwaterModflow",
             "str",
             0
@@ -4291,6 +4304,12 @@
         ],
         [
             "OPTIONS",
+            "fossil_water_treated_normally",
+            "bool",
+            0
+        ],
+        [
+            "OPTIONS",
             "gridSizeUserDefined",
             "bool",
             0
@@ -4339,6 +4358,12 @@
         ],
         [
             "OPTIONS",
+            "loopcount",
+            "bool",
+            0
+        ],
+        [
+            "OPTIONS",
             "looptoolbox",
             "bool",
             0
@@ -4358,6 +4383,12 @@
         [
             "OPTIONS",
             "reportTss",
+            "bool",
+            0
+        ],
+        [
+            "OPTIONS",
+            "sectorSourceAbstractionFractions",
             "bool",
             0
         ],
