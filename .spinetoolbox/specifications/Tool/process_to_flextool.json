@@ -2,7 +2,14 @@
     "name": "process_to_flexTool",
     "tooltype": "python",
     "includes": [
-        "process_data.py"
+        "process_data.py",
+        "CWatM_Module/hydrological_modules/routing_reservoirs/t5.dll",
+        "CWatM_Module/management_modules/globals.py",
+        "CWatM_Module/management_modules/messages.py",
+        "CWatM_Module/management_modules/__pycache__/globals.cpython-311.pyc",
+        "CWatM_Module/management_modules/__pycache__/globals.cpython-39.pyc",
+        "CWatM_Module/management_modules/__pycache__/messages.cpython-311.pyc",
+        "CWatM_Module/management_modules/__pycache__/messages.cpython-39.pyc"
     ],
     "description": "",
     "inputfiles": [
