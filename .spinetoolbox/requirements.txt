@@ -9,8 +9,12 @@ pandas
 matplotlib
 notebook
 deap
-numpy
+"numpy<2.0" 
 scipy
 netCDF4
+dask
 flopy
 xmipy
+
+# Libraries to interact with NC files 
+cdo

@@ -470,9 +470,9 @@
                                 "Ex2_Rhine": false,
                                 "Ex5_Bhima": false,
                                 "Ex5_Danube": false,
-                                "Matin": false,
+                                "Matin": true,
                                 "calibration": false,
-                                "coupling": true,
+                                "coupling": false,
                                 "cwatm": false,
                                 "cwatm_best_calib": false,
                                 "exercise3": false,
@@ -793,7 +793,7 @@
         "cwatm_db": {
             "type": "Data Store",
             "description": "",
-            "x": 65.37710489761716,
+            "x": 66.8604183245078,
             "y": -197.53328164214543,
             "url": {
                 "dialect": "sqlite",
@@ -810,8 +810,8 @@
         "cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 425.8904485557594,
-            "y": 32.25632508192742,
+            "x": 425.89044855575935,
+            "y": 29.16352814423564,
             "specification": "CWatM",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1094,19 +1094,24 @@
         "process_to_flexTool": {
             "type": "Tool",
             "description": "",
-            "x": 587.1583102825525,
-            "y": 36.585528266213174,
+            "x": 597.8304579062417,
+            "y": 30.370559360072917,
             "specification": "process_to_flexTool",
             "execute_in_work": true,
-            "cmd_line_args": [],
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "cwatm_input.ini"
+                }
+            ],
             "kill_completed_processes": false,
             "log_process_output": false
         },
         "data_store_loop": {
             "type": "Data Store",
             "description": "",
-            "x": 136.60737736374202,
-            "y": 164.449724124763,
+            "x": 137.67459212611098,
+            "y": 164.44972412476298,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -1136,7 +1141,7 @@
         "export_to_ini_cwatm": {
             "type": "Tool",
             "description": "",
-            "x": 234.9594546326256,
+            "x": 232.3844701273356,
             "y": 28.04125641835673,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
@@ -1160,7 +1165,7 @@
         "export_to_ini_calib_Cwatm_stdalone": {
             "type": "Tool",
             "description": "",
-            "x": 245.53922712213932,
+            "x": 244.47663034956994,
             "y": -97.6240300606096,
             "specification": "export_to_ini_calib",
             "execute_in_work": true,
@@ -1204,8 +1209,8 @@
         "loop_next_day": {
             "type": "Tool",
             "description": "",
-            "x": 319.20626786098944,
-            "y": 160.07193565918317,
+            "x": 318.1390530986205,
+            "y": 157.93750613444536,
             "specification": "loop_next_day",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -1216,6 +1221,10 @@
                 {
                     "type": "resource",
                     "arg": "alt_list.json"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@data_store_loop"
                 }
             ],
             "kill_completed_processes": false,

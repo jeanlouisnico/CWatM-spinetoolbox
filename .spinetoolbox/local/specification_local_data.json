@@ -136,7 +136,7 @@
                 "executable": ""
             }
         },
-        "Loop_end_conditions": {
+        "loop_test": {
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",
@@ -144,7 +144,7 @@
                 "executable": ""
             }
         },
-        "loop_test": {
+        "Loop_end_conditions": {
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",
