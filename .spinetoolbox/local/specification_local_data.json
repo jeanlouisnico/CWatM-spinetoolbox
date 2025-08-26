@@ -34,14 +34,6 @@
                 "executable": ""
             }
         },
-        "CWatM": {
-            "execution_settings": {
-                "kernel_spec_name": "",
-                "env": "",
-                "use_jupyter_console": false,
-                "executable": ""
-            }
-        },
         "import_ini_cwatm": {
             "execution_settings": {
                 "kernel_spec_name": "",
@@ -148,6 +140,14 @@
             "execution_settings": {
                 "env": "conda",
                 "kernel_spec_name": "conda-env-flex_cwatm-py",
+                "use_jupyter_console": false,
+                "executable": ""
+            }
+        },
+        "CWatM": {
+            "execution_settings": {
+                "kernel_spec_name": "",
+                "env": "",
                 "use_jupyter_console": false,
                 "executable": ""
             }

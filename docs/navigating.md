@@ -1,6 +1,8 @@
 # Navigating the workflow
 
+Points 1 to 3 are optional and are interesting for users that already work with CWatM and would like to continue working on the model development via Toolbox. The workflows from 1-3 are designed to import existing files so users do not have to import them manually from the existing structure. 
 
+When using this workflow from the beginning or setting up a new simulation in CWatM, it is best to go straight to point 4 where a template is made available to populate the database.
 
 ## 1. Import of the calibration .ini file into the database
 
@@ -10,7 +12,19 @@ The calibration init file is the typical CWatM ini file that is given in the tut
 
 ![wf1](images/relink_ini_file.png)
 
-The parsing of the formatted toml file is then done and nothing should be changed unless the user changes the name of the SpineDB database in the workflow, in which case the input data needs to be re-linked as well as previously shown.
+The parsing of the formatted toml file is then done where some characteristics can be added to the import options.
+
+0: This is the database that is available as resources in the window below (Available Resources)
+
+1: Name of the alternative you would like to import the init file into.
+
+2: This can take 2 type of arguments: "calibration" or "initfile". **a)** If calibration is chosen, then all the parameters in the file will be allocated to the *calibration* alternative. If the calibration alternative already exist in the database, it will allocate it to an automatic numbering e.g. *calibrationxx*. **b)** if the "initfile" argument is filled, it will split the ini cwatm file into 2 separate alternatives; the first alternative with name provided in (1) will contains all the variables except the output. A second alternative called "output_*YOURALTERNATIVE*xx" will contain all the variables for the outputs. The reason being that we can re-use all the variables for the calibration as well without having to create many alternatives but just 1 base-one and then combine the outputs needed.
+
+3: Boolean (***opt***: default=true) set to true or false that defines if the file should be imported in the database or not.  
+
+
+
+![parse_toml](images/parse_toml_properties.png)
 
 ## 2. Resetting the database
 
@@ -37,27 +51,41 @@ The third section Imports your working CWatM *ini* file. In essence, you would n
 
 ## 4. The Spine Database
 
-This is the central database, also called the Spine Database, where all the data are stored. *Alternative* and *Scenario* can be created manually and if any data needs to be changed, added, or add new main section in the *.ini* files can be done from the database. When double clicking on database, it will open the Spine Database interface that would look like somewhat similar to what is shown below.
+This is the central database, also called the Spine Database, where all the data are stored. *Alternative* and *Scenario* can be created manually and if any data needs to be changed, added, or add new main section in the *.ini* files can be done from the database. However, the preferred way is to import the template from the [CWatM template](../.spinetoolbox/Data/basic_model.json) and change directly after importing the template. When double clicking on database, it will open the Spine Database interface that would look like somewhat similar to what is shown below after completing step 1-3.
 
 ![wf4](images/entity_param.png)
 
-The *Entities* are shown on the left-hand side of the table. By selecting the *entity*, only the parameters from the selected entity will be displayed
+The *Entities* are shown on the left-hand side of the table. By selecting the *entity*, only the parameters from the selected entity will be displayed.
+
+If creating it from the template, create a new empty database from the interface (File>New), save it. Then Import the template (File>Import) and select the **[*basic_model.json*](../.spinetoolbox/Data/basic_model.json)**. It contains all the variables, variable definitions and icons.
 
 !!! Tip
 
     Pay special attention to the *FILE_PATHS* entity as this is the one that will vary between the different alternative e.g. meteo files for the 30-arcmin or 5-arcmin spatial resolution
 
-!!! Tip
+Basic variables to modify to work with toolbox
 
-    When importing a new CWatM *ini* file into the database, the workflow does not compare existing values with the new ones, therefore a lot of parameters may be duplicated compared to the *Base* alternative. These *Parameters* can be deleted. It will make the Spine Database easier to read and maintain over time if multiple *ini* files are imported into the database.
+| entity name          | Parameter name | Basic value        |
+| -------------------- | -------------- | ------------------ |
+| OPTIONS              | PathOut        | ./output           |
+| INITITIAL CONDITIONS | initLoad       | ./init/FILENAME.nc |
+| INITITIAL CONDITIONS | initSave       | ./init/BASINNAME   |
 
+## CWatM template
 
+The template comes with a pre-filled values for all the variables, variable definitions (Parameter definitions), and couple of scenarios.
+
+The pre-filled values integrate the 30 arcmin example from IIASA as definition all stored under the ***Base*** alternative. 
 
 ## 5. Run your calibration
 
-Export the database for the calibration and run the calibration. It exports 2 **.ini* files: one for the calibration setup and one for the CWatM model that needs to be calibrated. The arguments from the Tool properties do not need to be updated as they are set for the model. The outputs from the calibration are then exported and setup from the best alternative is imported back into the database under the alternative "best_calib". This section can be run as is. However, by clicking the first arrow, ensure you have created a *calibration* and a *calibration_ini* scenario. The first one includes all the parameters from the *Base* and the *calibration* alternatives to build a readable *ini* file by CWatM and run the calibration. The second one only includes the calibration setup required by the calibration tool.
+Export the database for the calibration and run the calibration. It exports 2 **.ini* files: one for the calibration setup (upper flow) and one for the CWatM model that needs to be calibrated (downward flow). The upstream flow produces a file called *calib_input.ini* and the downstream flow produces a file named *calib_ini.ini*. The arguments from the Tool properties do not need to be updated as they are set for the model. The outputs from the calibration are then exported and setup from the best alternative is imported back into the database under the alternative "best_calib". This section can be run as is. However, by clicking the first arrow, ensure you have created a *calibration* and a *calibration_ini* scenario. The first one includes all the parameters from the *Base* and the *calibration* alternatives to build a readable *ini* file by CWatM and run the calibration. The second one only includes the calibration setup required by the calibration tool. 
 
 ![wf5](images/workflow_5.svg)
+
+!!! Tip
+
+    If you are using the template as mentioned in step 4, the upward arrow should point to the alternative *calibration_ini*, and the downward arrow should point to the scenario *calibration*.
 
 ## 6. Run CwatM as a standalone process
 
@@ -65,8 +93,12 @@ Run a regular CWatM flow. This is done from the database and can be run in seque
 
 ![wf6](images/workflow_6.svg)
 
+!!! Tip
+
+    If you are using the template as mentioned in step 4, the scenario *cwatm_template_30arcmin* already include the necessary variables, granted the users have modified the necessary path and have the necessary files (maps, etc...)
+
 ## 7. Model coupling CWatM + IRENA FlexTool
 
-With this section, it is possible to run the CWatM model in junction with IRENA FlexTool. The main workflow here is to be able to set a rolling period where the hydrology model is run and then pass the results to IRENA FlexTool. Extra steps to setup the IRENA FlexTool model are required and are explained in section (Soon to come)
+With this section, it is possible to run the CWatM model in junction with IRENA FlexTool. The main workflow here is to be able to set a rolling period where the hydrology model is run and then pass the results to IRENA FlexTool. Extra steps to setup the IRENA FlexTool model are required and are explained in the [coupling section](./example_models.md). Note that the coupling could be generalised for sequential coupling with any model.
 
 ![wf7](images/workflow_7.svg)
